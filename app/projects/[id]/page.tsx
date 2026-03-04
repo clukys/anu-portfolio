@@ -11,6 +11,8 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = projects.find((p) => p.id === params.id);
   if (!project) notFound();
 
+  const related = projects.filter((p) => p.id !== project.id).slice(0, 3);
+
   return (
     <div className="min-h-screen bg-cream">
       {/* Back nav */}
@@ -35,8 +37,8 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
         </div>
       </div>
 
-      {/* Hero image */}
-      <div className="relative w-full pt-[56px]" style={{ aspectRatio: "16/7" }}>
+      {/* Hero image — full width */}
+      <div className="relative w-full pt-[57px]" style={{ aspectRatio: "16/7" }}>
         <Image
           src={project.image}
           alt={project.title}
@@ -49,6 +51,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
 
       {/* Content */}
       <div className="max-w-5xl mx-auto px-6 py-16">
+
         {/* Header */}
         <div className="flex flex-wrap items-start justify-between gap-6 mb-12">
           <div>
@@ -73,86 +76,42 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
         <div className="grid sm:grid-cols-2 gap-8 mb-14 pb-14 border-b border-light-gray">
           <div>
             <p className="text-navy/40 text-xs uppercase tracking-widest mb-2">Role</p>
-            <p className="text-navy font-medium text-lg">{project.details.role}</p>
+            <p className="text-navy font-medium text-lg">{project.role}</p>
           </div>
           <div>
             <p className="text-navy/40 text-xs uppercase tracking-widest mb-2">Year</p>
-            <p className="text-navy font-medium text-lg">{project.details.year}</p>
+            <p className="text-navy font-medium text-lg">{project.year}</p>
           </div>
         </div>
 
-        {/* Overview */}
-        <div className="mb-14">
-          <h2 className="font-serif text-2xl text-navy mb-5">Overview</h2>
-          <p className="text-navy/70 leading-relaxed text-lg max-w-3xl">
-            {project.details.overview}
+        {/* Description */}
+        <div className="mb-16">
+          <p className="text-navy/70 leading-relaxed text-xl max-w-3xl">
+            {project.description}
           </p>
         </div>
 
-        {/* Challenges & Solutions */}
-        <div className="grid md:grid-cols-2 gap-10 mb-14">
-          <div>
-            <h2 className="font-serif text-2xl text-navy mb-6">Challenges</h2>
-            <ul className="space-y-4">
-              {project.details.challenges.map((item, i) => (
-                <li key={i} className="flex gap-3 text-navy/70 leading-relaxed">
-                  <span className="text-accent mt-1.5 flex-shrink-0">
-                    <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
-                      <circle cx="3" cy="3" r="3" />
-                    </svg>
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-serif text-2xl text-navy mb-6">Solutions</h2>
-            <ul className="space-y-4">
-              {project.details.solutions.map((item, i) => (
-                <li key={i} className="flex gap-3 text-navy/70 leading-relaxed">
-                  <span className="text-accent mt-1.5 flex-shrink-0">
-                    <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
-                      <circle cx="3" cy="3" r="3" />
-                    </svg>
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Impact */}
-        <div className="bg-navy rounded-2xl p-8 md:p-12 mb-16">
-          <h2 className="font-serif text-2xl text-cream mb-4">Impact</h2>
-          <p className="text-cream/70 leading-relaxed text-lg">{project.details.impact}</p>
-        </div>
-
-        {/* Other projects */}
-        <div>
-          <p className="text-accent font-semibold tracking-[0.2em] uppercase text-sm mb-4">More Work</p>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {projects
-              .filter((p) => p.id !== project.id)
-              .slice(0, 3)
-              .map((p) => (
-                <Link key={p.id} href={`/projects/${p.id}`} className="group">
-                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-surface mb-3">
-                    <Image
-                      src={p.image}
-                      alt={p.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
-                  <h3 className="font-serif text-navy group-hover:text-accent transition-colors">
-                    {p.title}
-                  </h3>
-                  <p className="text-navy/50 text-sm">{p.company}</p>
-                </Link>
-              ))}
+        {/* More Work */}
+        <div className="border-t border-light-gray pt-14">
+          <p className="text-accent font-semibold tracking-[0.2em] uppercase text-sm mb-8">More Work</p>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {related.map((p) => (
+              <Link key={p.id} href={`/projects/${p.id}`} className="group">
+                <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-surface mb-3">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="font-serif text-navy group-hover:text-accent transition-colors">
+                  {p.title}
+                </h3>
+                <p className="text-navy/50 text-sm mt-0.5">{p.company}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
