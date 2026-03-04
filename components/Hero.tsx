@@ -153,9 +153,9 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-9 rounded-full border-2 border-navy/20 flex items-start justify-center p-1.5"
+          className="w-5 h-9 rounded-full border-2 border-white/40 flex items-start justify-center p-1.5"
         >
-          <div className="w-1 h-2 bg-accent rounded-full" />
+          <div className="w-1 h-2 bg-white/40 rounded-full" />
         </motion.div>
       </motion.div>
     </section>
