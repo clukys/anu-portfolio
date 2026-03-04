@@ -29,7 +29,7 @@ export default function Contact() {
           <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-cream mb-6 leading-tight">
             Let&apos;s work
             <br />
-            <span className="text-cream">together.</span>
+            <span className="text-cream font-sans not-italic">together.</span>
           </h2>
           <p className="text-cream/50 text-lg font-light max-w-xl mx-auto mb-12">
             I&apos;m actively exploring new opportunities. Let&apos;s discuss
@@ -44,7 +44,7 @@ export default function Contact() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="https://www.linkedin.com/in/anuradha-vellineni"
+            href="https://www.linkedin.com/in/anuradhave/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-cream text-navy text-sm font-medium tracking-wide rounded-full hover:bg-accent hover:text-cream transition-colors w-full sm:w-auto justify-center"

@@ -60,7 +60,7 @@ export default function Navigation() {
 
         {/* CTA button - desktop */}
         <a
-          href="https://www.linkedin.com/in/anuradha-vellineni"
+          href="https://www.linkedin.com/in/anuradhave/"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-cream text-sm font-medium rounded-full hover:bg-navy-light transition-colors"
@@ -126,7 +126,7 @@ export default function Navigation() {
               ))}
               <li className="pt-2">
                 <a
-                  href="https://www.linkedin.com/in/anuradha-vellineni"
+                  href="https://www.linkedin.com/in/anuradhave/"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
