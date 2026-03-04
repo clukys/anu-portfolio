@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -31,27 +31,56 @@ export default function Navigation() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        {/* Logo */}
         <a
           href="#"
-          className="font-serif text-xl text-navy tracking-tight hover:text-accent transition-colors"
+          className="relative group"
         >
-          AV
+          <span className="font-serif text-2xl text-navy tracking-tight">
+            AV
+          </span>
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
         </a>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-navy/70 hover:text-accent transition-colors tracking-wide uppercase"
+                className="text-sm font-medium text-navy/60 hover:text-navy transition-colors tracking-wide relative group"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
               </a>
             </li>
           ))}
         </ul>
+
+        {/* CTA button - desktop */}
+        <a
+          href="https://www.linkedin.com/in/anuradha-vellineni"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-cream text-sm font-medium rounded-full hover:bg-navy-light transition-colors"
+        >
+          Connect
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+          >
+            <path
+              d="M4 10L10 4M10 4H5M10 4V9"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </a>
 
         {/* Mobile menu button */}
         <button
@@ -81,20 +110,31 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-cream/95 backdrop-blur-md border-t border-light-gray"
+            className="md:hidden bg-cream/98 backdrop-blur-md border-t border-light-gray"
           >
-            <ul className="flex flex-col items-center py-6 gap-6">
+            <ul className="flex flex-col items-center py-8 gap-6">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-sm font-medium text-navy/70 hover:text-accent transition-colors tracking-wide uppercase"
+                    className="text-base font-medium text-navy/70 hover:text-accent transition-colors"
                   >
                     {link.label}
                   </a>
                 </li>
               ))}
+              <li className="pt-2">
+                <a
+                  href="https://www.linkedin.com/in/anuradha-vellineni"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-cream text-sm font-medium rounded-full"
+                >
+                  Connect on LinkedIn
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}

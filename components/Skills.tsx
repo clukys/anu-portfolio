@@ -10,7 +10,7 @@ const skillCategories = [
       "Product Thinking",
       "Interaction Design",
       "Visual Design",
-      "AI-Powered Experience Design",
+      "AI Experience Design",
       "Design Systems",
       "Conversational UI",
       "Usability Testing",
@@ -18,7 +18,7 @@ const skillCategories = [
   },
   {
     title: "Tools",
-    skills: ["Figma Make", "Claude Code", "V0", "Bolt", "Figma MCP"],
+    skills: ["Figma", "Figma Make", "Figma MCP", "Claude Code", "V0", "Bolt"],
   },
 ];
 
@@ -27,7 +27,7 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-32 relative" ref={ref}>
+    <section id="skills" className="py-28 md:py-36 bg-surface relative" ref={ref}>
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -35,17 +35,17 @@ export default function Skills() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="mb-16"
         >
-          <p className="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-4">
+          <p className="text-accent font-semibold tracking-[0.2em] uppercase text-sm mb-4">
             Skills
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl text-navy">
-            Expertise &amp;
+            Expertise &
             <br />
-            <span className="text-accent">capabilities.</span>
+            <span className="italic text-accent">capabilities.</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {skillCategories.map((category, catIndex) => (
             <motion.div
               key={category.title}
@@ -71,7 +71,7 @@ export default function Skills() {
                       delay: catIndex * 0.15 + skillIndex * 0.05,
                       ease: "easeOut",
                     }}
-                    className="px-4 py-2.5 bg-white border border-light-gray rounded-full text-sm text-navy/70 hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-200 cursor-default"
+                    className="px-5 py-2.5 bg-white border border-light-gray rounded-full text-sm text-navy/70 hover:border-accent hover:text-accent hover:bg-white transition-all duration-200"
                   >
                     {skill}
                   </motion.span>
