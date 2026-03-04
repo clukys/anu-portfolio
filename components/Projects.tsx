@@ -305,7 +305,7 @@ function ProjectModal({
           </svg>
         </button>
 
-        <div className="overflow-y-auto max-h-[90vh]">
+        <div className="overflow-y-auto max-h-[90vh] modal-scroll">
           {/* Hero image */}
           <div className="relative aspect-[16/9] bg-surface">
             <Image
