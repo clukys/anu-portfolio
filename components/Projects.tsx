@@ -287,7 +287,7 @@ function ProjectModal({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="relative w-full max-w-4xl max-h-[90vh] bg-cream rounded-3xl overflow-hidden shadow-2xl"
+        className="relative w-full max-w-4xl max-h-[90vh] bg-cream rounded-3xl overflow-hidden shadow-2xl flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -305,17 +305,19 @@ function ProjectModal({
           </svg>
         </button>
 
-        <div className="overflow-y-auto max-h-[90vh] modal-scroll">
-          {/* Hero image */}
-          <div className="relative aspect-[16/9] bg-surface">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 896px"
-            />
-          </div>
+        {/* Hero image — full width, outside scroll */}
+        <div className="relative w-full flex-shrink-0" style={{ aspectRatio: "16/9" }}>
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 896px"
+          />
+        </div>
+
+        {/* Scrollable content — starts 20px below image */}
+        <div className="overflow-y-auto flex-1 mt-5 modal-scroll">
 
           {/* Content */}
           <div className="p-8 md:p-12">
