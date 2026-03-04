@@ -29,7 +29,7 @@ export default function Contact() {
           <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-cream mb-6 leading-tight">
             Let&apos;s work
             <br />
-            <span className="italic text-accent">together.</span>
+            <span className="text-cream">together.</span>
           </h2>
           <p className="text-cream/50 text-lg font-light max-w-xl mx-auto mb-12">
             I&apos;m actively exploring new opportunities. Let&apos;s discuss
