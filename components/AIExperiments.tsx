@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { aiExperiments, type AIExperiment } from "@/lib/ai-experiments";
+import { StoryboardGenerator } from "./StoryboardGenerator";
 
 function ExternalLinkIcon({ size = 14 }: { size?: number }) {
   return (
@@ -193,6 +194,16 @@ export default function AIExperiments() {
             <ExperimentCard key={exp.id} exp={exp} index={index} />
           ))}
         </div>
+
+        {/* Storyboard / Script Generator */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className="mt-8"
+        >
+          <StoryboardGenerator />
+        </motion.div>
 
         {/* Footer note */}
         <motion.p

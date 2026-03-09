@@ -220,10 +220,21 @@ export function EditMode({
     bi: number
   } | null>(null)
 
+  const storageKey = `project-sections-${projectId}`
+
+  // On mount: load from localStorage if available, then check edit mode
   useEffect(() => {
-    if (typeof window !== "undefined" && sessionStorage.getItem("editMode") === "true") {
+    if (typeof window === "undefined") return
+    const stored = localStorage.getItem(storageKey)
+    if (stored) {
+      try {
+        setSections(JSON.parse(stored))
+      } catch {}
+    }
+    if (sessionStorage.getItem("editMode") === "true") {
       setIsEditMode(true)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const unlock = () => {
@@ -247,11 +258,14 @@ export function EditMode({
   const save = async () => {
     setSaving(true)
     try {
+      // Persist to localStorage (works everywhere, survives reloads)
+      localStorage.setItem(storageKey, JSON.stringify(sections))
+      // Also try server (works in local dev; on Vercel use for best-effort)
       await fetch("/api/save-project", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: projectId, sections }),
-      })
+      }).catch(() => {})
       setSaved(true)
       setTimeout(() => setSaved(false), 3000)
     } catch {
