@@ -303,8 +303,6 @@ export function EditMode({
     setSections((prev) => prev.filter((_, i) => i !== si))
   }
 
-  if (!sections.length && !isEditMode) return null
-
   return (
     <div className="relative">
       {sections.map((section, si) => (
