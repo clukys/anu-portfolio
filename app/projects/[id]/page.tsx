@@ -1,14 +1,16 @@
 import { projects } from "@/lib/projects";
+import { getProject } from "@/lib/content";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { EditMode } from "@/components/EditMode";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ id: p.id }));
 }
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
-  const project = projects.find((p) => p.id === params.id);
+  const project = getProject(params.id);
   if (!project) notFound();
 
   const related = projects.filter((p) => p.id !== project.id).slice(0, 3);
@@ -84,11 +86,29 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        {/* Description */}
-        <div className="mb-16">
-          <p className="text-navy/70 leading-relaxed text-xl max-w-3xl">
+        {/* Description + Bullets */}
+        <div className="mb-16 max-w-3xl">
+          <p className="text-navy/70 leading-relaxed text-xl mb-8">
             {project.description}
           </p>
+          {project.bullets && project.bullets.length > 0 && (
+            <ul className="space-y-4">
+              {project.bullets.map((bullet, i) => (
+                <li key={i} className="flex gap-3 text-navy/70 leading-relaxed text-base">
+                  <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {/* Case Study Sections — editable */}
+        <div className="mb-16">
+          <EditMode
+            projectId={project.id}
+            initialSections={project.sections || []}
+          />
         </div>
 
         {/* More Work */}
