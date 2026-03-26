@@ -45,6 +45,11 @@ function ProjectCard({
                   {project.title}
                 </h3>
                 <p className="text-navy/50 text-sm mt-0.5">{project.company}</p>
+                {project.era && (
+                  <p className="text-accent/70 text-xs mt-1 font-medium tracking-wide">
+                    {project.era}
+                  </p>
+                )}
               </div>
               <div className="w-8 h-8 rounded-full border border-light-gray group-hover:border-accent group-hover:bg-accent/10 flex items-center justify-center flex-shrink-0 transition-all">
                 <svg
@@ -119,6 +124,36 @@ export default function Projects() {
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
+
+        {/* View all — fashion scroll page */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
+          className="mt-14 text-center"
+        >
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-3 text-sm font-medium text-navy/60 hover:text-navy border border-navy/15 hover:border-navy/40 px-8 py-3.5 rounded-full transition-all duration-300 group"
+          >
+            <span>View all projects — editorial view</span>
+            <svg
+              className="group-hover:translate-x-1 transition-transform"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+            >
+              <path
+                d="M2 7h10M7 2l5 5-5 5"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

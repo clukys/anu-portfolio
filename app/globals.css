@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -105,6 +105,42 @@ section {
 .modal-overlay {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+/* ---- Agentation-inspired global animation tokens ---- */
+
+/* Page reveal on load */
+@keyframes pageReveal {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+main {
+  animation: pageReveal 0.5s ease-out both;
+}
+
+/* Variable font weight hover on any element with .vf-hover */
+.vf-hover {
+  font-variation-settings: "wght" 400;
+  transition: font-variation-settings 0.2s ease;
+}
+.vf-hover:hover {
+  font-variation-settings: "wght" 650;
+}
+
+/* Clean text underline grow — faster than before */
+.link-underline::after {
+  transition: width 0.18s ease !important;
+}
+
+/* Override card-hover to be snappier */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.18s ease !important;
+}
+
+/* Crisp button transitions */
+a, button {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Photo mask shape */

@@ -16,10 +16,13 @@ export type Project = {
   title: string
   company: string
   image: string
+  images?: string[]           // organized subfolder images
   description: string
+  challenge?: string          // one-line challenge statement for fashion page
   tags: string[]
   role: string
   year: string
+  era?: string                // human-readable era label e.g. "8+ years ago"
   bullets?: string[]
   sections?: Section[]
 }
@@ -29,7 +32,14 @@ export const projects: Project[] = [
     id: "servicenow-uex",
     title: "ServiceNow — Employee Experience",
     company: "ServiceNow · San Jose, CA",
-    image: "/images/projects/servicenow-uex.png",
+    image: "/images/projects/servicenow-uex/cover.png",
+    images: [
+      "/images/projects/servicenow-uex/cover.png",
+      "/images/projects/servicenow-uex/motion.png",
+    ],
+    era: "Current",
+    challenge:
+      "How might AI capture employee intent and orchestrate complex enterprise workflows without requiring navigation?",
     description:
       "AI-native conversational employee experience design — Employee Works and Move Works",
     tags: ["AI", "Conversational UI", "Enterprise"],
@@ -127,7 +137,11 @@ export const projects: Project[] = [
     id: "servicenow-wsd",
     title: "ServiceNow — Workplace Service Delivery",
     company: "ServiceNow · San Jose, CA",
-    image: "/images/projects/servicenow-wsd.png",
+    image: "/images/projects/servicenow-wsd/cover.png",
+    images: ["/images/projects/servicenow-wsd/cover.png"],
+    era: "2019 – 2024",
+    challenge:
+      "Building an enterprise workplace platform from the ground up — from zero to $3B, as the team's first designer.",
     description:
       "Map Studio, Reservation Management, and workplace planning — from launch to $3B enterprise platform",
     tags: ["Enterprise", "Workplace", "Mobile"],
@@ -223,7 +237,11 @@ export const projects: Project[] = [
     id: "google-emoney",
     title: "Google eMoney",
     company: "Filter (Consulting for Google) · Mountain View, CA",
-    image: "/images/projects/google.png",
+    image: "/images/projects/google-emoney/cover.png",
+    images: ["/images/projects/google-emoney/cover.png"],
+    era: "7 – 8 years ago",
+    challenge:
+      "Designing a unified, trustworthy payment experience that feels local across dozens of global markets — within Google's ecosystem.",
     description:
       "Consumer payment platform enabling users to add preferred payment methods across YouTube and Google Play",
     tags: ["Mobile", "Payments", "Google"],
@@ -284,57 +302,90 @@ export const projects: Project[] = [
     id: "paypal-partner",
     title: "PayPal Partner Servicing",
     company: "Cognizant Technology Solutions (PayPal) · San Jose, CA",
-    image: "/images/projects/paypal.png",
+    image: "/images/projects/paypal-partner/cover.png",
+    images: [
+      "/images/projects/paypal-partner/cover.png",
+      "/images/projects/paypal-partner/slide-01.png",
+      "/images/projects/paypal-partner/slide-02.png",
+      "/images/projects/paypal-partner/slide-03.png",
+      "/images/projects/paypal-partner/slide-04.png",
+      "/images/projects/paypal-partner/slide-05.png",
+    ],
+    era: "8 – 10 years ago",
+    challenge:
+      "Feature definition scoping for Beta. Data visualization responsiveness. Designing as foundation patterns were getting defined. Partner recruitment based on user roles for usability study.",
     description:
-      "Servicing portal for PayPal Partners with real-time merchant activity and aggregated business insights",
+      "Design of the new servicing experience for PayPal Partners. The goal of the design is to increase Partner satisfaction by providing self service tools. To enable Partners manage their business effectively e.g. merchant activity dashboards, notifications. To help the Partners grow their business with Data and Insights.",
     tags: ["Dashboard", "B2B", "PayPal"],
-    role: "Senior Associate UX Designer",
+    role: "Hybrid designer: Interaction + Visual design. Solution discovery, Feature prioritization, Usability study learnings based design iterations learnings, Delivery of design assets.",
     year: "Aug 2016 – Aug 2018",
     bullets: [
       "Designed the servicing portal for PayPal Partners, including real-time merchant activity and aggregated business insights reporting.",
+      "Led usability studies to inform design iterations on the partner dashboard.",
     ],
     sections: [
       {
-        title: "Overview",
+        title: "Project",
         blocks: [
           {
             type: "text",
             content:
-              "Designed a self-service web portal for PayPal's partner network — financial institutions and merchants who integrate PayPal into their products. The portal gave partners real-time visibility into merchant activity and aggregated business performance data.",
+              "Design of the new servicing experience for PayPal Partners. The goal of the design is to increase Partner satisfaction by providing self service tools. To enable Partners manage their business effectively e.g. merchant activity dashboards, notifications. To help the Partners grow their business with Data and Insights.",
           },
         ],
       },
       {
-        title: "Problem",
+        title: "My Role",
         blocks: [
           {
             type: "text",
             content:
-              "PayPal partners lacked a centralized way to monitor the merchants in their portfolio. They were working with fragmented data across multiple tools, making it difficult to spot issues, identify growth opportunities, or provide timely support to their merchants.",
-          },
-          {
-            type: "quote",
-            text: "Partners needed a single source of truth — a place to see their merchant portfolio at a glance and drill into what matters.",
+              "Hybrid designer: Interaction + Visual design. Solution discovery, Feature prioritization, Usability study learnings based design iterations learnings, Delivery of design assets.",
           },
         ],
       },
       {
-        title: "Process",
+        title: "Challenges",
         blocks: [
           {
             type: "text",
             content:
-              "I led the UX design from discovery through delivery — conducting stakeholder interviews with partner relationship managers to understand their daily workflows, designing information architecture for a complex data hierarchy, and iterating on dashboard layouts through usability testing.\n\nKey design challenges included handling variable data density across partner portfolio sizes and designing for both at-a-glance monitoring and deep-dive analysis.",
+              "Feature definition scoping for Beta. Data visualization responsiveness. Designing as foundation patterns were getting defined. Partner recruitment based on user roles for usability study.",
           },
         ],
       },
       {
-        title: "Outcome",
+        title: "Design Work",
         blocks: [
           {
-            type: "text",
-            content:
-              "The partner portal consolidated data from multiple systems into a single interface, reducing the time partners spent context-switching between tools. Real-time merchant activity feeds and aggregated reporting gave partners the visibility they needed to proactively manage their portfolio and support merchant success.",
+            type: "image",
+            src: "/images/projects/paypal-partner/slide-01.png",
+            alt: "PayPal Partner — Merchant Activity Dashboards and Notifications",
+            caption: "Merchant activity dashboards and notifications — real-time partner portal",
+          },
+          {
+            type: "image",
+            src: "/images/projects/paypal-partner/slide-02.png",
+            alt: "PayPal Partner — Data and Insights",
+            caption: "Data and Insights — helping partners grow their business",
+          },
+          {
+            type: "image",
+            src: "/images/projects/paypal-partner/slide-03.png",
+            alt: "PayPal Partner — Partner ecosystem model",
+            caption: "Partner ecosystem model — PayPal, Partner, SMB, Consumer",
+          },
+          {
+            type: "image",
+            src: "/images/projects/paypal-partner/slide-04.png",
+            alt: "PayPal Partner — Partner types taxonomy",
+            caption: "Partner types across Hosted, Installed, ERP/LE, Marketplaces and Solution Providers",
+          },
+          {
+            type: "image",
+            src: "/images/projects/paypal-partner/slide-05.png",
+            alt: "PayPal Partner — Research insights from partner interviews",
+            caption: "Research insights from partner interviews across NA and EMEA",
           },
         ],
       },
@@ -344,58 +395,167 @@ export const projects: Project[] = [
     id: "chase-payments",
     title: "Chase Personal Banking",
     company: "JPMorgan Chase (Contract) · San Francisco, CA",
-    image: "/images/projects/chase.png",
+    image: "/images/projects/chase-payments/cover.png",
+    images: [
+      "/images/projects/chase-payments/cover.png",
+      "/images/projects/chase-payments/otp.png",
+      "/images/projects/chase-payments/slide-01.png",
+      "/images/projects/chase-payments/slide-02.png",
+      "/images/projects/chase-payments/slide-03.png",
+      "/images/projects/chase-payments/slide-04.png",
+      "/images/projects/chase-payments/slide-05.png",
+      "/images/projects/chase-payments/slide-06.png",
+      "/images/projects/chase-payments/slide-07.png",
+    ],
+    era: "10 – 12 years ago",
+    challenge:
+      "Payment flow simplification. Scaling the payment form for all payment products. Identify and optimize payment input form entry and touch points.",
     description:
-      "Responsive redesign of Chase Personal Banking payments website and next-generation mobile payment concepts",
+      "Chase Mobile app — redesign of Payments and Pay Bill flows, cardless ATM OTP, and responsive web payments for Credit Card and Auto-loan.",
     tags: ["Web", "Mobile", "Payments"],
     role: "UX Designer",
     year: "Oct 2014 – May 2016",
     bullets: [
       "Led responsive redesign of the Chase Personal Banking payments website.",
-      "Designed next-generation payment concepts for Chase Mobile.",
+      "Designed next-generation payment and Pay Bill flows for Chase Mobile.",
+      "Designed the cardless ATM One Time Passcode feature for iOS and Android.",
     ],
     sections: [
       {
-        title: "Overview",
+        title: "Chase Mobile — Payments / Pay Bill",
         blocks: [
+          {
+            type: "heading",
+            content: "Project",
+          },
           {
             type: "text",
             content:
-              "Led the UX for a responsive redesign of Chase's Personal Banking payments web experience — a high-stakes surface used by millions of customers to pay bills, transfer money, and manage scheduled payments.\n\nAlso contributed concept design for next-generation mobile payment experiences.",
+              "Chase Mobile app — Redesign of Payments, Pay Bill flows. The goal of the design is to simplify payment tasks for Chase native mobile app consumers within a newly evolving design platform.",
+          },
+          {
+            type: "heading",
+            content: "My Role",
+          },
+          {
+            type: "text",
+            content:
+              "Design iterations — Next generation payment / move money concepts. Created prototypes alternatives. Iterated Pay Bill flows with user testing.",
+          },
+          {
+            type: "heading",
+            content: "Challenges",
+          },
+          {
+            type: "text",
+            content:
+              "Payment flow simplification. Scaling the payment form for all payment products. Identify and optimize payment input form entry and touch points.",
+          },
+          {
+            type: "image",
+            src: "/images/projects/chase-payments/slide-01.png",
+            alt: "Chase Mobile — Scaling payment form across all products",
+            caption: "Scaling the payment form across all payment products — Credit Card, Auto-loan, Merchant Bill, P2P",
+          },
+          {
+            type: "image",
+            src: "/images/projects/chase-payments/slide-02.png",
+            alt: "Chase Mobile — P2P Payments before and after redesign",
+            caption: "Peer to peer payments — simplified flow before and after redesign",
+          },
+          {
+            type: "image",
+            src: "/images/projects/chase-payments/slide-03.png",
+            alt: "Chase Mobile — P2P Payments redesign annotated",
+            caption: "Annotated redesign rationale — contact-first flow, streamlined amount entry, action sheet confirmation",
           },
         ],
       },
       {
-        title: "Problem",
+        title: "Chase Mobile ATM — One Time Passcode",
         blocks: [
+          {
+            type: "heading",
+            content: "Project",
+          },
           {
             type: "text",
             content:
-              "Chase's payments website was built for desktop at a time when mobile usage was surging. The experience was complex and form-heavy, with a navigation model that didn't translate to smaller screens. Customers were abandoning payment tasks on mobile.",
+              "Chase mobile ATM — One time passcode. The goal of the design is to introduce a new way for Chase mobile app consumers to withdraw cash from a Chase eATM with just a one time passcode generated within the app.",
           },
           {
-            type: "quote",
-            text: "Payments are one of the highest-trust interactions in banking. The redesign had to feel secure and familiar while being dramatically simpler to use.",
+            type: "heading",
+            content: "My Role",
+          },
+          {
+            type: "text",
+            content:
+              "Interaction + Visual design. Collaborated with Product stakeholders. Iterated and delivered key screens for iOS and Android device layouts.",
+          },
+          {
+            type: "heading",
+            content: "Challenges",
+          },
+          {
+            type: "text",
+            content:
+              "Multiple entry points — authenticated vs unauthenticated. New Product feature integration work with service limitations.",
+          },
+          {
+            type: "image",
+            src: "/images/projects/chase-payments/slide-04.png",
+            alt: "Chase ATM OTP — First time user experience feature flow",
+            caption: "First time user experience — generated 8-digit access code with countdown timer and nearby ATM locations",
+          },
+          {
+            type: "image",
+            src: "/images/projects/chase-payments/slide-05.png",
+            alt: "Chase ATM OTP — Multiple entry points",
+            caption: "Multiple entry points — login screen, account dashboard, hamburger nav, and locations screen",
           },
         ],
       },
       {
-        title: "Process",
+        title: "Chase Responsive Web — Credit Card / Auto-loan Payments",
         blocks: [
           {
-            type: "text",
-            content:
-              "The project involved an audit of the existing experience across device types, followed by competitive analysis of payment UX patterns in banking and fintech. I designed responsive layout systems that preserved the trust signals customers associated with Chase while simplifying task flows for mobile contexts.\n\nFor the next-gen mobile concepts, I explored gesture-based payment flows and contextual notifications — bringing emerging interaction patterns to a conservative financial context.",
+            type: "heading",
+            content: "Project",
           },
-        ],
-      },
-      {
-        title: "Outcome",
-        blocks: [
           {
             type: "text",
             content:
-              "The redesigned payments experience improved mobile task completion and established responsive design standards that were adopted across Chase's digital banking product suite. The mobile payment concepts contributed to Chase's longer-term mobile roadmap.",
+              "Responsive redesign of www.chase.com for Credit card and Auto-loan payments.",
+          },
+          {
+            type: "heading",
+            content: "My Role",
+          },
+          {
+            type: "text",
+            content:
+              "Interaction designer — Worked with product stakeholders from distributed teams. Delivered key UX documentation — annotated wireframes for different device layouts.",
+          },
+          {
+            type: "heading",
+            content: "Challenges",
+          },
+          {
+            type: "text",
+            content:
+              "UX Refresh: Create a seamless coherent, consistent experience in alignment with design principles: Simple, Human, Capable, Interoperable, Accessible. Work within API Service Limitations.",
+          },
+          {
+            type: "image",
+            src: "/images/projects/chase-payments/slide-06.png",
+            alt: "Chase Responsive Web — Payment screens across device sizes",
+            caption: "Responsive payment screens — consistent experience across desktop, tablet, and mobile",
+          },
+          {
+            type: "image",
+            src: "/images/projects/chase-payments/slide-07.png",
+            alt: "Chase Responsive Web — Auto-loan payment",
+            caption: "Auto-loan payment — responsive layout with payment input form",
           },
         ],
       },
@@ -404,59 +564,156 @@ export const projects: Project[] = [
   {
     id: "wallyhome",
     title: "Wallyhome",
-    company: "Graduate Project · University of Washington",
-    image: "/images/projects/wallyhome.png",
+    company: "WallyHome · San Francisco, CA",
+    image: "/images/projects/wallyhome/cover.png",
+    images: [
+      "/images/projects/wallyhome/cover.png",
+      "/images/projects/wallyhome/slide-01.png",
+      "/images/projects/wallyhome/slide-02.png",
+      "/images/projects/wallyhome/slide-03.png",
+      "/images/projects/wallyhome/slide-04.png",
+    ],
+    era: "13 years ago",
+    challenge:
+      "2 person UX team in a fast paced start up environment. Hub+Sensor System installation, System Usage, System management.",
     description:
-      "Smart home sensor dashboard with improved installation and monitoring experience",
-    tags: ["IoT", "Dashboard", "Graduate"],
-    role: "UX Designer (MS HCDE Graduate Project)",
-    year: "2013",
+      "Design a brand new experience for the wallyhome hub and sensor system that provides insights into the health of home allowing homeowners to monitor temperature, moisture and humidity.",
+    tags: ["IoT", "Dashboard", "Mobile"],
+    role: "Interaction designer, User studies. Delivered Responsive design of Wallyhome Dashboard and account settings pages.",
+    year: "Jun 2014 – Oct 2014",
     bullets: [
-      "Redesigned the setup and monitoring experience for Wallyhome's smart home sensor system.",
-      "Focused on first-time user onboarding and daily dashboard interaction.",
+      "Designed the responsive dashboard and account settings for WallyHome's hub and sensor system.",
+      "Conducted user studies to inform onboarding and system management flows.",
     ],
     sections: [
       {
-        title: "Overview",
+        title: "Project",
         blocks: [
           {
             type: "text",
             content:
-              "My MS HCDE graduate project at the University of Washington — a redesign of Wallyhome's smart home sensor system. Wallyhome made leak detection sensors for home use, but the setup and monitoring experience made it difficult for non-technical users to get value from the product.",
+              "Design a brand new experience for the wallyhome hub and sensor system that provides insights into the health of home allowing homeowners to monitor temperature, moisture and humidity.",
           },
         ],
       },
       {
-        title: "Problem",
+        title: "My Role",
         blocks: [
           {
             type: "text",
             content:
-              "Wallyhome's existing setup flow required technical knowledge that most homeowners didn't have, leading to abandoned installations and underused sensors. The monitoring dashboard was data-dense but not actionable — users couldn't tell at a glance if their home was protected.",
-          },
-          {
-            type: "quote",
-            text: "If you can't tell at a glance that your home is protected, the sensor doesn't give you peace of mind — it gives you more to worry about.",
+              "Interaction designer, User studies. Delivered Responsive design of Wallyhome Dashboard and account settings pages.",
           },
         ],
       },
       {
-        title: "Process",
+        title: "Challenges",
         blocks: [
           {
             type: "text",
             content:
-              "I conducted contextual inquiry sessions with homeowners in their homes — watching how they interacted with existing smart home products and talking through their concerns about water damage and home monitoring.\n\nKey insights informed the redesign: users wanted binary confidence (is my home safe right now?), not detailed sensor data. Installation needed to feel like setting up a coffee maker, not configuring a network device.",
+              "2 person UX team in a fast paced start up environment. Hub+Sensor System installation, System Usage, System management.",
           },
         ],
       },
       {
-        title: "Outcome",
+        title: "Design Work",
+        blocks: [
+          {
+            type: "image",
+            src: "/images/projects/wallyhome/slide-01.png",
+            alt: "WallyHome Dashboard — sensor cards with temperature and humidity readings",
+            caption: "Dashboard — sensor cards showing temperature and humidity across home locations",
+          },
+          {
+            type: "image",
+            src: "/images/projects/wallyhome/slide-02.png",
+            alt: "WallyHome Onboarding — Plan of Attack location selection",
+            caption: "Onboarding — Plan of Attack: guided sensor location selection flow",
+          },
+          {
+            type: "image",
+            src: "/images/projects/wallyhome/slide-03.png",
+            alt: "WallyHome — System management screens",
+            caption: "System management and account settings",
+          },
+          {
+            type: "image",
+            src: "/images/projects/wallyhome/slide-04.png",
+            alt: "WallyHome — Hub and sensor screens",
+            caption: "Hub installation and sensor configuration",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "botcentral",
+    title: "BotCentral",
+    company: "BotCentral · San Francisco, CA",
+    image: "/images/projects/botcentral/cover.png",
+    images: [
+      "/images/projects/botcentral/cover.png",
+      "/images/projects/botcentral/slide-01.png",
+      "/images/projects/botcentral/slide-02.png",
+    ],
+    era: "8 – 10 years ago",
+    challenge:
+      "Identifying unmet needs of consumers in messenger bots. Brainstormed, Created quick mockups as sample design bots to pique the interest of developers visiting BotCentral.",
+    description:
+      "Design of BotCentral's developer facing portal with sample hi-fidelity chatbot mockups for Kate Spade, Airbnb, and Shopify.",
+    tags: ["Conversational UI", "Mobile", "B2B"],
+    role: "Created sample Hi-Fidelity mock-ups of Facebook messenger apps for Kate Spade's e-commerce product categories, Airbnb help queries from a guest and Daily analytics on top products, orders and sale information to Shopify users.",
+    year: "2016",
+    bullets: [
+      "Created hi-fidelity Facebook Messenger bot mockups for Kate Spade, Airbnb, and Shopify to demonstrate conversational commerce to developers.",
+      "Designed BotCentral's developer-facing portal experience.",
+    ],
+    sections: [
+      {
+        title: "Project",
         blocks: [
           {
             type: "text",
             content:
-              "The redesigned onboarding reduced installation steps and used plain-language guidance with visual feedback at each step. The monitoring dashboard led with a clear home status indicator, with detailed sensor data accessible as a secondary layer.\n\nThis project deepened my approach to designing for non-technical users — a principle that's carried through every enterprise product I've worked on since.",
+              "Design of BotCentral's developer facing portal, where developers could discover and build conversational applications for Facebook Messenger. Sample hi-fidelity mockups were created to demonstrate the potential of messenger bots to developers visiting the platform.",
+          },
+        ],
+      },
+      {
+        title: "My Role",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Created sample Hi-Fidelity mock-ups of Facebook messenger apps for Kate Spade's e-commerce product categories, Airbnb help queries from a guest and Daily analytics on top products, orders and sale information to Shopify users.",
+          },
+        ],
+      },
+      {
+        title: "Challenges",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Identifying unmet needs of consumers in messenger bots. Brainstormed, Created quick mockups as sample design bots to pique the interest of developers visiting BotCentral.",
+          },
+        ],
+      },
+      {
+        title: "Design Work",
+        blocks: [
+          {
+            type: "image",
+            src: "/images/projects/botcentral/slide-01.png",
+            alt: "BotCentral — Kate Spade Facebook Messenger bot mockup",
+            caption: "Kate Spade Facebook Messenger bot — e-commerce browsing, product categories, and shopping flow",
+          },
+          {
+            type: "image",
+            src: "/images/projects/botcentral/slide-02.png",
+            alt: "BotCentral — UX Laboratory",
+            caption: "UX Laboratory Design Forum — lab-like environment for UX designers worldwide",
           },
         ],
       },
