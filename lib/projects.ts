@@ -235,64 +235,136 @@ export const projects: Project[] = [
   },
   {
     id: "google-emoney",
-    title: "Google eMoney",
+    title: "Google Payments Platform",
     company: "Filter (Consulting for Google) · Mountain View, CA",
     image: "/images/projects/google-emoney/cover.png",
     images: ["/images/projects/google-emoney/cover.png"],
     era: "7 – 8 years ago",
     challenge:
-      "Designing a unified, trustworthy payment experience that feels local across dozens of global markets — within Google's ecosystem.",
+      "The Payments Platform UX team's goal was to provide Google users with their preferred payment method anywhere in the world. The team worked across 500+ forms of payments, 204 locales, and 1.4 billion people, working closely with Google partners to add new payment methods to their purchase flows.",
     description:
-      "Consumer payment platform enabling users to add preferred payment methods across YouTube and Google Play",
+      "Two projects on Google's Payments Platform: eMoney (adding Japan eMoney payment types to GPay across YouTube and Play) and PSD2 Risk Based Authentication (European payment security and fraud prevention protocol 3DS2.0).",
     tags: ["Mobile", "Payments", "Google"],
-    role: "Senior UX Designer",
+    role: "Senior UX Designer — Payments Platform UX team",
     year: "Aug 2018 – Apr 2019",
     bullets: [
-      "Designed consumer payment platform enabling users to add preferred payment methods across YouTube and Google Play.",
-      "Contributed to industry-wide protocol to keep users safe across the Google ecosystem.",
+      "Designed eMoney payment flows for Japan users across YouTube and Play — $46M in incremental revenue.",
+      "Designed PSD2 3DS2.0 risk-based authentication experience across 6+ Google products — influenced the industry standard for European payment security guidelines.",
+      "Met with industry peers from Microsoft and Sony to help define 3DS2.n guidelines for emerging IoT devices like smart TV.",
     ],
     sections: [
       {
-        title: "Overview",
+        title: "eMoney — Background",
         blocks: [
           {
             type: "text",
             content:
-              "As a Senior UX Designer embedded at Google through Filter, I worked on the eMoney platform — a consumer-facing system that unified how users add and manage payment methods across Google products including YouTube and Google Play.",
+              "The Payments Platform UX team's goal: make sure customers can add and use their favorite payment method with Google Pay. People in different countries have preferred ways to pay. The team worked across 500+ forms of payments, 204 locales, and 1.4 billion people.",
+          },
+          {
+            type: "text",
+            content:
+              "The opportunity: JP users want to use eMoney for digital purchases. eMoney cards are already in user's phones/wallets. Earn/use is a common way to get loyalty points with eMoney. The goal was to add eMoney payment types (Rakuten Edy, WAON, Suica, Nanaco) to GPay so they can make purchases on Google partners like Play and YouTube.",
           },
         ],
       },
       {
-        title: "Problem",
+        title: "eMoney — Project Challenges",
         blocks: [
           {
             type: "text",
             content:
-              "Google's payment ecosystem had grown organically across products, creating an inconsistent experience. Users in key markets faced friction adding local payment methods, and the lack of a unified payment surface created trust and safety challenges.",
+              "I was brand new, my design teammates were on a research trip. Deadline: 3 weeks. I iterated closely with Content Strategist and Payments PM, and met weekly with Designers and PMs from YouTube, Play, and Payments Engineering team.",
           },
-          {
-            type: "quote",
-            text: "How do you design a payment experience that feels local and trustworthy across dozens of markets — while maintaining consistency across the Google ecosystem?",
-          },
-        ],
-      },
-      {
-        title: "Process",
-        blocks: [
           {
             type: "text",
             content:
-              "I worked closely with Google's payments, legal, and trust & safety teams to map the full payment addition journey — from entry point across different Google products, through method selection, verification, and confirmation.\n\nThe work included deep research into local payment preferences and regulatory requirements, and collaboration on the industry-wide safety protocol.",
+              "I needed to understand how different purchase flows worked and how to customize them for eMoney use — including balance checks, eMoney-specific Terms of Service, chip-on-phone detection, payments profile setup, and funds checks. I overcame challenges by investigating similar projects, leveraging previous YouTube and Play research, and working very closely with PM for domain knowledge.",
           },
         ],
       },
       {
-        title: "Outcome",
+        title: "eMoney — Design Choices",
         blocks: [
           {
             type: "text",
             content:
-              "The eMoney platform shipped as a unified payment management experience across YouTube and Google Play. The safety protocol developed during this engagement contributed to Google's broader ecosystem approach to payment security, protecting users across multiple products.",
+              "Common authorization challenges included: Terms of Service placement, new payments profile flows, co-branding, pending FoPs (Forms of Payment), and redirect experiences — across over 30 different forms of payment.",
+          },
+          {
+            type: "text",
+            content:
+              "Problem: A Terms of Service agreement could appear in different places — sometimes a full screen, sometimes buried behind a link. User may not understand what Terms and Services they are agreeing to. The placement of the Payment profile for new users varies, and so does the order of fields depending on the partner.",
+          },
+          {
+            type: "text",
+            content:
+              "Solution: Separate Partner ToS from Payment + Service Provider ToS by introducing Co-Branding. Designed different options — ToS on a new page with Co-Branding, and Inline ToS. Play partner guidelines restricted where GPay Branding occurs within the Play app (only at Checkout), requiring a different approach than YouTube.",
+          },
+          {
+            type: "text",
+            content:
+              "Created additional user journeys for: eMoney card to Google (already has cards or not), User associated in GPay (app or not), First time user association + New billing customer, Existing user association, One-off purchase, and User has insufficient funds.",
+          },
+        ],
+      },
+      {
+        title: "eMoney — Summary and Impact",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Adapted to process constraints. Developed strong relationships cross-functionally. Turned design complexity into simplicity. eMoney is now available for Japan users — $46M in incremental revenue and increase of spend for Play customers.",
+          },
+        ],
+      },
+      {
+        title: "PSD2 — Risk Based Authentication",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "European Payments Service Directive PSD2 — payment security and fraud prevention protocol 3DS2.0. The goal was to give Google users a safer, secure way to transact with scalable authentication. Protect the good user, present hard challenges to the bad user.",
+          },
+          {
+            type: "text",
+            content:
+              "3DS2.0 is a way to provide security to online card transactions. The project would: Build Trust (build the strongest security technologies into our products), be Compliant with European laws (strict user protection laws), and Innovate (lead by example to advance online security for all — PayPal, Apple, Amazon, Microsoft). More data for the issuer to combat fraud and reduce false positives, with the advantage for Google of shifting the liability to the issuer.",
+          },
+        ],
+      },
+      {
+        title: "PSD2 — Challenges",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Understanding the EMVCo (EuroPay Master Visa Consortium) 3-D Secure Protocol specification. Understanding the suite of risk challenges. Deadline: 2 weeks for conceptual mocks involving 6+ Google products across Native, mWeb, and Web.",
+          },
+          {
+            type: "text",
+            content:
+              "Designed new standardised 3D Secure challenges to authenticate directly with the Issuer bank: OTP (verify by phone and/or email), Security questions (tighter security), and Out of band (redirect to bank app — fingerprint, FaceID). The new 3DS2.0 experience included Issuer bank + Card network branding zone, Challenge/processing zone, and Help/information zone.",
+          },
+        ],
+      },
+      {
+        title: "PSD2 — User Journeys",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Created OTP risk challenge experiences across the ecosystem for: Play Cart buy flow, GPay P2P, 3P Native buy flow, 3P mWeb buy flow, 3P Web buy flow, and Cloud signup for free trial. Designed Android OS UX/UI including single select, multi select, out of band, HTML/mobile web, loading screen, and text input with OTP auto-fill on Android.",
+          },
+        ],
+      },
+      {
+        title: "PSD2 — Summary and Impact",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Consolidated purchase flows, brought buy-in from product teams and influenced 3DS2.0 guidelines. Met with industry peers from Microsoft and Sony to help define 3DS2.n guidelines for emerging IoT devices like smart TV. Influenced the industry standard for European payment security guidelines. Q3 2019 3DS2.0 Launch.",
           },
         ],
       },
