@@ -238,7 +238,19 @@ export const projects: Project[] = [
     title: "Google Payments Platform",
     company: "Filter (Consulting for Google) · Mountain View, CA",
     image: "/images/projects/google-emoney/cover.png",
-    images: ["/images/projects/google-emoney/cover.png"],
+    images: [
+      "/images/projects/google-emoney/cover.png",
+      "/images/projects/google-emoney/mobile-01.png",
+      "/images/projects/google-emoney/mobile-02.png",
+      "/images/projects/google-emoney/mobile-03.png",
+      "/images/projects/google-emoney/mobile-04.png",
+      "/images/projects/google-emoney/mobile-05.png",
+      "/images/projects/google-emoney/mobile-06.png",
+      "/images/projects/google-emoney/psd2-01.png",
+      "/images/projects/google-emoney/psd2-02.png",
+      "/images/projects/google-emoney/psd2-03.png",
+      "/images/projects/google-emoney/psd2-04.png",
+    ],
     era: "7 – 8 years ago",
     challenge:
       "The Payments Platform UX team's goal was to provide Google users with their preferred payment method anywhere in the world. The team worked across 500+ forms of payments, 204 locales, and 1.4 billion people, working closely with Google partners to add new payment methods to their purchase flows.",
@@ -259,12 +271,16 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "The Payments Platform UX team's goal: make sure customers can add and use their favorite payment method with Google Pay. People in different countries have preferred ways to pay. The team worked across 500+ forms of payments, 204 locales, and 1.4 billion people.",
+              "eMoney is a contactless payment system unique to Japan utilizing Felica technology, available in both physical card and mobile formats. User balances are stored on a chip within the mobile device.\n\nThe Payments Platform UX team's goal: make sure customers can add and use their favorite payment method with Google Pay. The team worked across 500+ forms of payments, 204 locales, and 1.4 billion people.",
+          },
+          {
+            type: "heading",
+            content: "Why eMoney?",
           },
           {
             type: "text",
             content:
-              "The opportunity: JP users want to use eMoney for digital purchases. eMoney cards are already in user's phones/wallets. Earn/use is a common way to get loyalty points with eMoney. The goal was to add eMoney payment types (Rakuten Edy, WAON, Suica, Nanaco) to GPay so they can make purchases on Google partners like Play and YouTube.",
+              "Japan is the #1 Google Play market by expenditure. Approximately 60% of Japanese users wanted eMoney capability for digital purchases. Users could earn loyalty points through eMoney transactions in Google Play. The infrastructure was already established — roughly 2 million Felica terminals across Japan — and eMoney cards were already prevalent in user wallets.\n\nGoal: add eMoney payment types (Rakuten Edy, WAON, Suica, Nanaco) to GPay so users can make purchases on Google partners like Play and YouTube.",
           },
         ],
       },
@@ -274,12 +290,16 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "I was brand new, my design teammates were on a research trip. Deadline: 3 weeks. I iterated closely with Content Strategist and Payments PM, and met weekly with Designers and PMs from YouTube, Play, and Payments Engineering team.",
+              "I was brand new — my design teammates were on a research trip. Deadline: 3 weeks. I iterated closely with a Content Strategist and Payments PM, and met weekly with designers and PMs from YouTube, Play, and Payments Engineering.",
+          },
+          {
+            type: "heading",
+            content: "Three Design Constraints",
           },
           {
             type: "text",
             content:
-              "I needed to understand how different purchase flows worked and how to customize them for eMoney use — including balance checks, eMoney-specific Terms of Service, chip-on-phone detection, payments profile setup, and funds checks. I overcame challenges by investigating similar projects, leveraging previous YouTube and Play research, and working very closely with PM for domain knowledge.",
+              "1. Terms of Service placement varied between apps — sometimes visible under the payment method selector, other times buried behind a link.\n\n2. New Payment Profile placement differed across apps, with field ordering dependent on partner requirements.\n\n3. Co-branding requirements were inconsistent — Google branding sometimes appeared with ToS and sometimes was restricted to specific areas.",
           },
         ],
       },
@@ -289,22 +309,37 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "Common authorization challenges included: Terms of Service placement, new payments profile flows, co-branding, pending FoPs (Forms of Payment), and redirect experiences — across over 30 different forms of payment.",
+              "Solution: Separate Partner ToS from Payment + Service Provider ToS by introducing Co-Branding. Designed two options — ToS on a new page with Co-Branding, and Inline ToS.\n\nPlay partner guidelines restricted where GPay Branding occurs within the Play app (only at Checkout), requiring a different approach than YouTube.",
+          },
+          {
+            type: "heading",
+            content: "Two Core Use Cases",
           },
           {
             type: "text",
             content:
-              "Problem: A Terms of Service agreement could appear in different places — sometimes a full screen, sometimes buried behind a link. User may not understand what Terms and Services they are agreeing to. The placement of the Payment profile for new users varies, and so does the order of fields depending on the partner.",
+              "Use Case 1 — Existing Google Pay Association: Users who previously associated eMoney in the Google Pay app had already accepted the service provider's terms. They only needed to accept Google Pay's Payments Privacy ToS in YouTube and Play before purchasing.\n\nUse Case 2 — First-Time eMoney Association: Users associating eMoney for the first time required acceptance of both the service provider's and Google Pay's terms before transacting.",
+          },
+          {
+            type: "heading",
+            content: "Google Play User Journeys",
           },
           {
             type: "text",
             content:
-              "Solution: Separate Partner ToS from Payment + Service Provider ToS by introducing Co-Branding. Designed different options — ToS on a new page with Co-Branding, and Inline ToS. Play partner guidelines restricted where GPay Branding occurs within the Play app (only at Checkout), requiring a different approach than YouTube.",
+              "Existing Billing Customer: Select Rakuten Edy → review and agree to ToS → balance displays in 1-Tap Buy screen → purchase with latency messaging at 3-second intervals.\n\nNew Billing Customer: Add payment method → ToS → input name and postal code → association loader (up to 8 seconds) → proceed to purchase.\n\nInsufficient Balance: eMoney disabled, system defaults to alternative payment methods.",
           },
           {
-            type: "text",
-            content:
-              "Created additional user journeys for: eMoney card to Google (already has cards or not), User associated in GPay (app or not), First time user association + New billing customer, Existing user association, One-off purchase, and User has insufficient funds.",
+            type: "image",
+            src: "/images/projects/google-emoney/mobile-01.png",
+            alt: "Google eMoney — YouTube payment flow",
+            caption: "YouTube payment flow — new user eMoney association with co-branded ToS",
+          },
+          {
+            type: "image",
+            src: "/images/projects/google-emoney/mobile-03.png",
+            alt: "Google eMoney — Play payment flow",
+            caption: "Google Play payment flow — inline ToS per Play branding guidelines",
           },
         ],
       },
@@ -314,7 +349,7 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "Adapted to process constraints. Developed strong relationships cross-functionally. Turned design complexity into simplicity. eMoney is now available for Japan users — $46M in incremental revenue and increase of spend for Play customers.",
+              "Adapted to process constraints. Developed strong cross-functional relationships. Turned design complexity into simplicity.\n\neMoney is now available for Japan users — $46M in incremental revenue and increased spend for Play customers.",
           },
         ],
       },
@@ -382,6 +417,11 @@ export const projects: Project[] = [
       "/images/projects/paypal-partner/slide-03.png",
       "/images/projects/paypal-partner/slide-04.png",
       "/images/projects/paypal-partner/slide-05.png",
+      "/images/projects/paypal-partner/pres-01.png",
+      "/images/projects/paypal-partner/pres-02.png",
+      "/images/projects/paypal-partner/pres-03.png",
+      "/images/projects/paypal-partner/pres-04.png",
+      "/images/projects/paypal-partner/pres-05.png",
     ],
     era: "8 – 10 years ago",
     challenge:
@@ -397,12 +437,12 @@ export const projects: Project[] = [
     ],
     sections: [
       {
-        title: "Partner Vision",
+        title: "Overview",
         blocks: [
           {
             type: "text",
             content:
-              "A PayPal Partner is a service/solutions provider which helps facilitate payments between the merchant (SMB) and their customers. The goal was to increase Partner satisfaction by providing self-service tools, enable Partners to manage their business effectively through merchant activity dashboards and notifications, and help Partners grow their business with Data and Insights.",
+              "A PayPal Partner is a service/solutions provider that helps facilitate payments between merchants (SMBs) and their customers. Partners processing millions of daily transactions faced inefficient manual processes — support teams logged tickets separately for transaction errors, tech teams troubleshot API issues using third-party sites, and business reports arrived as static PDFs, preventing finance and operations teams from analyzing PayPal data effectively.\n\nGoal: increase Partner satisfaction by providing self-service tools, merchant activity dashboards, notifications, and business insights.",
           },
         ],
       },
@@ -412,7 +452,7 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "Hybrid designer: Interaction + Visual design. Solution discovery, Feature prioritization with 3-in-a-box team, Usability study learnings based design iterations, Delivery of design assets.",
+              "Hybrid designer: Interaction + Visual design. Part of 3-in-a-box team (Product, Design, Engineering) across solution discovery, problem definition, concept prototyping, feature validation, usability testing, design iteration, and production-ready UI specifications.",
           },
         ],
       },
@@ -468,12 +508,7 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "Curtis — Financial manager/analyst who interacts with marketing and accounting teams. Curtis is very data driven and checks the Summary page to see all the key metrics to keep track of the company's performance. He cares about TPV, Revenue Share, Regional performance, and Benchmarking. He likes the idea of checking data on his phone anytime, anywhere.",
-          },
-          {
-            type: "text",
-            content:
-              "Amber — Business ops who interacts with Tech support and Product teams. Amber cares about the stability of business from all aspects. She monitors number of transactions, API error rate, and new merchants. She checks on the API error rate every day to track and locate API errors and check for error spikes.",
+              "Six partner personas were identified through research across NA and EMEA:\n\n**Executives** (CxO / VP Finance / VP Sales) — Revenue forecasts, transaction volume, merchant growth, buyer payment methods.\n\n**Finance** (Analyst / VP Finance / CFO) — Revenue share trends, PayPal product revenue correlations, buyer-to-revenue relationships.\n\n**Operations** (Sales Ops / Sales Analyst) — Active merchants, high-revenue merchant types, at-risk merchant churn, benchmarking.\n\n**Marketing** (Director / VP Marketing / CMO) — Cross-border trade, volume and revenue maximization, buyer demographics.\n\n**Tech Teams** (CTO / Engineering Managers) — PayPal integration docs, roadmap resources, maintenance materials.\n\n**Support** (Support Engineer / Director) — Onboarding and contract signup questions, general support inquiries.",
           },
         ],
       },
@@ -524,6 +559,78 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "botcentral",
+    title: "BotCentral",
+    company: "BotCentral · San Francisco, CA",
+    image: "/images/projects/botcentral/cover.png",
+    images: [
+      "/images/projects/botcentral/cover.png",
+      "/images/projects/botcentral/slide-01.png",
+      "/images/projects/botcentral/slide-02.png",
+    ],
+    era: "8 – 10 years ago",
+    challenge:
+      "Identifying unmet needs of consumers in messenger bots. Brainstormed, Created quick mockups as sample design bots to pique the interest of developers visiting BotCentral.",
+    description:
+      "Design of BotCentral's developer facing portal with sample hi-fidelity chatbot mockups for Kate Spade, Airbnb, and Shopify.",
+    tags: ["Conversational UI", "Mobile", "B2B"],
+    role: "Created sample Hi-Fidelity mock-ups of Facebook messenger apps for Kate Spade's e-commerce product categories, Airbnb help queries from a guest and Daily analytics on top products, orders and sale information to Shopify users.",
+    year: "2016",
+    bullets: [
+      "Created hi-fidelity Facebook Messenger bot mockups for Kate Spade, Airbnb, and Shopify to demonstrate conversational commerce to developers.",
+      "Designed BotCentral's developer-facing portal experience.",
+    ],
+    sections: [
+      {
+        title: "Project",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Design of BotCentral's developer facing portal, where developers could discover and build conversational applications for Facebook Messenger. Sample hi-fidelity mockups were created to demonstrate the potential of messenger bots to developers visiting the platform.",
+          },
+        ],
+      },
+      {
+        title: "My Role",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Created sample Hi-Fidelity mock-ups of Facebook messenger apps for Kate Spade's e-commerce product categories, Airbnb help queries from a guest and Daily analytics on top products, orders and sale information to Shopify users.",
+          },
+        ],
+      },
+      {
+        title: "Challenges",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Identifying unmet needs of consumers in messenger bots. Brainstormed, Created quick mockups as sample design bots to pique the interest of developers visiting BotCentral.",
+          },
+        ],
+      },
+      {
+        title: "Design Work",
+        blocks: [
+          {
+            type: "image",
+            src: "/images/projects/botcentral/slide-01.png",
+            alt: "BotCentral — Kate Spade Facebook Messenger bot mockup",
+            caption: "Kate Spade Facebook Messenger bot — e-commerce browsing, product categories, and shopping flow",
+          },
+          {
+            type: "image",
+            src: "/images/projects/botcentral/slide-02.png",
+            alt: "BotCentral — UX Laboratory",
+            caption: "UX Laboratory Design Forum — lab-like environment for UX designers worldwide",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "chase-payments",
     title: "Chase Personal Banking",
     company: "JPMorgan Chase (Contract) · San Francisco, CA",
@@ -538,6 +645,10 @@ export const projects: Project[] = [
       "/images/projects/chase-payments/slide-05.png",
       "/images/projects/chase-payments/slide-06.png",
       "/images/projects/chase-payments/slide-07.png",
+      "/images/projects/chase-payments/pres-01.png",
+      "/images/projects/chase-payments/pres-02.jpg",
+      "/images/projects/chase-payments/pres-03.png",
+      "/images/projects/chase-payments/pres-04.jpg",
     ],
     era: "10 – 12 years ago",
     challenge:
@@ -557,31 +668,40 @@ export const projects: Project[] = [
         title: "Chase Mobile — Payments / Pay Bill",
         blocks: [
           {
+            type: "text",
+            content:
+              "Chase Mobile app — Redesign of Payments and Pay Bill flows. Goal: simplify payment tasks for Chase native mobile app consumers within a newly evolving design platform.",
+          },
+          {
             type: "heading",
-            content: "Project",
+            content: "User Research",
+          },
+          {
+            type: "quote",
+            text: "Users are anxious when making a bill payment and are often uncertain whether a payment went through.",
           },
           {
             type: "text",
             content:
-              "Chase Mobile app — Redesign of Payments, Pay Bill flows. The goal of the design is to simplify payment tasks for Chase native mobile app consumers within a newly evolving design platform.",
+              "Research showed users felt the existing flow had too many steps. Design needed to work across multiple payment products: Merchant Bill Pay, Credit Card, Transfer, Auto Loan, and Mortgage.",
           },
           {
             type: "heading",
-            content: "My Role",
+            content: "Design Solutions",
           },
           {
             type: "text",
             content:
-              "Design iterations — Next generation payment / move money concepts. Created prototypes alternatives. Iterated Pay Bill flows with user testing.",
+              "Redesigned payment form as a component-based fluid design system with: consistent experience across all payment tasks, streamlined flow by reducing verify steps, enhanced error prevention, and a celebratory confirmation page with product education opportunities. Added timeline view for upcoming, pending, and past payments.",
           },
           {
             type: "heading",
-            content: "Challenges",
+            content: "Result",
           },
           {
             type: "text",
             content:
-              "Payment flow simplification. Scaling the payment form for all payment products. Identify and optimize payment input form entry and touch points.",
+              "Influenced the design and launch of the streamlined Quick Pay feature.",
           },
           {
             type: "image",
@@ -696,7 +816,7 @@ export const projects: Project[] = [
   {
     id: "wallyhome",
     title: "Wallyhome",
-    company: "WallyHome · San Francisco, CA",
+    company: "Snupi Technologies (WallyHome) · San Francisco, CA",
     image: "/images/projects/wallyhome/cover.png",
     images: [
       "/images/projects/wallyhome/cover.png",
@@ -704,6 +824,8 @@ export const projects: Project[] = [
       "/images/projects/wallyhome/slide-02.png",
       "/images/projects/wallyhome/slide-03.png",
       "/images/projects/wallyhome/slide-04.png",
+      "/images/projects/wallyhome/pres-01.png",
+      "/images/projects/wallyhome/pres-02.png",
     ],
     era: "13 years ago",
     challenge:
@@ -719,12 +841,12 @@ export const projects: Project[] = [
     ],
     sections: [
       {
-        title: "Project",
+        title: "Overview",
         blocks: [
           {
             type: "text",
             content:
-              "Design a brand new experience for the wallyhome hub and sensor system that provides insights into the health of home allowing homeowners to monitor temperature, moisture and humidity.",
+              "Wallyhome is a hub and sensor system that monitors temperature, moisture, and humidity in homes. The technology uses existing house wiring as an antenna, enabling sensors to last 10+ years on battery power.\n\nI joined Snupi Technologies as part of a small 2-person UX team, working alongside content, hardware, software engineers, and the co-founder/VP of Marketing to ship the first product launch.",
           },
         ],
       },
@@ -734,7 +856,26 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "Interaction designer, User studies. Delivered Responsive design of Wallyhome Dashboard and account settings pages.",
+              "UX Designer — Interaction design and user research. Delivered the responsive dashboard, account settings, onboarding, and system management experiences.",
+          },
+        ],
+      },
+      {
+        title: "Research Process",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Applied a User Centered Design process across multiple research phases:\n\nRounds 1–2: User interviews (phone) and online surveys to understand pain points.\n\nRounds 3–4: In-home and remote usability testing focused on dashboard learnability, ease of use, content, alerts, and account settings.",
+          },
+          {
+            type: "heading",
+            content: "Key Findings from Beta Testing",
+          },
+          {
+            type: "text",
+            content:
+              "64% of users reported issues with Wally, primarily sensor communication failures. Most users found switching to the mobile app easy or very easy.\n\n100% of users receiving disconnect alerts felt adequately notified.\n\nUsers wanted sensor signal strength visibility, data download capabilities, and manual threshold input. Some users were concerned about accidentally moving sensors and wanted adhesion guidance.",
           },
         ],
       },
@@ -744,7 +885,7 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "2 person UX team in a fast paced start up environment. Hub+Sensor System installation, System Usage, System management.",
+              "2-person UX team in a fast-paced startup environment. Key design challenges: Hub + Sensor System installation, System Usage flows, and System Management.",
           },
         ],
       },
@@ -777,75 +918,87 @@ export const projects: Project[] = [
           },
         ],
       },
+      {
+        title: "Outcomes",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Research insights directly informed WallyHome's blog content, customer support troubleshooting documentation, first product launch preparation, and installation/setup user experience improvements. The study revealed strong value for vacation homes and multi-property owners.",
+          },
+        ],
+      },
     ],
   },
   {
-    id: "botcentral",
-    title: "BotCentral",
-    company: "BotCentral · San Francisco, CA",
-    image: "/images/projects/botcentral/cover.png",
-    images: [
-      "/images/projects/botcentral/cover.png",
-      "/images/projects/botcentral/slide-01.png",
-      "/images/projects/botcentral/slide-02.png",
-    ],
+    id: "motion-design",
+    title: "Motion Design Explorations",
+    company: "PayPal · San Jose, CA",
+    image: "/images/projects/paypal.png",
+    images: ["/images/projects/paypal.png"],
     era: "8 – 10 years ago",
     challenge:
-      "Identifying unmet needs of consumers in messenger bots. Brainstormed, Created quick mockups as sample design bots to pique the interest of developers visiting BotCentral.",
+      "PayPal's merchant onboarding experience was lengthy and complex. The challenge was to design micro-interactions that guide user attention and focus, making a multi-step setup flow feel simple and fast.",
     description:
-      "Design of BotCentral's developer facing portal with sample hi-fidelity chatbot mockups for Kate Spade, Airbnb, and Shopify.",
-    tags: ["Conversational UI", "Mobile", "B2B"],
-    role: "Created sample Hi-Fidelity mock-ups of Facebook messenger apps for Kate Spade's e-commerce product categories, Airbnb help queries from a guest and Daily analytics on top products, orders and sale information to Shopify users.",
+      "Micro-interaction design for PayPal's merchant onboarding — exploring progressive reveal, accordion, and sequenced patterns to help merchants connect with PayPal through partner platforms like BigCommerce.",
+    tags: ["Motion", "Onboarding", "PayPal"],
+    role: "Motion/Interaction Designer — Prototyped in Framer",
     year: "2016",
     bullets: [
-      "Created hi-fidelity Facebook Messenger bot mockups for Kate Spade, Airbnb, and Shopify to demonstrate conversational commerce to developers.",
-      "Designed BotCentral's developer-facing portal experience.",
+      "Designed micro-interactions to guide user attention during multi-step merchant onboarding.",
+      "Explored three patterns — progressive reveal, accordion, and numbered/sequenced — selecting the accordion for its simplicity and engineering feasibility.",
+      "Built a working prototype in Framer demonstrating the complete merchant signup flow.",
     ],
     sections: [
       {
-        title: "Project",
+        title: "The Problem",
         blocks: [
           {
             type: "text",
             content:
-              "Design of BotCentral's developer facing portal, where developers could discover and build conversational applications for Facebook Messenger. Sample hi-fidelity mockups were created to demonstrate the potential of messenger bots to developers visiting the platform.",
+              "Merchant 'Amanda' owns a florist business and needs to connect with PayPal through a partner platform (BigCommerce) to process transactions. She faces a lengthy, complex setup process with multiple steps.\n\nGoal: create a simple one-page flow to help merchants like Amanda quickly connect with PayPal and receive funds faster.",
           },
         ],
       },
       {
-        title: "My Role",
+        title: "Design Patterns Explored",
+        blocks: [
+          {
+            type: "heading",
+            content: "Progressive Reveal",
+          },
+          {
+            type: "text",
+            content:
+              "An animated bar draws focus while content slides to reveal the next step with a single call-to-action button.",
+          },
+          {
+            type: "heading",
+            content: "Accordion",
+          },
+          {
+            type: "text",
+            content:
+              "Collapsed rows show step completion; content slides upward to reveal subsequent steps with one primary action button.",
+          },
+          {
+            type: "heading",
+            content: "Numbered and Sequenced",
+          },
+          {
+            type: "text",
+            content:
+              "Numbered icons indicate current position; animated checkmarks show completion with a side panel previewing previous steps.",
+          },
+        ],
+      },
+      {
+        title: "Final Solution",
         blocks: [
           {
             type: "text",
             content:
-              "Created sample Hi-Fidelity mock-ups of Facebook messenger apps for Kate Spade's e-commerce product categories, Airbnb help queries from a guest and Daily analytics on top products, orders and sale information to Shopify users.",
-          },
-        ],
-      },
-      {
-        title: "Challenges",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Identifying unmet needs of consumers in messenger bots. Brainstormed, Created quick mockups as sample design bots to pique the interest of developers visiting BotCentral.",
-          },
-        ],
-      },
-      {
-        title: "Design Work",
-        blocks: [
-          {
-            type: "image",
-            src: "/images/projects/botcentral/slide-01.png",
-            alt: "BotCentral — Kate Spade Facebook Messenger bot mockup",
-            caption: "Kate Spade Facebook Messenger bot — e-commerce browsing, product categories, and shopping flow",
-          },
-          {
-            type: "image",
-            src: "/images/projects/botcentral/slide-02.png",
-            alt: "BotCentral — UX Laboratory",
-            caption: "UX Laboratory Design Forum — lab-like environment for UX designers worldwide",
+              "Selected the accordion pattern variant — chosen for its simplicity and implementation feasibility. The flow accommodates country selection, email verification, and conditional business account information gathering.\n\nA working prototype was built in Framer demonstrating the complete merchant signup flow.",
           },
         ],
       },

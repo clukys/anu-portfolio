@@ -109,24 +109,37 @@ export default function Navigation() {
             })}
           </ul>
 
-          {/* CTA */}
-          <a
-            href="https://www.linkedin.com/in/anuradhave/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2 bg-navy text-cream text-xs font-medium rounded-full hover:bg-navy/80 transition-colors duration-150"
-          >
-            Connect
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path
-                d="M3 9L9 3M9 3H4.5M9 3V7.5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
+          {/* CTA group */}
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="/Anuradha_Vellineni_Resume_2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 border border-navy/20 text-navy text-xs font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-150"
+            >
+              Resume
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                <path d="M6 1v7M3 5l3 3 3-3M2 11h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/anuradhave/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-navy text-cream text-xs font-medium rounded-full hover:bg-navy/80 transition-colors duration-150"
+            >
+              Connect
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path
+                  d="M3 9L9 3M9 3H4.5M9 3V7.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
 
           {/* Mobile button */}
           <button
