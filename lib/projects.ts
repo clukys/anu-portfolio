@@ -313,24 +313,24 @@ export const projects: Project[] = [
     ],
     era: "8 – 10 years ago",
     challenge:
-      "Feature definition scoping for Beta. Data visualization responsiveness. Designing as foundation patterns were getting defined. Partner recruitment based on user roles for usability study.",
+      "Partners had to use multiple tools and channels to resolve issues and manage their business, causing significant operational overhead and delays. Support and issue resolution took too long because of manual and offline processes. Partners had no way to proactively monitor their business with PayPal or take action to mitigate risks.",
     description:
-      "Design of the new servicing experience for PayPal Partners. The goal of the design is to increase Partner satisfaction by providing self service tools. To enable Partners manage their business effectively e.g. merchant activity dashboards, notifications. To help the Partners grow their business with Data and Insights.",
+      "Design of the new servicing experience for PayPal Partners. The goal was to increase Partner satisfaction by providing self-service tools, enable Partners to manage their business effectively through merchant activity dashboards and notifications, and help Partners grow their business with Data and Insights.",
     tags: ["Dashboard", "B2B", "PayPal"],
-    role: "Hybrid designer: Interaction + Visual design. Solution discovery, Feature prioritization, Usability study learnings based design iterations learnings, Delivery of design assets.",
+    role: "Hybrid designer: Interaction + Visual design. Solution discovery, Feature prioritization with 3-in-a-box team, Usability study learnings based design iterations, Delivery of design assets.",
     year: "Aug 2016 – Aug 2018",
     bullets: [
-      "Designed the servicing portal for PayPal Partners, including real-time merchant activity and aggregated business insights reporting.",
-      "Led usability studies to inform design iterations on the partner dashboard.",
+      "Conducted partner interviews across NA and EMEA to define the servicing experience.",
+      "Designed the servicing portal with real-time merchant activity dashboards, business insights, and notifications for two target personas.",
     ],
     sections: [
       {
-        title: "Project",
+        title: "Partner Vision",
         blocks: [
           {
             type: "text",
             content:
-              "Design of the new servicing experience for PayPal Partners. The goal of the design is to increase Partner satisfaction by providing self service tools. To enable Partners manage their business effectively e.g. merchant activity dashboards, notifications. To help the Partners grow their business with Data and Insights.",
+              "A PayPal Partner is a service/solutions provider which helps facilitate payments between the merchant (SMB) and their customers. The goal was to increase Partner satisfaction by providing self-service tools, enable Partners to manage their business effectively through merchant activity dashboards and notifications, and help Partners grow their business with Data and Insights.",
           },
         ],
       },
@@ -340,7 +340,7 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "Hybrid designer: Interaction + Visual design. Solution discovery, Feature prioritization, Usability study learnings based design iterations learnings, Delivery of design assets.",
+              "Hybrid designer: Interaction + Visual design. Solution discovery, Feature prioritization with 3-in-a-box team, Usability study learnings based design iterations, Delivery of design assets.",
           },
         ],
       },
@@ -355,8 +355,64 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Design Work",
+        title: "Research — Partner Interviews",
         blocks: [
+          {
+            type: "text",
+            content:
+              "We conducted partner interviews across NA and EMEA. Key findings:",
+          },
+          {
+            type: "quote",
+            text: "We have no clarity today about how our TPV and Revenue Share is distributed across North America and United Kingdom. We want to slice-n-dice our TPV and Revenue Share numbers across Geography and Time, and drill-down to see the next level.",
+            attribution: "Shopify",
+          },
+          {
+            type: "quote",
+            text: "We power over 30% of all commerce sites but as we are open source we do not have the ability to record & track all clients. Anything you can offer to help us in this space is hugely valuable to us.",
+            attribution: "Woo",
+          },
+          {
+            type: "quote",
+            text: "We have many PayPal products integrated & if I am not sure what product is best for certain clients, how is my customer supposed to know as well?",
+            attribution: "BigCommerce",
+          },
+          {
+            type: "text",
+            content:
+              "Partners had to use multiple tools and channels to resolve issues and manage their business, causing significant operational overhead and delays. Support and issue resolution took too long because of manual and offline processes necessitated due to lack of data with partners. Partners had no way to proactively monitor their business with PayPal and take action to mitigate risks. Partners did not have reports or insights on their key business performance KPIs.",
+          },
+          {
+            type: "image",
+            src: "/images/projects/paypal-partner/slide-05.png",
+            alt: "PayPal Partner — Research insights from partner interviews",
+            caption: "Research insights from partner interviews across NA and EMEA",
+          },
+        ],
+      },
+      {
+        title: "Target Personas",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Curtis — Financial manager/analyst who interacts with marketing and accounting teams. Curtis is very data driven and checks the Summary page to see all the key metrics to keep track of the company's performance. He cares about TPV, Revenue Share, Regional performance, and Benchmarking. He likes the idea of checking data on his phone anytime, anywhere.",
+          },
+          {
+            type: "text",
+            content:
+              "Amber — Business ops who interacts with Tech support and Product teams. Amber cares about the stability of business from all aspects. She monitors number of transactions, API error rate, and new merchants. She checks on the API error rate every day to track and locate API errors and check for error spikes.",
+          },
+        ],
+      },
+      {
+        title: "Design — Partner Servicing Experience",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Designed mobile and web views for both personas. Curtis's summary page shows key financial metrics, regional performance, and benchmarking against peers. Amber's summary page focuses on transactions, API error rates, and new merchants, with a notifications system for new system alerts.",
+          },
           {
             type: "image",
             src: "/images/projects/paypal-partner/slide-01.png",
@@ -381,11 +437,15 @@ export const projects: Project[] = [
             alt: "PayPal Partner — Partner types taxonomy",
             caption: "Partner types across Hosted, Installed, ERP/LE, Marketplaces and Solution Providers",
           },
+        ],
+      },
+      {
+        title: "Measurement",
+        blocks: [
           {
-            type: "image",
-            src: "/images/projects/paypal-partner/slide-05.png",
-            alt: "PayPal Partner — Research insights from partner interviews",
-            caption: "Research insights from partner interviews across NA and EMEA",
+            type: "text",
+            content:
+              "MVP goals: Mitigate losses and increase sales volume. Resolve issues faster, reduce customer friction. Make critical marketing, risk, and operational business decisions faster. Measurement included in-product feedback and beta partner interviews, with page instrumentation for usage analytics.",
           },
         ],
       },
