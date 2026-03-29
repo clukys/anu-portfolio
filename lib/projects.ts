@@ -1036,8 +1036,8 @@ export const projects: Project[] = [
     id: "motion-design",
     title: "Motion Design Explorations",
     company: "PayPal · San Jose, CA",
-    image: "/images/projects/paypal.png",
-    images: ["/images/projects/paypal.png"],
+    image: "/images/projects/motion.png",
+    images: ["/images/projects/motion.png"],
     era: "8 – 10 years ago",
     challenge:
       "PayPal's merchant onboarding experience was lengthy and complex. The challenge was to design micro-interactions that guide user attention and focus, making a multi-step setup flow feel simple and fast.",
