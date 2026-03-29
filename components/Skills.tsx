@@ -13,12 +13,28 @@ const skillCategories = [
       "AI Experience Design",
       "Design Systems",
       "Conversational UI",
+      "Motion Design",
+      "Responsive Design",
+    ],
+  },
+  {
+    title: "Research",
+    skills: [
       "Usability Testing",
+      "User Interviews",
+      "Journey Mapping",
+      "Competitive Analysis",
+      "Persona Development",
+      "A/B Testing",
     ],
   },
   {
     title: "Tools",
-    skills: ["Figma", "Figma Make", "Figma MCP", "Claude Code", "V0", "Bolt"],
+    skills: ["Figma", "Figma Make", "Figma MCP", "Claude Code", "V0", "Bolt", "Prototyping"],
+  },
+  {
+    title: "Platforms",
+    skills: ["iOS", "Android", "Responsive Web", "Enterprise SaaS", "Conversational AI"],
   },
 ];
 
@@ -45,7 +61,7 @@ export default function Skills() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
           {skillCategories.map((category, catIndex) => (
             <motion.div
               key={category.title}

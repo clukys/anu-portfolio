@@ -814,6 +814,108 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "chase-otp",
+    title: "Chase ATM — One Time Passcode",
+    company: "JPMorgan Chase (Contract) · San Francisco, CA",
+    image: "/images/projects/chase-payments/otp.png",
+    images: [
+      "/images/projects/chase-payments/otp.png",
+      "/images/projects/chase-payments/slide-04.png",
+      "/images/projects/chase-payments/slide-05.png",
+    ],
+    era: "10 – 12 years ago",
+    challenge:
+      "Multiple entry points for the ATM OTP feature in both authenticated and unauthenticated scenarios — with service limitations constraining the integration.",
+    description:
+      "Designed a new way for Chase mobile app consumers to withdraw cash from a Chase eATM using an 8-digit one time passcode generated within the app — no debit card needed.",
+    tags: ["Mobile", "iOS", "Android"],
+    role: "Interaction + Visual Design — iOS and Android",
+    year: "Oct 2014 – May 2016",
+    bullets: [
+      "Designed cardless ATM OTP feature covering 4 entry points and 8+ scenario flows for iOS and Android.",
+      "Applied first-time user experience design principles validated by usability study.",
+      "Chose bottom placement for OOBE card after user study found no clear winner — bottom had stronger dismissability.",
+    ],
+    sections: [
+      {
+        title: "Overview",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "The goal of the design was to introduce a new way for Chase mobile app consumers to withdraw cash from a Chase eATM with just an 8-digit one time passcode generated within the app — no debit card needed.\n\nI worked on the Interaction and Visual design, collaborating with product stakeholders and iterating key screens for both iOS and Android.",
+          },
+        ],
+      },
+      {
+        title: "Challenge — Multiple Entry Points",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "The main challenge was handling multiple entry points in both authenticated and unauthenticated scenarios:",
+          },
+          {
+            type: "text",
+            content:
+              "Entry point #1 — OOBE Card: \"New for you!\" card showcasing the OTP feature.\n\nEntry point #2 — Side menu Find ATM List Item: User taps on the side menu to find ATMs.\n\nEntry point #3 — Get ATM Access Code Text Link: User taps on the link from the account dashboard.\n\nEntry point #4 — Login screen ATM and Branch link: Unauthenticated and unenrolled scenario.",
+          },
+          {
+            type: "image",
+            src: "/images/projects/chase-payments/slide-05.png",
+            alt: "Chase ATM OTP — multiple entry points",
+            caption: "Four entry points — login screen, account dashboard, hamburger nav, and locations screen",
+          },
+        ],
+      },
+      {
+        title: "First Time User Experience",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "The success of a new feature depends on effectively communicating it while minimizing disruption. These design principles provided a framework for using interstitials sparingly:",
+          },
+          {
+            type: "quote",
+            text: "Don't show and tell. Let the users play. Always allow users to dismiss. Make it brief.",
+          },
+          {
+            type: "text",
+            content:
+              "Scenarios covered:\n• User restarted the app (TouchID + step-up password auth, ID + password auth)\n• User backgrounded the app (code in-session, code expired)\n• Alerts based on app settings (location services enabled, availability of cardless ATM)\n• Alerts based on profile eligibility (jailbroken device, user account closed)",
+          },
+          {
+            type: "image",
+            src: "/images/projects/chase-payments/slide-04.png",
+            alt: "Chase ATM OTP — first time user experience",
+            caption: "First time experience — generated 8-digit access code with countdown timer and nearby ATM locations",
+          },
+        ],
+      },
+      {
+        title: "User Study",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "We ran a user study to understand preference between two prototype approaches for discoverability of the new ATM access code feature.",
+          },
+          {
+            type: "text",
+            content:
+              "Prototype #1 — \"Get ATM Access Code\" is one extra tap away when tapping Find ATM/Branch from the side menu.\n\nPrototype #2 — \"Get ATM Access Code\" is grouped under ATM/Branch options from the side menu and one less click to access the new feature.",
+          },
+          {
+            type: "text",
+            content:
+              "Key learnings:\n• Preference was split on bottom placement vs. top inline with the conversation deck.\n• Primary reason for preferring bottom placement: ability to dismiss the OOBE.\n• Primary reason for preferring top placement: it did not look like a pop-up.\n\nWe chose bottom placement after usability study validation — no clear winner, but bottom placement was also most feasible in the 1-month pilot development effort.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "wallyhome",
     title: "Wallyhome",
     company: "Snupi Technologies (WallyHome) · San Francisco, CA",
