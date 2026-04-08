@@ -1,3 +1,17 @@
+export type ProjectTab = {
+  id: string
+  label: string
+  comingSoon?: boolean
+  description?: string
+  role?: string
+  year?: string
+  challenge?: string
+  image?: string
+  images?: string[]
+  bullets?: string[]
+  sections?: Section[]
+}
+
 export type Block =
   | { type: "text"; content: string }
   | { type: "heading"; content: string }
@@ -16,200 +30,198 @@ export type Project = {
   title: string
   company: string
   image: string
-  images?: string[]           // organized subfolder images
+  images?: string[]
   description: string
-  challenge?: string          // one-line challenge statement for fashion page
+  challenge?: string
   tags: string[]
   role: string
   year: string
-  era?: string                // human-readable era label e.g. "8+ years ago"
+  era?: string
   bullets?: string[]
   sections?: Section[]
+  tabs?: ProjectTab[]
 }
 
 export const projects: Project[] = [
   {
-    id: "servicenow-uex",
-    title: "ServiceNow — Employee Experience",
+    id: "servicenow",
+    title: "ServiceNow",
     company: "ServiceNow · San Jose, CA",
     image: "/images/projects/servicenow-uex/cover.png",
-    images: [
-      "/images/projects/servicenow-uex/cover.png",
-      "/images/projects/servicenow-uex/motion.png",
-    ],
-    era: "Current",
-    challenge:
-      "How might AI capture employee intent and orchestrate complex enterprise workflows without requiring navigation?",
+    era: "2019 – Present",
     description:
-      "AI-native conversational employee experience design — Employee Works and Move Works",
-    tags: ["AI", "Conversational UI", "Enterprise"],
-    role: "Staff Product Designer — Unified Employee Experience",
-    year: "Oct 2024 – Present",
-    bullets: [
-      "Shipped Employee Works — a conversational chat-based employee experience for enterprise employees, designed within the constraints of ServiceNow's catalog authoring system.",
-      "Bridged the gap between AI capabilities and platform constraints — finding the interaction model that worked for employees without requiring catalog re-architecture.",
-      "Led cross-functional design across product, engineering, and content, bringing a cross-product perspective from 5 years of WSD to the UEX team.",
-    ],
-    sections: [
+      "From first designer on the Workplace Service Delivery team to AI-native Employee Experience — six years building enterprise workplace products at scale.",
+    tags: ["AI", "Enterprise", "Conversational UI", "Workplace", "Mobile"],
+    role: "Staff Product Designer",
+    year: "Apr 2019 – Present",
+    tabs: [
       {
-        title: "Overview",
-        blocks: [
+        id: "uex",
+        label: "Employee Experience",
+        role: "Staff Product Designer — Unified Employee Experience",
+        year: "Oct 2024 – Present",
+        bullets: [
+          "Shipped Employee Works — a conversational chat-based employee experience for enterprise employees, designed within the constraints of ServiceNow's catalog authoring system.",
+          "Bridged the gap between AI capabilities and platform constraints — finding the interaction model that worked for employees without requiring catalog re-architecture.",
+          "Led cross-functional design across product, engineering, and content, bringing a cross-product perspective from 5 years of WSD to the UEX team.",
+        ],
+        sections: [
           {
-            type: "text",
-            content:
-              "Enterprise employee workflows — travel requests, equipment orders, onboarding tasks, approvals — typically require navigating multiple systems, forms, and policies. The promise of conversational AI is that employees could simply say what they need and the system handles the rest.\n\nAt ServiceNow, I transitioned to the Unified Employee Experience team to lead AI-native design for Employee Works — a shipped conversational experience — and to define what AI-first enterprise UX looks like at scale.",
+            title: "Overview",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Enterprise employee workflows — travel requests, equipment orders, onboarding tasks, approvals — typically require navigating multiple systems, forms, and policies. The promise of conversational AI is that employees could simply say what they need and the system handles the rest.\n\nAt ServiceNow, I transitioned to the Unified Employee Experience team to lead AI-native design for Employee Works — a shipped conversational experience — and to define what AI-first enterprise UX looks like at scale.",
+              },
+            ],
+          },
+          {
+            title: "What Was Shipped — Employee Works",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Employee Works is a conversational chat-based employee experience — employees interact with a chat interface to request services, get answers, and complete workflows that would otherwise require navigating ServiceNow's catalog.\n\nThe core design challenge: make the experience feel AI-native and intent-driven while working within the constraints of ServiceNow's catalog authoring system. The catalog defines how services are structured — and redesigning it wasn't an option.",
+              },
+              {
+                type: "quote",
+                text: "How might AI capture employee intent and orchestrate complex enterprise workflows — without requiring navigation, and without breaking the catalog?",
+              },
+              {
+                type: "text",
+                content:
+                  "My approach was a hybrid interaction model: conversation captures intent, AI gathers missing context through natural dialogue, and structured UI components surface only when a decision point requires it. The catalog serves as the backend engine — invisible to the employee, but powering everything.",
+              },
+            ],
+          },
+          {
+            title: "Design Principles",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Intent-first — Employees start with what they need, not where to navigate.\n\nProgressive disclosure — Structured UI appears only at real decision points, not upfront as a form.\n\nHuman-in-the-loop — Employees review and confirm before the system acts. AI proposes, people decide.\n\nConversation as orchestration — A single chat thread can coordinate multiple systems, approvals, and fulfillment steps.",
+              },
+            ],
+          },
+          {
+            title: "Cross-Functional Design Leadership",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Shipping Employee Works required working across a complex stakeholder landscape — product managers defining catalog scope, engineering teams with platform constraints, content designers shaping AI voice and tone, and accessibility requirements for enterprise deployment.\n\nI brought a unique perspective to the UEX team: five years designing WSD gave me deep knowledge of how employees actually use ServiceNow's workplace products. That context shaped how I framed the AI interaction model — not as a replacement for catalog-based workflows, but as a more natural way to enter them.",
+              },
+            ],
+          },
+          {
+            title: "Current — Move Works",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Currently leading design for the Move Works catalog experience — designing the employee-facing interaction model for relocation and mobility workflows within the conversational UEX platform.\n\nMove Works represents the next application of the AI-native patterns established in Employee Works: intent-driven entry, progressive workflow orchestration, and structured UI at decision points.",
+              },
+            ],
           },
         ],
       },
       {
-        title: "What Was Shipped — Employee Works",
-        blocks: [
+        id: "wsd",
+        label: "Workplace Service Delivery",
+        role: "Staff Product Designer — Workplace Service Delivery",
+        year: "Apr 2019 – Oct 2024",
+        bullets: [
+          "First designer on the WSD team; scaled product from initial market adoption (2020) to mature enterprise platform (2024).",
+          "Contributed to Employee Workflows business — ~29% of total ACV (~$3B of $11B revenue in 2024).",
+          "Led end-to-end design for Map Studio and Reservation Management — 49% customer install rate, 31% active usage for Reservation Management; 47% for Indoor Mapping.",
+          "Designed workplace planning features supporting six-figure ACV ($100K–$750K) enterprise sales and expansions.",
+          "Shipped Map Studio as part of the Mapwize acquisition, bringing map and reservation experiences to desktop and mobile.",
+        ],
+        sections: [
           {
-            type: "text",
-            content:
-              "Employee Works is a conversational chat-based employee experience — employees interact with a chat interface to request services, get answers, and complete workflows that would otherwise require navigating ServiceNow's catalog.\n\nThe core design challenge: make the experience feel AI-native and intent-driven while working within the constraints of ServiceNow's catalog authoring system. The catalog defines how services are structured — and redesigning it wasn't an option.",
+            title: "Overview",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Joined ServiceNow as the first designer on the Workplace Service Delivery team in 2019 — a team building products that didn't yet exist in the market. Over five years, I scaled the product from early market adoption to a mature enterprise platform contributing to a $3B business unit.\n\nMy work spanned three major product areas: Map Studio (indoor mapping), Reservation Management, and Workplace Planning & Real Estate Forecasting.",
+              },
+            ],
           },
           {
-            type: "quote",
-            text: "How might AI capture employee intent and orchestrate complex enterprise workflows — without requiring navigation, and without breaking the catalog?",
+            title: "Map Studio",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Following the Mapwize acquisition, I led the design for Map Studio — a tool that lets enterprise customers build, manage, and publish indoor maps for their office spaces. This included both the desktop authoring experience and the employee-facing mobile map experience.",
+              },
+              { type: "heading", content: "Challenge" },
+              {
+                type: "text",
+                content:
+                  "Mapwize had a powerful but developer-centric mapping tool. The challenge was making it accessible to workplace admins with no GIS or coding background — while preserving the precision enterprise customers needed for large, complex campuses.",
+              },
+              { type: "heading", content: "Outcome" },
+              {
+                type: "text",
+                content:
+                  "Map Studio achieved a 47% active usage rate among installed customers — significantly above benchmark for an enterprise mapping product. The experience reduced map setup time and enabled admins to independently manage campus changes without engineering support.",
+              },
+            ],
           },
           {
-            type: "text",
-            content:
-              "My approach was a hybrid interaction model: conversation captures intent, AI gathers missing context through natural dialogue, and structured UI components surface only when a decision point requires it. The catalog serves as the backend engine — invisible to the employee, but powering everything.",
+            title: "Reservation Management",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Designed end-to-end reservation experiences for desks, rooms, and amenities — covering both employee-facing booking flows and admin management tools.",
+              },
+              { type: "heading", content: "Challenge" },
+              {
+                type: "text",
+                content:
+                  "Post-pandemic hybrid work transformed how employees use office space. Reservations needed to feel as easy as booking a ride — but had to accommodate complex enterprise policies: capacity limits, approval workflows, neighborhood assignments, and health attestations.",
+              },
+              { type: "heading", content: "Outcome" },
+              {
+                type: "text",
+                content:
+                  "Reservation Management reached 49% customer install rate and 31% active usage — strong metrics for an enterprise module. The product directly supported six-figure ACV deals ($100K–$750K) and became a key driver in the Employee Workflows business.",
+              },
+            ],
+          },
+          {
+            title: "Workplace Planning & Real Estate Forecasting",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Designed forecasting and planning tools that help real estate and facilities teams make data-driven decisions about their portfolio — which offices to expand, consolidate, or close.",
+              },
+              { type: "heading", content: "Challenge" },
+              {
+                type: "text",
+                content:
+                  "Workplace leaders were making million-dollar real estate decisions based on gut feel and spreadsheets. The challenge was designing a system that could surface utilization data, model future scenarios, and present recommendations in a way that non-technical stakeholders could act on.",
+              },
+              { type: "heading", content: "Outcome" },
+              {
+                type: "text",
+                content:
+                  "The planning tools became key assets in enterprise sales cycles, enabling account teams to demonstrate ROI for large deals. Features supported expansions into accounts at the $100K–$750K ACV tier.",
+              },
+            ],
           },
         ],
       },
-      {
-        title: "Design Principles",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Intent-first — Employees start with what they need, not where to navigate.\n\nProgressive disclosure — Structured UI appears only at real decision points, not upfront as a form.\n\nHuman-in-the-loop — Employees review and confirm before the system acts. AI proposes, people decide.\n\nConversation as orchestration — A single chat thread can coordinate multiple systems, approvals, and fulfillment steps.",
-          },
-        ],
-      },
-      {
-        title: "Cross-Functional Design Leadership",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Shipping Employee Works required working across a complex stakeholder landscape — product managers defining catalog scope, engineering teams with platform constraints, content designers shaping AI voice and tone, and accessibility requirements for enterprise deployment.\n\nI brought a unique perspective to the UEX team: five years designing WSD gave me deep knowledge of how employees actually use ServiceNow's workplace products. That context shaped how I framed the AI interaction model — not as a replacement for catalog-based workflows, but as a more natural way to enter them.",
-          },
-        ],
-      },
-      {
-        title: "Current — Move Works",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Currently leading design for the Move Works catalog experience — designing the employee-facing interaction model for relocation and mobility workflows within the conversational UEX platform.\n\nMove Works represents the next application of the AI-native patterns established in Employee Works: intent-driven entry, progressive workflow orchestration, and structured UI at decision points.",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "servicenow-wsd",
-    title: "ServiceNow — Workplace Service Delivery",
-    company: "ServiceNow · San Jose, CA",
-    image: "/images/projects/servicenow-wsd/cover.png",
-    images: ["/images/projects/servicenow-wsd/cover.png"],
-    era: "2019 – 2024",
-    challenge:
-      "Building an enterprise workplace platform from the ground up — from zero to $3B, as the team's first designer.",
-    description:
-      "Map Studio, Reservation Management, and workplace planning — from launch to $3B enterprise platform",
-    tags: ["Enterprise", "Workplace", "Mobile"],
-    role: "Staff Product Designer — Workplace Service Delivery",
-    year: "Apr 2019 – Oct 2024",
-    bullets: [
-      "First designer on the WSD team; scaled product from initial market adoption (2020) to mature enterprise platform (2024).",
-      "Contributed to Employee Workflows business — ~29% of total ACV (~$3B of $11B revenue in 2024).",
-      "Led end-to-end design for Map Studio and Reservation Management — 49% customer install rate, 31% active usage for Reservation Management; 47% for Indoor Mapping.",
-      "Designed workplace planning features supporting six-figure ACV ($100K–$750K) enterprise sales and expansions.",
-      "Shipped Map Studio as part of the Mapwize acquisition, bringing map and reservation experiences to desktop and mobile.",
-    ],
-    sections: [
-      {
-        title: "Overview",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Joined ServiceNow as the first designer on the Workplace Service Delivery team in 2019 — a team building products that didn't yet exist in the market. Over five years, I scaled the product from early market adoption to a mature enterprise platform contributing to a $3B business unit.\n\nMy work spanned three major product areas: Map Studio (indoor mapping), Reservation Management, and Workplace Planning & Real Estate Forecasting.",
-          },
-        ],
-      },
-      {
-        title: "Map Studio",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Following the Mapwize acquisition, I led the design for Map Studio — a tool that lets enterprise customers build, manage, and publish indoor maps for their office spaces. This included both the desktop authoring experience and the employee-facing mobile map experience.",
-          },
-          { type: "heading", content: "Challenge" },
-          {
-            type: "text",
-            content:
-              "Mapwize had a powerful but developer-centric mapping tool. The challenge was making it accessible to workplace admins with no GIS or coding background — while preserving the precision enterprise customers needed for large, complex campuses.",
-          },
-          { type: "heading", content: "Outcome" },
-          {
-            type: "text",
-            content:
-              "Map Studio achieved a 47% active usage rate among installed customers — significantly above benchmark for an enterprise mapping product. The experience reduced map setup time and enabled admins to independently manage campus changes without engineering support.",
-          },
-        ],
-      },
-      {
-        title: "Reservation Management",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Designed end-to-end reservation experiences for desks, rooms, and amenities — covering both employee-facing booking flows and admin management tools.",
-          },
-          { type: "heading", content: "Challenge" },
-          {
-            type: "text",
-            content:
-              "Post-pandemic hybrid work transformed how employees use office space. Reservations needed to feel as easy as booking a ride — but had to accommodate complex enterprise policies: capacity limits, approval workflows, neighborhood assignments, and health attestations.",
-          },
-          { type: "heading", content: "Outcome" },
-          {
-            type: "text",
-            content:
-              "Reservation Management reached 49% customer install rate and 31% active usage — strong metrics for an enterprise module. The product directly supported six-figure ACV deals ($100K–$750K) and became a key driver in the Employee Workflows business.",
-          },
-        ],
-      },
-      {
-        title: "Workplace Planning & Real Estate Forecasting",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Designed forecasting and planning tools that help real estate and facilities teams make data-driven decisions about their portfolio — which offices to expand, consolidate, or close.",
-          },
-          { type: "heading", content: "Challenge" },
-          {
-            type: "text",
-            content:
-              "Workplace leaders were making million-dollar real estate decisions based on gut feel and spreadsheets. The challenge was designing a system that could surface utilization data, model future scenarios, and present recommendations in a way that non-technical stakeholders could act on.",
-          },
-          { type: "heading", content: "Outcome" },
-          {
-            type: "text",
-            content:
-              "The planning tools became key assets in enterprise sales cycles, enabling account teams to demonstrate ROI for large deals. Features supported expansions into accounts at the $100K–$750K ACV tier.",
-          },
-        ],
-      },
+      { id: "vision", label: "Vision & Strategy", comingSoon: true },
+      { id: "presentations", label: "Presentations", comingSoon: true },
+      { id: "ai-portfolio", label: "AI Portfolio", comingSoon: true },
+      { id: "mentoring", label: "Mentoring", comingSoon: true },
     ],
   },
   {
@@ -407,139 +419,223 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "paypal-partner",
-    title: "PayPal Partner Servicing",
+    id: "paypal",
+    title: "PayPal",
     company: "Cognizant Technology Solutions (PayPal) · San Jose, CA",
     image: "/images/projects/paypal-partner/cover.png",
-    images: [
-      "/images/projects/paypal-partner/cover.png",
-      "/images/projects/paypal-partner/slide-01.png",
-      "/images/projects/paypal-partner/slide-02.png",
-      "/images/projects/paypal-partner/slide-03.png",
-      "/images/projects/paypal-partner/slide-04.png",
-      "/images/projects/paypal-partner/slide-05.png",
-      "/images/projects/paypal-partner/pres-01.png",
-      "/images/projects/paypal-partner/pres-02.png",
-      "/images/projects/paypal-partner/pres-03.png",
-      "/images/projects/paypal-partner/pres-04.png",
-      "/images/projects/paypal-partner/pres-05.png",
-    ],
     era: "8 – 10 years ago",
-    challenge:
-      "Partners processing millions of daily transactions had no visibility into their own business data with PayPal. Business reports arrived as static PDFs. Finance, operations, and marketing teams couldn't analyze performance in real time or act on it.",
     description:
-      "Designed a self-service data and insights platform for PayPal Partners — real-time merchant activity dashboards, business performance reporting, and proactive notifications to help enterprise partners manage and grow their business.",
-    tags: ["Dashboard", "Data Visualization", "B2B"],
-    role: "Hybrid designer: Interaction + Visual design. Solution discovery, Feature prioritization with 3-in-a-box team, Usability study learnings based design iterations, Delivery of design assets.",
+      "Data and insights platform design for enterprise PayPal Partners — plus motion design explorations for merchant onboarding.",
+    tags: ["Dashboard", "Data Visualization", "B2B", "Motion", "Onboarding"],
+    role: "Interaction + Visual Designer",
     year: "Aug 2016 – Aug 2018",
-    bullets: [
-      "Designed a data and insights portal giving enterprise partners (Shopify, Woo, BigCommerce) real-time visibility into revenue share, transaction volume, and merchant activity.",
-      "Led end-to-end design across solution discovery, feature scoping, usability testing, and production handoff as part of a 3-in-a-box team.",
-      "Conducted partner interviews across NA and EMEA to define personas and surface the core insight: partners were making business decisions with no live data.",
-    ],
-    sections: [
+    tabs: [
       {
-        title: "The Data Problem",
-        blocks: [
+        id: "partner",
+        label: "Partner Servicing",
+        role: "Hybrid designer: Interaction + Visual design — 3-in-a-box team",
+        year: "Aug 2016 – Aug 2018",
+        bullets: [
+          "Designed a data and insights portal giving enterprise partners (Shopify, Woo, BigCommerce) real-time visibility into revenue share, transaction volume, and merchant activity.",
+          "Led end-to-end design across solution discovery, feature scoping, usability testing, and production handoff as part of a 3-in-a-box team.",
+          "Conducted partner interviews across NA and EMEA to define personas and surface the core insight: partners were making business decisions with no live data.",
+        ],
+        sections: [
           {
-            type: "text",
-            content:
-              "A PayPal Partner — like Shopify or BigCommerce — could process millions of transactions per day on behalf of thousands of merchants. Yet their visibility into that data was nearly zero.\n\nBusiness performance reports arrived as static PDFs. Finance teams couldn't slice revenue by geography or time. Operations had no way to identify at-risk merchants before they churned. Support teams logged issues manually across disconnected tools.\n\nThe goal: give partners self-service access to the data they needed to run their business — in real time.",
+            title: "The Data Problem",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "A PayPal Partner — like Shopify or BigCommerce — could process millions of transactions per day on behalf of thousands of merchants. Yet their visibility into that data was nearly zero.\n\nBusiness performance reports arrived as static PDFs. Finance teams couldn't slice revenue by geography or time. Operations had no way to identify at-risk merchants before they churned. Support teams logged issues manually across disconnected tools.\n\nThe goal: give partners self-service access to the data they needed to run their business — in real time.",
+              },
+            ],
+          },
+          {
+            title: "Research — What Partners Said",
+            blocks: [
+              {
+                type: "quote",
+                text: "We have no clarity today about how our TPV and Revenue Share is distributed across North America and United Kingdom. We want to slice-n-dice our TPV and Revenue Share numbers across Geography and Time, and drill-down to see the next level.",
+                attribution: "Shopify",
+              },
+              {
+                type: "quote",
+                text: "We power over 30% of all commerce sites but as we are open source we do not have the ability to record & track all clients. Anything you can offer to help us in this space is hugely valuable to us.",
+                attribution: "Woo",
+              },
+              {
+                type: "quote",
+                text: "We have many PayPal products integrated & if I am not sure what product is best for certain clients, how is my customer supposed to know as well?",
+                attribution: "BigCommerce",
+              },
+              {
+                type: "text",
+                content:
+                  "Interviews across NA and EMEA confirmed that partners had no proactive monitoring of their business with PayPal. Support and issue resolution took too long due to manual, offline processes. Critical business decisions — marketing, risk, operations — were being made without data.",
+              },
+              {
+                type: "image",
+                src: "/images/projects/paypal-partner/slide-05.png",
+                alt: "PayPal Partner — Research insights from partner interviews",
+                caption: "Research synthesis from partner interviews across NA and EMEA",
+              },
+            ],
+          },
+          {
+            title: "Partner Personas",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Six partner personas were identified, each with distinct data needs:\n\n**Executives** (CxO / VP Finance / VP Sales) — Revenue forecasts, transaction volume, merchant growth, buyer payment methods.\n\n**Finance** (Analyst / VP Finance / CFO) — Revenue share trends, PayPal product revenue correlations, buyer-to-revenue relationships.\n\n**Operations** (Sales Ops / Sales Analyst) — Active merchants, high-revenue merchant types, at-risk merchant churn prediction, benchmarking.\n\n**Marketing** (Director / VP Marketing / CMO) — Cross-border trade volumes, buyer demographics, revenue maximization opportunities.\n\n**Tech Teams** (CTO / Engineering Managers) — PayPal integration docs, roadmap resources, API error monitoring.\n\n**Support** (Support Engineer / Director) — Merchant onboarding issues, account access, general support queries.",
+              },
+            ],
+          },
+          {
+            title: "Design — Data and Insights",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "The core of the platform was real-time data visualization — designed to be responsive across mobile and web, filterable by time period and geography, and actionable rather than just informational.\n\nKey views designed:\n\n**Summary Dashboard** — PayPal balance, revenue share, new merchants, and period-over-period trends at a glance.\n\n**Payment Volume Over Time** — Area charts showing TPV trends with in-country vs. cross-border breakdown.\n\n**What's Trending** — Category-level performance across verticals (Footwear, Fashion, Furniture) with 90-day forecasts.\n\n**Net Total Payment Volume** — Multi-dimensional breakdown by industry vertical, filterable by period.",
+              },
+              {
+                type: "image",
+                src: "/images/projects/paypal-partner/slide-02.png",
+                alt: "PayPal Partner — Data and Insights mobile views",
+                caption: "Data and Insights — real-time dashboards across Summary, Payment Volume, Trending, and Net TPV",
+              },
+              {
+                type: "image",
+                src: "/images/projects/paypal-partner/slide-01.png",
+                alt: "PayPal Partner — Merchant Activity Dashboards and Notifications",
+                caption: "Merchant activity dashboards and proactive notifications — API error alerts, account access issues",
+              },
+              {
+                type: "image",
+                src: "/images/projects/paypal-partner/slide-03.png",
+                alt: "PayPal Partner — Partner ecosystem model",
+                caption: "Partner ecosystem model — PayPal, Partner, SMB, Consumer",
+              },
+              {
+                type: "image",
+                src: "/images/projects/paypal-partner/slide-04.png",
+                alt: "PayPal Partner — Partner types taxonomy",
+                caption: "Partner types across Hosted, Installed, ERP/LE, Marketplaces and Solution Providers",
+              },
+            ],
+          },
+          {
+            title: "Design Challenges",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Designing during feature definition — foundation patterns were still being established as I was building on top of them. Data visualization at responsive breakpoints required careful decisions about what to show at each screen size. Partner recruitment for usability studies had to account for six distinct roles with different data literacy levels.",
+              },
+            ],
+          },
+          {
+            title: "Outcome",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "MVP goals: mitigate losses and increase sales volume, resolve issues faster, reduce customer friction, and enable faster marketing, risk, and operational decisions.\n\nMeasured via in-product feedback, beta partner interviews, and page instrumentation. The self-service model replaced manual PDF reports and gave enterprise partners the live data infrastructure they needed to manage their business with PayPal.",
+              },
+            ],
           },
         ],
       },
       {
-        title: "Research — What Partners Said",
-        blocks: [
-          {
-            type: "quote",
-            text: "We have no clarity today about how our TPV and Revenue Share is distributed across North America and United Kingdom. We want to slice-n-dice our TPV and Revenue Share numbers across Geography and Time, and drill-down to see the next level.",
-            attribution: "Shopify",
-          },
-          {
-            type: "quote",
-            text: "We power over 30% of all commerce sites but as we are open source we do not have the ability to record & track all clients. Anything you can offer to help us in this space is hugely valuable to us.",
-            attribution: "Woo",
-          },
-          {
-            type: "quote",
-            text: "We have many PayPal products integrated & if I am not sure what product is best for certain clients, how is my customer supposed to know as well?",
-            attribution: "BigCommerce",
-          },
-          {
-            type: "text",
-            content:
-              "Interviews across NA and EMEA confirmed that partners had no proactive monitoring of their business with PayPal. Support and issue resolution took too long due to manual, offline processes. Critical business decisions — marketing, risk, operations — were being made without data.",
-          },
-          {
-            type: "image",
-            src: "/images/projects/paypal-partner/slide-05.png",
-            alt: "PayPal Partner — Research insights from partner interviews",
-            caption: "Research synthesis from partner interviews across NA and EMEA",
-          },
+        id: "motion",
+        label: "Motion Design",
+        role: "Motion/Interaction Designer — Prototyped in Framer",
+        year: "2016",
+        bullets: [
+          "Designed micro-interactions to guide user attention during multi-step merchant onboarding.",
+          "Explored three patterns — progressive reveal, accordion, and numbered/sequenced — selecting the accordion for its simplicity and engineering feasibility.",
+          "Built a working prototype in Framer demonstrating the complete merchant signup flow.",
         ],
-      },
-      {
-        title: "Partner Personas",
-        blocks: [
+        sections: [
           {
-            type: "text",
-            content:
-              "Six partner personas were identified, each with distinct data needs:\n\n**Executives** (CxO / VP Finance / VP Sales) — Revenue forecasts, transaction volume, merchant growth, buyer payment methods.\n\n**Finance** (Analyst / VP Finance / CFO) — Revenue share trends, PayPal product revenue correlations, buyer-to-revenue relationships.\n\n**Operations** (Sales Ops / Sales Analyst) — Active merchants, high-revenue merchant types, at-risk merchant churn prediction, benchmarking.\n\n**Marketing** (Director / VP Marketing / CMO) — Cross-border trade volumes, buyer demographics, revenue maximization opportunities.\n\n**Tech Teams** (CTO / Engineering Managers) — PayPal integration docs, roadmap resources, API error monitoring.\n\n**Support** (Support Engineer / Director) — Merchant onboarding issues, account access, general support queries.",
-          },
-        ],
-      },
-      {
-        title: "Design — Data and Insights",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "The core of the platform was real-time data visualization — designed to be responsive across mobile and web, filterable by time period and geography, and actionable rather than just informational.\n\nKey views designed:\n\n**Summary Dashboard** — PayPal balance, revenue share, new merchants, and period-over-period trends at a glance.\n\n**Payment Volume Over Time** — Area charts showing TPV trends with in-country vs. cross-border breakdown.\n\n**What's Trending** — Category-level performance across verticals (Footwear, Fashion, Furniture) with 90-day forecasts.\n\n**Net Total Payment Volume** — Multi-dimensional breakdown by industry vertical, filterable by period.",
+            title: "The Problem",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Merchant 'Amanda' owns a florist business and needs to connect with PayPal through a partner platform (BigCommerce) to process transactions. She faces a lengthy, complex setup process with multiple steps.\n\nGoal: create a simple one-page flow to help merchants like Amanda quickly connect with PayPal and receive funds faster.",
+              },
+              {
+                type: "video",
+                url: "/videos/paypal-partner/3.mp4",
+                caption: "Customer experience journey map — Amanda's merchant onboarding story",
+              },
+            ],
           },
           {
-            type: "image",
-            src: "/images/projects/paypal-partner/slide-02.png",
-            alt: "PayPal Partner — Data and Insights mobile views",
-            caption: "Data and Insights — real-time dashboards across Summary, Payment Volume, Trending, and Net TPV",
+            title: "Design Patterns Explored",
+            blocks: [
+              { type: "heading", content: "Progressive Reveal" },
+              {
+                type: "text",
+                content:
+                  "An animated bar draws focus while content slides to reveal the next step with a single call-to-action button.",
+              },
+              {
+                type: "video",
+                url: "/videos/paypal-partner/4.m4v",
+                caption: "Progressive reveal pattern — animated bar brings focus and attention",
+              },
+              { type: "heading", content: "Accordion" },
+              {
+                type: "text",
+                content:
+                  "Collapsed rows show step completion; content slides upward to reveal subsequent steps with one primary action button.",
+              },
+              {
+                type: "video",
+                url: "/videos/paypal-partner/5.m4v",
+                caption: "Accordion pattern — collapsed rows indicate completion of previous steps",
+              },
+              { type: "heading", content: "Numbered and Sequenced" },
+              {
+                type: "text",
+                content:
+                  "Numbered icons indicate current position; animated checkmarks show completion with a side panel previewing previous steps.",
+              },
+              {
+                type: "video",
+                url: "/videos/paypal-partner/6.m4v",
+                caption: "Numbered and sequenced pattern — animated checkmarks and step preview",
+              },
+            ],
           },
           {
-            type: "image",
-            src: "/images/projects/paypal-partner/slide-01.png",
-            alt: "PayPal Partner — Merchant Activity Dashboards and Notifications",
-            caption: "Merchant activity dashboards and proactive notifications — API error alerts, account access issues",
-          },
-          {
-            type: "image",
-            src: "/images/projects/paypal-partner/slide-03.png",
-            alt: "PayPal Partner — Partner ecosystem model",
-            caption: "Partner ecosystem model — PayPal, Partner, SMB, Consumer",
-          },
-          {
-            type: "image",
-            src: "/images/projects/paypal-partner/slide-04.png",
-            alt: "PayPal Partner — Partner types taxonomy",
-            caption: "Partner types across Hosted, Installed, ERP/LE, Marketplaces and Solution Providers",
-          },
-        ],
-      },
-      {
-        title: "Design Challenges",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Designing during feature definition — foundation patterns were still being established as I was building on top of them. Data visualization at responsive breakpoints required careful decisions about what to show at each screen size. Partner recruitment for usability studies had to account for six distinct roles with different data literacy levels.",
-          },
-        ],
-      },
-      {
-        title: "Outcome",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "MVP goals: mitigate losses and increase sales volume, resolve issues faster, reduce customer friction, and enable faster marketing, risk, and operational decisions.\n\nMeasured via in-product feedback, beta partner interviews, and page instrumentation. The self-service model replaced manual PDF reports and gave enterprise partners the live data infrastructure they needed to manage their business with PayPal.",
+            title: "Final Solution",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Selected the accordion pattern variant — chosen for its simplicity and implementation feasibility. The flow accommodates country selection, email verification, and conditional business account information gathering.\n\nA working prototype was built in Framer demonstrating the complete merchant signup flow.",
+              },
+              {
+                type: "video",
+                url: "/videos/paypal-partner/7.m4v",
+                caption: "Final accordion solution — complete merchant signup flow",
+              },
+              {
+                type: "video",
+                url: "/videos/paypal-partner/8.m4v",
+                caption: "Merchant onboarding — country selection and email verification",
+              },
+              {
+                type: "video",
+                url: "/videos/paypal-partner/9.mp4",
+                caption: "Merchant onboarding — conditional business account information gathering",
+              },
+            ],
           },
         ],
       },
@@ -613,301 +709,177 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "chase-payments",
-    title: "Chase Personal Banking",
+    id: "chase",
+    title: "JPMorgan Chase",
     company: "JPMorgan Chase (Contract) · San Francisco, CA",
     image: "/images/projects/chase-payments/cover.png",
-    images: [
-      "/images/projects/chase-payments/cover.png",
-      "/images/projects/chase-payments/otp.png",
-      "/images/projects/chase-payments/slide-01.png",
-      "/images/projects/chase-payments/slide-02.png",
-      "/images/projects/chase-payments/slide-03.png",
-      "/images/projects/chase-payments/slide-04.png",
-      "/images/projects/chase-payments/slide-05.png",
-      "/images/projects/chase-payments/slide-06.png",
-      "/images/projects/chase-payments/slide-07.png",
-      "/images/projects/chase-payments/pres-01.png",
-      "/images/projects/chase-payments/pres-02.jpg",
-      "/images/projects/chase-payments/pres-03.png",
-      "/images/projects/chase-payments/pres-04.jpg",
-    ],
     era: "10 – 12 years ago",
-    challenge:
-      "Payment flow simplification. Scaling the payment form for all payment products. Identify and optimize payment input form entry and touch points.",
     description:
-      "Chase Mobile app — redesign of Payments and Pay Bill flows, cardless ATM OTP, and responsive web payments for Credit Card and Auto-loan.",
-    tags: ["Web", "Mobile", "Payments"],
+      "Chase Mobile Banking — redesign of Payments and Pay Bill flows, cardless ATM OTP, and responsive web payments.",
+    tags: ["Web", "Mobile", "Payments", "iOS", "Android"],
     role: "UX Designer",
     year: "Oct 2014 – May 2016",
-    bullets: [
-      "Led responsive redesign of the Chase Personal Banking payments website.",
-      "Designed next-generation payment and Pay Bill flows for Chase Mobile.",
-      "Designed the cardless ATM One Time Passcode feature for iOS and Android.",
-    ],
-    sections: [
+    tabs: [
       {
-        title: "Chase Mobile — Payments / Pay Bill",
-        blocks: [
+        id: "payments",
+        label: "Mobile Payments",
+        role: "UX Designer",
+        year: "Oct 2014 – May 2016",
+        bullets: [
+          "Designed next-generation payment and Pay Bill flows for Chase Mobile — scaled across Credit Card, Auto Loan, Merchant Bill Pay, P2P, and Mortgage.",
+          "Led responsive redesign of the Chase Personal Banking payments website for Credit Card and Auto-loan.",
+          "Influenced the design and launch of the streamlined Quick Pay feature.",
+        ],
+        sections: [
           {
-            type: "text",
-            content:
-              "Chase Mobile app — Redesign of Payments and Pay Bill flows. Goal: simplify payment tasks for Chase native mobile app consumers within a newly evolving design platform.",
+            title: "Chase Mobile — Payments / Pay Bill",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Chase Mobile app — Redesign of Payments and Pay Bill flows. Goal: simplify payment tasks for Chase native mobile app consumers within a newly evolving design platform.",
+              },
+              { type: "heading", content: "User Research" },
+              {
+                type: "quote",
+                text: "Users are anxious when making a bill payment and are often uncertain whether a payment went through.",
+              },
+              {
+                type: "text",
+                content:
+                  "Research showed users felt the existing flow had too many steps. Design needed to work across multiple payment products: Merchant Bill Pay, Credit Card, Transfer, Auto Loan, and Mortgage.",
+              },
+              { type: "heading", content: "Design Solutions" },
+              {
+                type: "text",
+                content:
+                  "Redesigned payment form as a component-based fluid design system with: consistent experience across all payment tasks, streamlined flow by reducing verify steps, enhanced error prevention, and a celebratory confirmation page with product education opportunities. Added timeline view for upcoming, pending, and past payments.",
+              },
+              {
+                type: "image",
+                src: "/images/projects/chase-payments/slide-01.png",
+                alt: "Chase Mobile — Scaling payment form across all products",
+                caption: "Scaling the payment form across all payment products — Credit Card, Auto-loan, Merchant Bill, P2P",
+              },
+              {
+                type: "image",
+                src: "/images/projects/chase-payments/slide-02.png",
+                alt: "Chase Mobile — P2P Payments before and after redesign",
+                caption: "Peer to peer payments — simplified flow before and after redesign",
+              },
+              {
+                type: "image",
+                src: "/images/projects/chase-payments/slide-03.png",
+                alt: "Chase Mobile — P2P Payments redesign annotated",
+                caption: "Annotated redesign rationale — contact-first flow, streamlined amount entry, action sheet confirmation",
+              },
+            ],
           },
           {
-            type: "heading",
-            content: "User Research",
-          },
-          {
-            type: "quote",
-            text: "Users are anxious when making a bill payment and are often uncertain whether a payment went through.",
-          },
-          {
-            type: "text",
-            content:
-              "Research showed users felt the existing flow had too many steps. Design needed to work across multiple payment products: Merchant Bill Pay, Credit Card, Transfer, Auto Loan, and Mortgage.",
-          },
-          {
-            type: "heading",
-            content: "Design Solutions",
-          },
-          {
-            type: "text",
-            content:
-              "Redesigned payment form as a component-based fluid design system with: consistent experience across all payment tasks, streamlined flow by reducing verify steps, enhanced error prevention, and a celebratory confirmation page with product education opportunities. Added timeline view for upcoming, pending, and past payments.",
-          },
-          {
-            type: "heading",
-            content: "Result",
-          },
-          {
-            type: "text",
-            content:
-              "Influenced the design and launch of the streamlined Quick Pay feature.",
-          },
-          {
-            type: "image",
-            src: "/images/projects/chase-payments/slide-01.png",
-            alt: "Chase Mobile — Scaling payment form across all products",
-            caption: "Scaling the payment form across all payment products — Credit Card, Auto-loan, Merchant Bill, P2P",
-          },
-          {
-            type: "image",
-            src: "/images/projects/chase-payments/slide-02.png",
-            alt: "Chase Mobile — P2P Payments before and after redesign",
-            caption: "Peer to peer payments — simplified flow before and after redesign",
-          },
-          {
-            type: "image",
-            src: "/images/projects/chase-payments/slide-03.png",
-            alt: "Chase Mobile — P2P Payments redesign annotated",
-            caption: "Annotated redesign rationale — contact-first flow, streamlined amount entry, action sheet confirmation",
+            title: "Chase Responsive Web — Credit Card / Auto-loan Payments",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Responsive redesign of www.chase.com for Credit card and Auto-loan payments. UX Refresh: create a seamless, coherent, consistent experience in alignment with design principles — Simple, Human, Capable, Interoperable, Accessible.",
+              },
+              {
+                type: "image",
+                src: "/images/projects/chase-payments/slide-06.png",
+                alt: "Chase Responsive Web — Payment screens across device sizes",
+                caption: "Responsive payment screens — consistent experience across desktop, tablet, and mobile",
+              },
+              {
+                type: "image",
+                src: "/images/projects/chase-payments/slide-07.png",
+                alt: "Chase Responsive Web — Auto-loan payment",
+                caption: "Auto-loan payment — responsive layout with payment input form",
+              },
+            ],
           },
         ],
       },
       {
-        title: "Chase Mobile ATM — One Time Passcode",
-        blocks: [
-          {
-            type: "heading",
-            content: "Project",
-          },
-          {
-            type: "text",
-            content:
-              "Chase mobile ATM — One time passcode. The goal of the design is to introduce a new way for Chase mobile app consumers to withdraw cash from a Chase eATM with just a one time passcode generated within the app.",
-          },
-          {
-            type: "heading",
-            content: "My Role",
-          },
-          {
-            type: "text",
-            content:
-              "Interaction + Visual design. Collaborated with Product stakeholders. Iterated and delivered key screens for iOS and Android device layouts.",
-          },
-          {
-            type: "heading",
-            content: "Challenges",
-          },
-          {
-            type: "text",
-            content:
-              "Multiple entry points — authenticated vs unauthenticated. New Product feature integration work with service limitations.",
-          },
-          {
-            type: "image",
-            src: "/images/projects/chase-payments/slide-04.png",
-            alt: "Chase ATM OTP — First time user experience feature flow",
-            caption: "First time user experience — generated 8-digit access code with countdown timer and nearby ATM locations",
-          },
-          {
-            type: "image",
-            src: "/images/projects/chase-payments/slide-05.png",
-            alt: "Chase ATM OTP — Multiple entry points",
-            caption: "Multiple entry points — login screen, account dashboard, hamburger nav, and locations screen",
-          },
-          { type: "heading", content: "Prototype Videos" },
-          {
-            type: "video",
-            url: "/videos/chase-payments/Click_OOBE_Card.m4v",
-            caption: "Entry point — OOBE Card: first-time user OTP activation",
-          },
-          {
-            type: "video",
-            url: "/videos/chase-payments/Click_Acct_TextLink.m4v",
-            caption: "Entry point — Account Text Link: OTP from account dashboard",
-          },
-          {
-            type: "video",
-            url: "/videos/chase-payments/Click_SideMenu_Find ATM Link.m4v",
-            caption: "Entry point — Side Menu ATM Link: OTP from hamburger nav",
-          },
+        id: "otp",
+        label: "ATM One Time Passcode",
+        role: "Interaction + Visual Design — iOS and Android",
+        year: "Oct 2014 – May 2016",
+        bullets: [
+          "Designed cardless ATM OTP feature covering 4 entry points and 8+ scenario flows for iOS and Android.",
+          "Applied first-time user experience design principles validated by usability study.",
+          "Chose bottom placement for OOBE card after user study found no clear winner — bottom had stronger dismissability.",
         ],
-      },
-      {
-        title: "Chase Responsive Web — Credit Card / Auto-loan Payments",
-        blocks: [
+        sections: [
           {
-            type: "heading",
-            content: "Project",
+            title: "Overview",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "The goal of the design was to introduce a new way for Chase mobile app consumers to withdraw cash from a Chase eATM with just an 8-digit one time passcode generated within the app — no debit card needed.\n\nI worked on the Interaction and Visual design, collaborating with product stakeholders and iterating key screens for both iOS and Android.",
+              },
+            ],
           },
           {
-            type: "text",
-            content:
-              "Responsive redesign of www.chase.com for Credit card and Auto-loan payments.",
+            title: "Challenge — Multiple Entry Points",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "Entry point #1 — OOBE Card: \"New for you!\" card showcasing the OTP feature.\n\nEntry point #2 — Side menu Find ATM List Item: User taps on the side menu to find ATMs.\n\nEntry point #3 — Get ATM Access Code Text Link: User taps on the link from the account dashboard.\n\nEntry point #4 — Login screen ATM and Branch link: Unauthenticated and unenrolled scenario.",
+              },
+              {
+                type: "image",
+                src: "/images/projects/chase-payments/slide-05.png",
+                alt: "Chase ATM OTP — multiple entry points",
+                caption: "Four entry points — login screen, account dashboard, hamburger nav, and locations screen",
+              },
+            ],
           },
           {
-            type: "heading",
-            content: "My Role",
+            title: "First Time User Experience",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "The success of a new feature depends on effectively communicating it while minimizing disruption. These design principles provided a framework for using interstitials sparingly:",
+              },
+              {
+                type: "quote",
+                text: "Don't show and tell. Let the users play. Always allow users to dismiss. Make it brief.",
+              },
+              {
+                type: "text",
+                content:
+                  "Scenarios covered:\n• User restarted the app (TouchID + step-up password auth, ID + password auth)\n• User backgrounded the app (code in-session, code expired)\n• Alerts based on app settings (location services enabled, availability of cardless ATM)\n• Alerts based on profile eligibility (jailbroken device, user account closed)",
+              },
+              {
+                type: "image",
+                src: "/images/projects/chase-payments/slide-04.png",
+                alt: "Chase ATM OTP — first time user experience",
+                caption: "First time experience — generated 8-digit access code with countdown timer and nearby ATM locations",
+              },
+            ],
           },
           {
-            type: "text",
-            content:
-              "Interaction designer — Worked with product stakeholders from distributed teams. Delivered key UX documentation — annotated wireframes for different device layouts.",
-          },
-          {
-            type: "heading",
-            content: "Challenges",
-          },
-          {
-            type: "text",
-            content:
-              "UX Refresh: Create a seamless coherent, consistent experience in alignment with design principles: Simple, Human, Capable, Interoperable, Accessible. Work within API Service Limitations.",
-          },
-          {
-            type: "image",
-            src: "/images/projects/chase-payments/slide-06.png",
-            alt: "Chase Responsive Web — Payment screens across device sizes",
-            caption: "Responsive payment screens — consistent experience across desktop, tablet, and mobile",
-          },
-          {
-            type: "image",
-            src: "/images/projects/chase-payments/slide-07.png",
-            alt: "Chase Responsive Web — Auto-loan payment",
-            caption: "Auto-loan payment — responsive layout with payment input form",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "chase-otp",
-    title: "Chase ATM — One Time Passcode",
-    company: "JPMorgan Chase (Contract) · San Francisco, CA",
-    image: "/images/projects/chase-payments/otp.png",
-    images: [
-      "/images/projects/chase-payments/otp.png",
-      "/images/projects/chase-payments/slide-04.png",
-      "/images/projects/chase-payments/slide-05.png",
-    ],
-    era: "10 – 12 years ago",
-    challenge:
-      "Multiple entry points for the ATM OTP feature in both authenticated and unauthenticated scenarios — with service limitations constraining the integration.",
-    description:
-      "Designed a new way for Chase mobile app consumers to withdraw cash from a Chase eATM using an 8-digit one time passcode generated within the app — no debit card needed.",
-    tags: ["Mobile", "iOS", "Android"],
-    role: "Interaction + Visual Design — iOS and Android",
-    year: "Oct 2014 – May 2016",
-    bullets: [
-      "Designed cardless ATM OTP feature covering 4 entry points and 8+ scenario flows for iOS and Android.",
-      "Applied first-time user experience design principles validated by usability study.",
-      "Chose bottom placement for OOBE card after user study found no clear winner — bottom had stronger dismissability.",
-    ],
-    sections: [
-      {
-        title: "Overview",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "The goal of the design was to introduce a new way for Chase mobile app consumers to withdraw cash from a Chase eATM with just an 8-digit one time passcode generated within the app — no debit card needed.\n\nI worked on the Interaction and Visual design, collaborating with product stakeholders and iterating key screens for both iOS and Android.",
-          },
-        ],
-      },
-      {
-        title: "Challenge — Multiple Entry Points",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "The main challenge was handling multiple entry points in both authenticated and unauthenticated scenarios:",
-          },
-          {
-            type: "text",
-            content:
-              "Entry point #1 — OOBE Card: \"New for you!\" card showcasing the OTP feature.\n\nEntry point #2 — Side menu Find ATM List Item: User taps on the side menu to find ATMs.\n\nEntry point #3 — Get ATM Access Code Text Link: User taps on the link from the account dashboard.\n\nEntry point #4 — Login screen ATM and Branch link: Unauthenticated and unenrolled scenario.",
-          },
-          {
-            type: "image",
-            src: "/images/projects/chase-payments/slide-05.png",
-            alt: "Chase ATM OTP — multiple entry points",
-            caption: "Four entry points — login screen, account dashboard, hamburger nav, and locations screen",
-          },
-        ],
-      },
-      {
-        title: "First Time User Experience",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "The success of a new feature depends on effectively communicating it while minimizing disruption. These design principles provided a framework for using interstitials sparingly:",
-          },
-          {
-            type: "quote",
-            text: "Don't show and tell. Let the users play. Always allow users to dismiss. Make it brief.",
-          },
-          {
-            type: "text",
-            content:
-              "Scenarios covered:\n• User restarted the app (TouchID + step-up password auth, ID + password auth)\n• User backgrounded the app (code in-session, code expired)\n• Alerts based on app settings (location services enabled, availability of cardless ATM)\n• Alerts based on profile eligibility (jailbroken device, user account closed)",
-          },
-          {
-            type: "image",
-            src: "/images/projects/chase-payments/slide-04.png",
-            alt: "Chase ATM OTP — first time user experience",
-            caption: "First time experience — generated 8-digit access code with countdown timer and nearby ATM locations",
-          },
-        ],
-      },
-      {
-        title: "User Study",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "We ran a user study to understand preference between two prototype approaches for discoverability of the new ATM access code feature.",
-          },
-          {
-            type: "text",
-            content:
-              "Prototype #1 — \"Get ATM Access Code\" is one extra tap away when tapping Find ATM/Branch from the side menu.\n\nPrototype #2 — \"Get ATM Access Code\" is grouped under ATM/Branch options from the side menu and one less click to access the new feature.",
-          },
-          {
-            type: "text",
-            content:
-              "Key learnings:\n• Preference was split on bottom placement vs. top inline with the conversation deck.\n• Primary reason for preferring bottom placement: ability to dismiss the OOBE.\n• Primary reason for preferring top placement: it did not look like a pop-up.\n\nWe chose bottom placement after usability study validation — no clear winner, but bottom placement was also most feasible in the 1-month pilot development effort.",
+            title: "User Study",
+            blocks: [
+              {
+                type: "text",
+                content:
+                  "We ran a user study to understand preference between two prototype approaches for discoverability of the new ATM access code feature.",
+              },
+              {
+                type: "text",
+                content:
+                  "Prototype #1 — \"Get ATM Access Code\" is one extra tap away when tapping Find ATM/Branch from the side menu.\n\nPrototype #2 — \"Get ATM Access Code\" is grouped under ATM/Branch options from the side menu and one less click to access the new feature.",
+              },
+              {
+                type: "text",
+                content:
+                  "Key learnings:\n• Preference was split on bottom placement vs. top inline with the conversation deck.\n• Primary reason for preferring bottom placement: ability to dismiss the OOBE.\n• Primary reason for preferring top placement: it did not look like a pop-up.\n\nWe chose bottom placement after usability study validation — no clear winner, but bottom placement was also most feasible in the 1-month pilot development effort.",
+              },
+            ],
           },
         ],
       },
@@ -1025,115 +997,6 @@ export const projects: Project[] = [
             type: "text",
             content:
               "Research insights directly informed WallyHome's blog content, customer support troubleshooting documentation, first product launch preparation, and installation/setup user experience improvements. The study revealed strong value for vacation homes and multi-property owners.",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "motion-design",
-    title: "Motion Design Explorations",
-    company: "PayPal · San Jose, CA",
-    image: "/images/projects/motion.png",
-    images: ["/images/projects/motion.png"],
-    era: "8 – 10 years ago",
-    challenge:
-      "PayPal's merchant onboarding experience was lengthy and complex. The challenge was to design micro-interactions that guide user attention and focus, making a multi-step setup flow feel simple and fast.",
-    description:
-      "Micro-interaction design for PayPal's merchant onboarding — exploring progressive reveal, accordion, and sequenced patterns to help merchants connect with PayPal through partner platforms like BigCommerce.",
-    tags: ["Motion", "Onboarding", "PayPal"],
-    role: "Motion/Interaction Designer — Prototyped in Framer",
-    year: "2016",
-    bullets: [
-      "Designed micro-interactions to guide user attention during multi-step merchant onboarding.",
-      "Explored three patterns — progressive reveal, accordion, and numbered/sequenced — selecting the accordion for its simplicity and engineering feasibility.",
-      "Built a working prototype in Framer demonstrating the complete merchant signup flow.",
-    ],
-    sections: [
-      {
-        title: "The Problem",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Merchant 'Amanda' owns a florist business and needs to connect with PayPal through a partner platform (BigCommerce) to process transactions. She faces a lengthy, complex setup process with multiple steps.\n\nGoal: create a simple one-page flow to help merchants like Amanda quickly connect with PayPal and receive funds faster.",
-          },
-          {
-            type: "video",
-            url: "/videos/paypal-partner/3.mp4",
-            caption: "Customer experience journey map — Amanda's merchant onboarding story",
-          },
-        ],
-      },
-      {
-        title: "Design Patterns Explored",
-        blocks: [
-          {
-            type: "heading",
-            content: "Progressive Reveal",
-          },
-          {
-            type: "text",
-            content:
-              "An animated bar draws focus while content slides to reveal the next step with a single call-to-action button.",
-          },
-          {
-            type: "video",
-            url: "/videos/paypal-partner/4.m4v",
-            caption: "Progressive reveal pattern — animated bar brings focus and attention",
-          },
-          {
-            type: "heading",
-            content: "Accordion",
-          },
-          {
-            type: "text",
-            content:
-              "Collapsed rows show step completion; content slides upward to reveal subsequent steps with one primary action button.",
-          },
-          {
-            type: "video",
-            url: "/videos/paypal-partner/5.m4v",
-            caption: "Accordion pattern — collapsed rows indicate completion of previous steps",
-          },
-          {
-            type: "heading",
-            content: "Numbered and Sequenced",
-          },
-          {
-            type: "text",
-            content:
-              "Numbered icons indicate current position; animated checkmarks show completion with a side panel previewing previous steps.",
-          },
-          {
-            type: "video",
-            url: "/videos/paypal-partner/6.m4v",
-            caption: "Numbered and sequenced pattern — animated checkmarks and step preview",
-          },
-        ],
-      },
-      {
-        title: "Final Solution",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Selected the accordion pattern variant — chosen for its simplicity and implementation feasibility. The flow accommodates country selection, email verification, and conditional business account information gathering.\n\nA working prototype was built in Framer demonstrating the complete merchant signup flow.",
-          },
-          {
-            type: "video",
-            url: "/videos/paypal-partner/7.m4v",
-            caption: "Final accordion solution — complete merchant signup flow",
-          },
-          {
-            type: "video",
-            url: "/videos/paypal-partner/8.m4v",
-            caption: "Merchant onboarding — country selection and email verification",
-          },
-          {
-            type: "video",
-            url: "/videos/paypal-partner/9.mp4",
-            caption: "Merchant onboarding — conditional business account information gathering",
           },
         ],
       },
