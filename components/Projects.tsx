@@ -167,7 +167,7 @@ export default function Projects() {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center gap-3 text-sm font-medium text-navy/60 hover:text-navy border border-navy/15 hover:border-navy/40 px-8 py-3.5 rounded-full transition-all duration-300 group"
+            className="inline-flex items-center gap-3 text-sm font-medium text-cream bg-navy hover:bg-navy/85 px-8 py-3.5 rounded-full transition-all duration-300 group shadow-sm hover:shadow-md"
           >
             <span>View all projects — editorial view</span>
             <svg

@@ -6,6 +6,7 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
+  { label: "All Projects", href: "/projects", external: true },
   { label: "AI Lab", href: "#ai-lab", external: true },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
