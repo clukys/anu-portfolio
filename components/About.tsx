@@ -3,6 +3,45 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const recommendations = [
+  {
+    quote:
+      "With very little information and onboarding, Anu is able to jump right into a project. If she doesn't have the answer, she'll find it. She's sharp, resourceful, and extremely easy to work with.",
+    name: "Suja Raju",
+    title: "Design Lead, Google",
+  },
+  {
+    quote:
+      "Anu was the primary designer for a complex flow to support a new form of payment in some of Google's mobile apps. With very little instruction, Anu was able to map out the various cases of the flow in a thorough and thoughtful way.",
+    name: "Zak Stern",
+    title: "Product Manager, Google",
+  },
+  {
+    quote:
+      "Flexible. Fast. Resourceful. Delightful! While working with Anu at PayPal, I watched her continually strive to improve the user experience, while interacting professionally and gracefully to meet the demands of a challenging project.",
+    name: "Kathryn Klein",
+    title: "Creative Director, After Midnight Inc.",
+  },
+  {
+    quote:
+      "It has been a pleasure having Anuradha on my UX team. Never have I met someone so determined to out-do herself on every project she works on. Not only is she a fantastic UX designer but also an incredible team player.",
+    name: "Steven Lee",
+    title: "Vice President, JPMorgan Chase",
+  },
+  {
+    quote:
+      "Anu jumped right into several complex projects that were struggling to find a balance between design, engineering, content, and product. Taking the initiative to find some organization within these projects was exactly what was needed.",
+    name: "Brandon Tineo",
+    title: "Senior Software Engineer, PayPal",
+  },
+  {
+    quote:
+      "I would recommend Anu for any position looking for a creative, meticulous UX Designer. Not only does she have a delightful personality that meshes with various types of work styles, but she also works tirelessly to deliver thoughtful, polished design work.",
+    name: "Jacquelyn Jaech",
+    title: "Co-Founder & CMO, Snupi Technologies",
+  },
+];
+
 const stats = [
   { value: "10+", label: "Years Experience" },
   { value: "5", label: "Companies" },
@@ -144,6 +183,45 @@ export default function About() {
             </div>
           </motion.div>
         </div>
+
+        {/* Recommendations */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
+          className="mt-24"
+        >
+          <p className="text-accent font-semibold tracking-[0.2em] uppercase text-sm mb-3">
+            Recommendations
+          </p>
+          <h3 className="font-serif text-3xl text-navy mb-12">
+            What colleagues say
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recommendations.map((rec, index) => (
+              <motion.div
+                key={rec.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.6 + index * 0.08,
+                  ease: "easeOut",
+                }}
+                className="bg-surface rounded-2xl p-6 border border-light-gray/50 flex flex-col gap-4"
+              >
+                <span className="text-accent font-serif text-3xl leading-none select-none">&ldquo;</span>
+                <p className="text-navy/70 leading-relaxed text-sm flex-1">
+                  {rec.quote}
+                </p>
+                <div className="pt-2 border-t border-light-gray/60">
+                  <p className="text-navy font-medium text-sm">{rec.name}</p>
+                  <p className="text-navy/50 text-xs mt-0.5">{rec.title}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

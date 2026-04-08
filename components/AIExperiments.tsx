@@ -3,7 +3,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { aiExperiments, type AIExperiment } from "@/lib/ai-experiments";
-import { StoryboardGenerator } from "./StoryboardGenerator";
 
 function ExternalLinkIcon({ size = 14 }: { size?: number }) {
   return (
@@ -148,7 +147,7 @@ export default function AIExperiments() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="min-h-screen py-32 md:py-40 bg-surface" ref={ref}>
+    <section id="ai-lab" className="py-28 md:py-36 bg-surface" ref={ref}>
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -157,30 +156,14 @@ export default function AIExperiments() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="mb-16"
         >
-          <a
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-navy/50 hover:text-accent transition-colors mb-10 group"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M10 4L6 8L10 12"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            Back to portfolio
-          </a>
-
           <p className="text-accent font-semibold tracking-[0.2em] uppercase text-sm mb-4">
             Personal Experiments
           </p>
-          <h1 className="font-serif text-5xl sm:text-6xl text-navy mb-6">
+          <h2 className="font-serif text-4xl sm:text-5xl text-navy mb-6">
             AI
             <br />
             <span className="italic text-accent">Lab.</span>
-          </h1>
+          </h2>
           <p className="text-navy/60 text-lg max-w-xl leading-relaxed">
             Weekend builds, hackathon projects, and course exercises — exploring
             what&apos;s possible when design meets AI tools like Bolt, Claude,
@@ -194,16 +177,6 @@ export default function AIExperiments() {
             <ExperimentCard key={exp.id} exp={exp} index={index} />
           ))}
         </div>
-
-        {/* Storyboard / Script Generator */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          className="mt-8"
-        >
-          <StoryboardGenerator />
-        </motion.div>
 
         {/* Footer note */}
         <motion.p

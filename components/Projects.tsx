@@ -123,6 +123,39 @@ export default function Projects() {
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
+
+          {/* AI Experiments card */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: projects.length * 0.1, ease: "easeOut" }}
+          >
+            <Link href="#ai-lab" className="group block h-full">
+              <div className="relative bg-navy rounded-2xl overflow-hidden border border-navy h-full flex flex-col justify-between p-6 min-h-[280px] card-hover">
+                {/* Background glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-transparent pointer-events-none" />
+
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-accent text-[10px] font-semibold tracking-widest uppercase bg-accent/15 px-2.5 py-1 rounded-full">AI Lab</span>
+                  </div>
+                  <h3 className="font-serif text-2xl text-cream group-hover:text-accent transition-colors leading-snug">
+                    AI Side Projects &amp; Experiments
+                  </h3>
+                  <p className="text-cream/50 text-sm leading-relaxed mt-3">
+                    Building with AI tools — emergency prep chatbots, community platforms, complaint trackers, and more. Quick iterations, real learnings.
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 mt-6 text-accent text-sm font-medium group-hover:gap-3 transition-all">
+                  <span>View experiments</span>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
         </div>
 
         {/* View all — fashion scroll page */}

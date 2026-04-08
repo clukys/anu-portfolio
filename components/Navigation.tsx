@@ -6,6 +6,7 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
+  { label: "AI Lab", href: "#ai-lab", external: true },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
@@ -84,21 +85,23 @@ export default function Navigation() {
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace("#", "");
+              const isActive = !link.external && activeSection === link.href.replace("#", "");
               return (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     className={`relative text-sm transition-colors duration-150 ${
                       isActive ? "text-navy" : "text-navy/50 hover:text-navy"
-                    }`}
+                    } ${link.external ? "flex items-center gap-1" : ""}`}
                     style={{
                       fontWeight: isActive ? 600 : 400,
                       transition: "color 0.15s, font-weight 0.2s",
                     }}
                   >
                     {link.label}
-                    {/* Animated underline */}
+                    {link.external && (
+                      <span className="text-accent text-[10px] font-semibold tracking-wide bg-accent/10 px-1.5 py-0.5 rounded-full">NEW</span>
+                    )}
                     <span
                       className="absolute -bottom-0.5 left-0 h-px bg-accent transition-all duration-200"
                       style={{ width: isActive ? "100%" : "0%" }}
@@ -186,9 +189,12 @@ export default function Navigation() {
                     <a
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className="text-sm font-medium text-navy/60 hover:text-navy transition-colors duration-150"
+                      className="flex items-center gap-2 text-sm font-medium text-navy/60 hover:text-navy transition-colors duration-150"
                     >
                       {link.label}
+                      {link.external && (
+                        <span className="text-accent text-[10px] font-semibold tracking-wide bg-accent/10 px-1.5 py-0.5 rounded-full">NEW</span>
+                      )}
                     </a>
                   </motion.li>
                 ))}

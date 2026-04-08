@@ -22,15 +22,13 @@ export function BlockRenderer({ block }: { block: Block }) {
     if (!block.src) return null
     return (
       <figure className="my-2">
-        <div
-          className="relative w-full rounded-2xl overflow-hidden bg-surface"
-          style={{ aspectRatio: "16/9" }}
-        >
+        <div className="rounded-2xl overflow-hidden bg-surface flex items-center justify-center p-4">
           <Image
             src={block.src}
             alt={block.alt || block.caption || ""}
-            fill
-            className="object-cover"
+            width={900}
+            height={600}
+            className="rounded-xl object-contain max-h-[420px] w-auto max-w-full"
           />
         </div>
         {block.caption && (
@@ -48,6 +46,7 @@ export function BlockRenderer({ block }: { block: Block }) {
       /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/
     )
     const vimeoMatch = block.url.match(/vimeo\.com\/(\d+)/)
+    const isLocalFile = block.url.startsWith("/")
     const embedUrl = youtubeMatch
       ? `https://www.youtube.com/embed/${youtubeMatch[1]}`
       : vimeoMatch
@@ -59,12 +58,20 @@ export function BlockRenderer({ block }: { block: Block }) {
           className="relative w-full rounded-2xl overflow-hidden"
           style={{ aspectRatio: "16/9" }}
         >
-          <iframe
-            src={embedUrl}
-            className="absolute inset-0 w-full h-full"
-            frameBorder="0"
-            allowFullScreen
-          />
+          {isLocalFile ? (
+            <video
+              src={block.url}
+              controls
+              className="absolute inset-0 w-full h-full object-contain bg-black"
+            />
+          ) : (
+            <iframe
+              src={embedUrl}
+              className="absolute inset-0 w-full h-full"
+              frameBorder="0"
+              allowFullScreen
+            />
+          )}
         </div>
         {block.caption && (
           <figcaption className="text-center text-navy/40 text-sm mt-3">

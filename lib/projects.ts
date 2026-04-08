@@ -46,9 +46,9 @@ export const projects: Project[] = [
     role: "Staff Product Designer — Unified Employee Experience",
     year: "Oct 2024 – Present",
     bullets: [
-      "Transitioned to UEX to lead AI-native employee experience design, bringing cross-product perspective.",
-      "Shipped Employee Works — a conversational chat-based employee experience within catalog authoring constraints.",
-      "Leading design for Move Works catalog experience.",
+      "Shipped Employee Works — a conversational chat-based employee experience for enterprise employees, designed within the constraints of ServiceNow's catalog authoring system.",
+      "Bridged the gap between AI capabilities and platform constraints — finding the interaction model that worked for employees without requiring catalog re-architecture.",
+      "Led cross-functional design across product, engineering, and content, bringing a cross-product perspective from 5 years of WSD to the UEX team.",
     ],
     sections: [
       {
@@ -57,77 +57,56 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "Enterprise employee workflows — such as travel planning, workspace reservations, and approvals — often require navigating multiple systems, forms, and documents.\n\nAt ServiceNow, I explored how conversational AI could serve as an orchestration layer for these workflows. Instead of requiring employees to navigate complex interfaces, the goal was to allow users to begin with intent while the system dynamically assembles the necessary steps.\n\nThe result was a design exploration of AI-native employee experiences combining conversational interaction with structured UI components.",
+              "Enterprise employee workflows — travel requests, equipment orders, onboarding tasks, approvals — typically require navigating multiple systems, forms, and policies. The promise of conversational AI is that employees could simply say what they need and the system handles the rest.\n\nAt ServiceNow, I transitioned to the Unified Employee Experience team to lead AI-native design for Employee Works — a shipped conversational experience — and to define what AI-first enterprise UX looks like at scale.",
           },
         ],
       },
       {
-        title: "Problem",
+        title: "What Was Shipped — Employee Works",
         blocks: [
           {
             type: "text",
             content:
-              "Enterprise workflows typically involve fragmented systems, repetitive data entry, multiple approval steps, and scattered documentation and policies. Even simple tasks — such as booking business travel — can require navigating several applications.",
+              "Employee Works is a conversational chat-based employee experience — employees interact with a chat interface to request services, get answers, and complete workflows that would otherwise require navigating ServiceNow's catalog.\n\nThe core design challenge: make the experience feel AI-native and intent-driven while working within the constraints of ServiceNow's catalog authoring system. The catalog defines how services are structured — and redesigning it wasn't an option.",
           },
           {
             type: "quote",
-            text: "How might AI capture user intent and guide employees through complex workflows while maintaining clarity and control?",
+            text: "How might AI capture employee intent and orchestrate complex enterprise workflows — without requiring navigation, and without breaking the catalog?",
+          },
+          {
+            type: "text",
+            content:
+              "My approach was a hybrid interaction model: conversation captures intent, AI gathers missing context through natural dialogue, and structured UI components surface only when a decision point requires it. The catalog serves as the backend engine — invisible to the employee, but powering everything.",
           },
         ],
       },
       {
-        title: "Design Approach",
+        title: "Design Principles",
         blocks: [
           {
             type: "text",
             content:
-              "I explored a hybrid interaction model where conversation captures intent, AI gathers missing context, and structured UI modules appear when decisions are required.",
-          },
-          { type: "heading", content: "Core Principles" },
-          {
-            type: "text",
-            content:
-              "Intent-first interaction — Users begin with goals rather than navigating menus.\n\nProgressive disclosure — Structured UI appears only when decision points require it.\n\nHuman-in-the-loop control — Users review and confirm actions before completion.\n\nConversation as orchestration — Dialogue coordinates multiple systems and workflow steps.",
+              "Intent-first — Employees start with what they need, not where to navigate.\n\nProgressive disclosure — Structured UI appears only at real decision points, not upfront as a form.\n\nHuman-in-the-loop — Employees review and confirm before the system acts. AI proposes, people decide.\n\nConversation as orchestration — A single chat thread can coordinate multiple systems, approvals, and fulfillment steps.",
           },
         ],
       },
       {
-        title: "Example Scenario — AI-Assisted Travel Planning",
+        title: "Cross-Functional Design Leadership",
         blocks: [
           {
             type: "text",
             content:
-              'A prototype explored how employees could plan business travel through a conversational interface.\n\n1. Intent — User begins: "Plan travel for next week\'s client meeting."\n\n2. Context Gathering — The system asks clarifying questions: destination, travel dates, meeting location.\n\n3. Structured UI Module — Once context is gathered, the conversation reveals a structured interface with flight options, itinerary preview, and travel policy checks.\n\n4. Contextual Information — Relevant policy guidelines, approval requirements, and supporting documentation appear inline.\n\n5. Review and Confirmation — The user reviews and confirms. The system completes the workflow while minimizing manual navigation.',
+              "Shipping Employee Works required working across a complex stakeholder landscape — product managers defining catalog scope, engineering teams with platform constraints, content designers shaping AI voice and tone, and accessibility requirements for enterprise deployment.\n\nI brought a unique perspective to the UEX team: five years designing WSD gave me deep knowledge of how employees actually use ServiceNow's workplace products. That context shaped how I framed the AI interaction model — not as a replacement for catalog-based workflows, but as a more natural way to enter them.",
           },
         ],
       },
       {
-        title: "Prototyping & Exploration",
+        title: "Current — Move Works",
         blocks: [
           {
             type: "text",
             content:
-              "To explore these ideas I developed prototypes using narrative storyboards, usability testing scripts, conversational UI flows, and chat-based design system components.\n\nI also experimented with AI-assisted prototyping workflows (including Claude Code) to rapidly explore conversational interaction patterns.",
-          },
-        ],
-      },
-      {
-        title: "Key Insights",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Early testing revealed several patterns:\n\n• Users prefer starting with intent rather than navigation\n• Structured UI within conversation improves clarity\n• Minimal input flows reduce cognitive load\n• Contextual information prevents system switching",
-          },
-        ],
-      },
-      {
-        title: "Outcome",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "This work demonstrates that conversational AI can significantly simplify complex enterprise workflows. The design patterns I developed — intent capture, progressive UI disclosure, and inline policy context — are now informing how ServiceNow thinks about AI-native experiences across the platform.\n\nEmployee Works shipped as a conversational chat-based employee experience, and the patterns are being applied to the Move Works catalog experience currently in flight.",
+              "Currently leading design for the Move Works catalog experience — designing the employee-facing interaction model for relocation and mobility workflows within the conversational UEX platform.\n\nMove Works represents the next application of the AI-native patterns established in Employee Works: intent-driven entry, progressive workflow orchestration, and structured UI at decision points.",
           },
         ],
       },
@@ -341,6 +320,28 @@ export const projects: Project[] = [
             alt: "Google eMoney — Play payment flow",
             caption: "Google Play payment flow — inline ToS per Play branding guidelines",
           },
+          { type: "heading", content: "Google Play — User Flow Videos" },
+          {
+            type: "video",
+            url: "/videos/google-emoney/Click_REdy_Play_Association_ExistingBillingProfile.m4v",
+            caption: "Play Store — Existing Billing Customer: eMoney association flow",
+          },
+          {
+            type: "video",
+            url: "/videos/google-emoney/Click_REdy_Play_Association_NewBillingProfile.m4v",
+            caption: "Play Store — New Billing Customer: first-time eMoney association",
+          },
+          { type: "heading", content: "YouTube App — User Flow Videos" },
+          {
+            type: "video",
+            url: "/videos/google-emoney/Click_REdy_YT_Association_ExistingBillingProfile.m4v",
+            caption: "YouTube App — Existing Billing Customer: eMoney association flow",
+          },
+          {
+            type: "video",
+            url: "/videos/google-emoney/Click_REdy_YT_Association_NewExistingBillingProfile.m4v",
+            caption: "YouTube App — New Billing Customer: first-time eMoney association",
+          },
         ],
       },
       {
@@ -425,55 +426,31 @@ export const projects: Project[] = [
     ],
     era: "8 – 10 years ago",
     challenge:
-      "Partners had to use multiple tools and channels to resolve issues and manage their business, causing significant operational overhead and delays. Support and issue resolution took too long because of manual and offline processes. Partners had no way to proactively monitor their business with PayPal or take action to mitigate risks.",
+      "Partners processing millions of daily transactions had no visibility into their own business data with PayPal. Business reports arrived as static PDFs. Finance, operations, and marketing teams couldn't analyze performance in real time or act on it.",
     description:
-      "Design of the new servicing experience for PayPal Partners. The goal was to increase Partner satisfaction by providing self-service tools, enable Partners to manage their business effectively through merchant activity dashboards and notifications, and help Partners grow their business with Data and Insights.",
-    tags: ["Dashboard", "B2B", "PayPal"],
+      "Designed a self-service data and insights platform for PayPal Partners — real-time merchant activity dashboards, business performance reporting, and proactive notifications to help enterprise partners manage and grow their business.",
+    tags: ["Dashboard", "Data Visualization", "B2B"],
     role: "Hybrid designer: Interaction + Visual design. Solution discovery, Feature prioritization with 3-in-a-box team, Usability study learnings based design iterations, Delivery of design assets.",
     year: "Aug 2016 – Aug 2018",
     bullets: [
-      "Conducted partner interviews across NA and EMEA to define the servicing experience.",
-      "Designed the servicing portal with real-time merchant activity dashboards, business insights, and notifications for two target personas.",
+      "Designed a data and insights portal giving enterprise partners (Shopify, Woo, BigCommerce) real-time visibility into revenue share, transaction volume, and merchant activity.",
+      "Led end-to-end design across solution discovery, feature scoping, usability testing, and production handoff as part of a 3-in-a-box team.",
+      "Conducted partner interviews across NA and EMEA to define personas and surface the core insight: partners were making business decisions with no live data.",
     ],
     sections: [
       {
-        title: "Overview",
+        title: "The Data Problem",
         blocks: [
           {
             type: "text",
             content:
-              "A PayPal Partner is a service/solutions provider that helps facilitate payments between merchants (SMBs) and their customers. Partners processing millions of daily transactions faced inefficient manual processes — support teams logged tickets separately for transaction errors, tech teams troubleshot API issues using third-party sites, and business reports arrived as static PDFs, preventing finance and operations teams from analyzing PayPal data effectively.\n\nGoal: increase Partner satisfaction by providing self-service tools, merchant activity dashboards, notifications, and business insights.",
+              "A PayPal Partner — like Shopify or BigCommerce — could process millions of transactions per day on behalf of thousands of merchants. Yet their visibility into that data was nearly zero.\n\nBusiness performance reports arrived as static PDFs. Finance teams couldn't slice revenue by geography or time. Operations had no way to identify at-risk merchants before they churned. Support teams logged issues manually across disconnected tools.\n\nThe goal: give partners self-service access to the data they needed to run their business — in real time.",
           },
         ],
       },
       {
-        title: "My Role",
+        title: "Research — What Partners Said",
         blocks: [
-          {
-            type: "text",
-            content:
-              "Hybrid designer: Interaction + Visual design. Part of 3-in-a-box team (Product, Design, Engineering) across solution discovery, problem definition, concept prototyping, feature validation, usability testing, design iteration, and production-ready UI specifications.",
-          },
-        ],
-      },
-      {
-        title: "Challenges",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Feature definition scoping for Beta. Data visualization responsiveness. Designing as foundation patterns were getting defined. Partner recruitment based on user roles for usability study.",
-          },
-        ],
-      },
-      {
-        title: "Research — Partner Interviews",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "We conducted partner interviews across NA and EMEA. Key findings:",
-          },
           {
             type: "quote",
             text: "We have no clarity today about how our TPV and Revenue Share is distributed across North America and United Kingdom. We want to slice-n-dice our TPV and Revenue Share numbers across Geography and Time, and drill-down to see the next level.",
@@ -492,45 +469,45 @@ export const projects: Project[] = [
           {
             type: "text",
             content:
-              "Partners had to use multiple tools and channels to resolve issues and manage their business, causing significant operational overhead and delays. Support and issue resolution took too long because of manual and offline processes necessitated due to lack of data with partners. Partners had no way to proactively monitor their business with PayPal and take action to mitigate risks. Partners did not have reports or insights on their key business performance KPIs.",
+              "Interviews across NA and EMEA confirmed that partners had no proactive monitoring of their business with PayPal. Support and issue resolution took too long due to manual, offline processes. Critical business decisions — marketing, risk, operations — were being made without data.",
           },
           {
             type: "image",
             src: "/images/projects/paypal-partner/slide-05.png",
             alt: "PayPal Partner — Research insights from partner interviews",
-            caption: "Research insights from partner interviews across NA and EMEA",
+            caption: "Research synthesis from partner interviews across NA and EMEA",
           },
         ],
       },
       {
-        title: "Target Personas",
+        title: "Partner Personas",
         blocks: [
           {
             type: "text",
             content:
-              "Six partner personas were identified through research across NA and EMEA:\n\n**Executives** (CxO / VP Finance / VP Sales) — Revenue forecasts, transaction volume, merchant growth, buyer payment methods.\n\n**Finance** (Analyst / VP Finance / CFO) — Revenue share trends, PayPal product revenue correlations, buyer-to-revenue relationships.\n\n**Operations** (Sales Ops / Sales Analyst) — Active merchants, high-revenue merchant types, at-risk merchant churn, benchmarking.\n\n**Marketing** (Director / VP Marketing / CMO) — Cross-border trade, volume and revenue maximization, buyer demographics.\n\n**Tech Teams** (CTO / Engineering Managers) — PayPal integration docs, roadmap resources, maintenance materials.\n\n**Support** (Support Engineer / Director) — Onboarding and contract signup questions, general support inquiries.",
+              "Six partner personas were identified, each with distinct data needs:\n\n**Executives** (CxO / VP Finance / VP Sales) — Revenue forecasts, transaction volume, merchant growth, buyer payment methods.\n\n**Finance** (Analyst / VP Finance / CFO) — Revenue share trends, PayPal product revenue correlations, buyer-to-revenue relationships.\n\n**Operations** (Sales Ops / Sales Analyst) — Active merchants, high-revenue merchant types, at-risk merchant churn prediction, benchmarking.\n\n**Marketing** (Director / VP Marketing / CMO) — Cross-border trade volumes, buyer demographics, revenue maximization opportunities.\n\n**Tech Teams** (CTO / Engineering Managers) — PayPal integration docs, roadmap resources, API error monitoring.\n\n**Support** (Support Engineer / Director) — Merchant onboarding issues, account access, general support queries.",
           },
         ],
       },
       {
-        title: "Design — Partner Servicing Experience",
+        title: "Design — Data and Insights",
         blocks: [
           {
             type: "text",
             content:
-              "Designed mobile and web views for both personas. Curtis's summary page shows key financial metrics, regional performance, and benchmarking against peers. Amber's summary page focuses on transactions, API error rates, and new merchants, with a notifications system for new system alerts.",
+              "The core of the platform was real-time data visualization — designed to be responsive across mobile and web, filterable by time period and geography, and actionable rather than just informational.\n\nKey views designed:\n\n**Summary Dashboard** — PayPal balance, revenue share, new merchants, and period-over-period trends at a glance.\n\n**Payment Volume Over Time** — Area charts showing TPV trends with in-country vs. cross-border breakdown.\n\n**What's Trending** — Category-level performance across verticals (Footwear, Fashion, Furniture) with 90-day forecasts.\n\n**Net Total Payment Volume** — Multi-dimensional breakdown by industry vertical, filterable by period.",
+          },
+          {
+            type: "image",
+            src: "/images/projects/paypal-partner/slide-02.png",
+            alt: "PayPal Partner — Data and Insights mobile views",
+            caption: "Data and Insights — real-time dashboards across Summary, Payment Volume, Trending, and Net TPV",
           },
           {
             type: "image",
             src: "/images/projects/paypal-partner/slide-01.png",
             alt: "PayPal Partner — Merchant Activity Dashboards and Notifications",
-            caption: "Merchant activity dashboards and notifications — real-time partner portal",
-          },
-          {
-            type: "image",
-            src: "/images/projects/paypal-partner/slide-02.png",
-            alt: "PayPal Partner — Data and Insights",
-            caption: "Data and Insights — helping partners grow their business",
+            caption: "Merchant activity dashboards and proactive notifications — API error alerts, account access issues",
           },
           {
             type: "image",
@@ -547,12 +524,22 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Measurement",
+        title: "Design Challenges",
         blocks: [
           {
             type: "text",
             content:
-              "MVP goals: Mitigate losses and increase sales volume. Resolve issues faster, reduce customer friction. Make critical marketing, risk, and operational business decisions faster. Measurement included in-product feedback and beta partner interviews, with page instrumentation for usage analytics.",
+              "Designing during feature definition — foundation patterns were still being established as I was building on top of them. Data visualization at responsive breakpoints required careful decisions about what to show at each screen size. Partner recruitment for usability studies had to account for six distinct roles with different data literacy levels.",
+          },
+        ],
+      },
+      {
+        title: "Outcome",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "MVP goals: mitigate losses and increase sales volume, resolve issues faster, reduce customer friction, and enable faster marketing, risk, and operational decisions.\n\nMeasured via in-product feedback, beta partner interviews, and page instrumentation. The self-service model replaced manual PDF reports and gave enterprise partners the live data infrastructure they needed to manage their business with PayPal.",
           },
         ],
       },
@@ -560,7 +547,7 @@ export const projects: Project[] = [
   },
   {
     id: "botcentral",
-    title: "BotCentral",
+    title: "Facebook Messenger Bots — Early Conversational UI",
     company: "BotCentral · San Francisco, CA",
     image: "/images/projects/botcentral/cover.png",
     images: [
@@ -570,61 +557,56 @@ export const projects: Project[] = [
     ],
     era: "8 – 10 years ago",
     challenge:
-      "Identifying unmet needs of consumers in messenger bots. Brainstormed, Created quick mockups as sample design bots to pique the interest of developers visiting BotCentral.",
+      "In 2016, Facebook opened Messenger to developers. The question was: what could brands actually do with bots? Quick explorations to identify real consumer use cases and demonstrate them fast.",
     description:
-      "Design of BotCentral's developer facing portal with sample hi-fidelity chatbot mockups for Kate Spade, Airbnb, and Shopify.",
-    tags: ["Conversational UI", "Mobile", "B2B"],
-    role: "Created sample Hi-Fidelity mock-ups of Facebook messenger apps for Kate Spade's e-commerce product categories, Airbnb help queries from a guest and Daily analytics on top products, orders and sale information to Shopify users.",
+      "Early conversational UI explorations during the Facebook Messenger bot era — rapid hi-fidelity mockups for Kate Spade, Airbnb, and Shopify to explore what commerce, support, and analytics could look like in chat.",
+    tags: ["Conversational UI", "Mobile", "Rapid Prototyping"],
+    role: "UX Designer — rapid concept design and hi-fidelity mockups for BotCentral's developer-facing portal.",
     year: "2016",
     bullets: [
-      "Created hi-fidelity Facebook Messenger bot mockups for Kate Spade, Airbnb, and Shopify to demonstrate conversational commerce to developers.",
-      "Designed BotCentral's developer-facing portal experience.",
+      "Explored conversational commerce, customer support, and analytics use cases in Facebook Messenger — a year before chatbots became mainstream.",
+      "Shipped rapid hi-fidelity mockups for Kate Spade (shopping), Airbnb (guest queries), and Shopify (seller analytics) to demonstrate bot potential to developers.",
     ],
     sections: [
       {
-        title: "Project",
+        title: "The Moment",
         blocks: [
           {
             type: "text",
             content:
-              "Design of BotCentral's developer facing portal, where developers could discover and build conversational applications for Facebook Messenger. Sample hi-fidelity mockups were created to demonstrate the potential of messenger bots to developers visiting the platform.",
+              "In 2016, Facebook Messenger opened its platform to developers — and nobody knew quite what to do with it. BotCentral was building the tooling for developers to create Messenger bots, and needed to show what was actually possible.\n\nThe job: identify unmet consumer needs that could work in chat, brainstorm fast, and get to hi-fidelity quickly enough to make developers believe in the medium.",
           },
         ],
       },
       {
-        title: "My Role",
+        title: "Explorations",
         blocks: [
           {
             type: "text",
             content:
-              "Created sample Hi-Fidelity mock-ups of Facebook messenger apps for Kate Spade's e-commerce product categories, Airbnb help queries from a guest and Daily analytics on top products, orders and sale information to Shopify users.",
+              "Three rapid concepts, each targeting a different use case:\n\n**Kate Spade** — Conversational e-commerce. Browsing product categories, discovering items, and completing a purchase inside Messenger.\n\n**Airbnb** — Guest support. Common help queries handled conversationally — booking questions, property details, host communication — without leaving the app.\n\n**Shopify** — Seller analytics. Daily digests of top products, orders, and sales performance surfaced as a push notification and conversation.",
           },
-        ],
-      },
-      {
-        title: "Challenges",
-        blocks: [
-          {
-            type: "text",
-            content:
-              "Identifying unmet needs of consumers in messenger bots. Brainstormed, Created quick mockups as sample design bots to pique the interest of developers visiting BotCentral.",
-          },
-        ],
-      },
-      {
-        title: "Design Work",
-        blocks: [
           {
             type: "image",
             src: "/images/projects/botcentral/slide-01.png",
-            alt: "BotCentral — Kate Spade Facebook Messenger bot mockup",
-            caption: "Kate Spade Facebook Messenger bot — e-commerce browsing, product categories, and shopping flow",
+            alt: "BotCentral — Facebook Messenger bot mockups",
+            caption: "Kate Spade Messenger bot — conversational e-commerce: browsing, product detail, and purchase flow",
           },
           {
             type: "image",
             src: "/images/projects/botcentral/slide-02.png",
-            alt: "BotCentral — UX Laboratory",
-            caption: "UX Laboratory Design Forum — lab-like environment for UX designers worldwide",
+            alt: "BotCentral — UX Laboratory side project",
+            caption: "UX Laboratory Design Forum — a side community project for UX designers worldwide",
+          },
+        ],
+      },
+      {
+        title: "Reflection",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "This was early-stage thinking about what conversational interfaces could do — before the language models that make them genuinely useful existed. The instinct that chat could be an interaction surface for commerce, support, and data was right. The technology just needed to catch up.\n\nThat same instinct is now what I apply at ServiceNow: designing AI-native conversational experiences for enterprise workflows.",
           },
         ],
       },
@@ -764,6 +746,22 @@ export const projects: Project[] = [
             src: "/images/projects/chase-payments/slide-05.png",
             alt: "Chase ATM OTP — Multiple entry points",
             caption: "Multiple entry points — login screen, account dashboard, hamburger nav, and locations screen",
+          },
+          { type: "heading", content: "Prototype Videos" },
+          {
+            type: "video",
+            url: "/videos/chase-payments/Click_OOBE_Card.m4v",
+            caption: "Entry point — OOBE Card: first-time user OTP activation",
+          },
+          {
+            type: "video",
+            url: "/videos/chase-payments/Click_Acct_TextLink.m4v",
+            caption: "Entry point — Account Text Link: OTP from account dashboard",
+          },
+          {
+            type: "video",
+            url: "/videos/chase-payments/Click_SideMenu_Find ATM Link.m4v",
+            caption: "Entry point — Side Menu ATM Link: OTP from hamburger nav",
           },
         ],
       },
@@ -1060,6 +1058,11 @@ export const projects: Project[] = [
             content:
               "Merchant 'Amanda' owns a florist business and needs to connect with PayPal through a partner platform (BigCommerce) to process transactions. She faces a lengthy, complex setup process with multiple steps.\n\nGoal: create a simple one-page flow to help merchants like Amanda quickly connect with PayPal and receive funds faster.",
           },
+          {
+            type: "video",
+            url: "/videos/paypal-partner/3.mp4",
+            caption: "Customer experience journey map — Amanda's merchant onboarding story",
+          },
         ],
       },
       {
@@ -1075,6 +1078,11 @@ export const projects: Project[] = [
               "An animated bar draws focus while content slides to reveal the next step with a single call-to-action button.",
           },
           {
+            type: "video",
+            url: "/videos/paypal-partner/4.m4v",
+            caption: "Progressive reveal pattern — animated bar brings focus and attention",
+          },
+          {
             type: "heading",
             content: "Accordion",
           },
@@ -1082,6 +1090,11 @@ export const projects: Project[] = [
             type: "text",
             content:
               "Collapsed rows show step completion; content slides upward to reveal subsequent steps with one primary action button.",
+          },
+          {
+            type: "video",
+            url: "/videos/paypal-partner/5.m4v",
+            caption: "Accordion pattern — collapsed rows indicate completion of previous steps",
           },
           {
             type: "heading",
@@ -1092,6 +1105,11 @@ export const projects: Project[] = [
             content:
               "Numbered icons indicate current position; animated checkmarks show completion with a side panel previewing previous steps.",
           },
+          {
+            type: "video",
+            url: "/videos/paypal-partner/6.m4v",
+            caption: "Numbered and sequenced pattern — animated checkmarks and step preview",
+          },
         ],
       },
       {
@@ -1101,6 +1119,21 @@ export const projects: Project[] = [
             type: "text",
             content:
               "Selected the accordion pattern variant — chosen for its simplicity and implementation feasibility. The flow accommodates country selection, email verification, and conditional business account information gathering.\n\nA working prototype was built in Framer demonstrating the complete merchant signup flow.",
+          },
+          {
+            type: "video",
+            url: "/videos/paypal-partner/7.m4v",
+            caption: "Final accordion solution — complete merchant signup flow",
+          },
+          {
+            type: "video",
+            url: "/videos/paypal-partner/8.m4v",
+            caption: "Merchant onboarding — country selection and email verification",
+          },
+          {
+            type: "video",
+            url: "/videos/paypal-partner/9.mp4",
+            caption: "Merchant onboarding — conditional business account information gathering",
           },
         ],
       },
