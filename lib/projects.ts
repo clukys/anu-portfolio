@@ -1,3 +1,9 @@
+export type SubProject = {
+  id: string
+  label: string
+  sections: Section[]
+}
+
 export type ProjectTab = {
   id: string
   label: string
@@ -10,13 +16,14 @@ export type ProjectTab = {
   images?: string[]
   bullets?: string[]
   sections?: Section[]
+  subProjects?: SubProject[]
 }
 
 export type Block =
   | { type: "text"; content: string }
   | { type: "heading"; content: string }
   | { type: "image"; src: string; caption?: string; alt?: string }
-  | { type: "video"; url: string; caption?: string }
+  | { type: "video"; url: string; caption?: string; mockup?: "desktop"; aspectRatio?: string }
   | { type: "quote"; text: string; attribution?: string }
   | { type: "divider" }
 
@@ -130,96 +137,429 @@ export const projects: Project[] = [
       {
         id: "wsd",
         label: "Workplace Service Delivery",
-        role: "Staff Product Designer — Workplace Service Delivery",
-        year: "Apr 2019 – Oct 2024",
-        bullets: [
-          "First designer on the WSD team; scaled product from initial market adoption (2020) to mature enterprise platform (2024).",
-          "Contributed to Employee Workflows business — ~29% of total ACV (~$3B of $11B revenue in 2024).",
-          "Led end-to-end design for Map Studio and Reservation Management — 49% customer install rate, 31% active usage for Reservation Management; 47% for Indoor Mapping.",
-          "Designed workplace planning features supporting six-figure ACV ($100K–$750K) enterprise sales and expansions.",
-          "Shipped Map Studio as part of the Mapwize acquisition, bringing map and reservation experiences to desktop and mobile.",
-        ],
-        sections: [
+        subProjects: [
           {
-            title: "Overview",
-            blocks: [
+            id: "overview",
+            label: "Overview",
+            sections: [
               {
-                type: "text",
-                content:
-                  "Joined ServiceNow as the first designer on the Workplace Service Delivery team in 2019 — a team building products that didn't yet exist in the market. Over five years, I scaled the product from early market adoption to a mature enterprise platform contributing to a $3B business unit.\n\nMy work spanned three major product areas: Map Studio (indoor mapping), Reservation Management, and Workplace Planning & Real Estate Forecasting.",
+                title: "Overview",
+                blocks: [
+                  {
+                    type: "text",
+                    content:
+                      "Joined ServiceNow as the first designer on the Workplace Service Delivery team in 2019 — a team building products that didn't yet exist in the market. Over five years, I scaled the product from early market adoption to a mature enterprise platform contributing to a $3B business unit.\n\nMy work spanned three major product areas: Map Studio (indoor mapping), Reservation Management, and Workplace Planning & Real Estate Forecasting.",
+                  },
+                ],
               },
             ],
           },
           {
-            title: "Map Studio",
-            blocks: [
+            id: "map-studio",
+            label: "Map Studio — Map Admin Persona",
+            sections: [
               {
-                type: "text",
-                content:
-                  "Following the Mapwize acquisition, I led the design for Map Studio — a tool that lets enterprise customers build, manage, and publish indoor maps for their office spaces. This included both the desktop authoring experience and the employee-facing mobile map experience.",
-              },
-              { type: "heading", content: "Challenge" },
-              {
-                type: "text",
-                content:
-                  "Mapwize had a powerful but developer-centric mapping tool. The challenge was making it accessible to workplace admins with no GIS or coding background — while preserving the precision enterprise customers needed for large, complex campuses.",
-              },
-              { type: "heading", content: "Outcome" },
-              {
-                type: "text",
-                content:
-                  "Map Studio achieved a 47% active usage rate among installed customers — significantly above benchmark for an enterprise mapping product. The experience reduced map setup time and enabled admins to independently manage campus changes without engineering support.",
-              },
-            ],
-          },
-          {
-            title: "Reservation Management",
-            blocks: [
-              {
-                type: "text",
-                content:
-                  "Designed end-to-end reservation experiences for desks, rooms, and amenities — covering both employee-facing booking flows and admin management tools.",
-              },
-              { type: "heading", content: "Challenge" },
-              {
-                type: "text",
-                content:
-                  "Post-pandemic hybrid work transformed how employees use office space. Reservations needed to feel as easy as booking a ride — but had to accommodate complex enterprise policies: capacity limits, approval workflows, neighborhood assignments, and health attestations.",
-              },
-              { type: "heading", content: "Outcome" },
-              {
-                type: "text",
-                content:
-                  "Reservation Management reached 49% customer install rate and 31% active usage — strong metrics for an enterprise module. The product directly supported six-figure ACV deals ($100K–$750K) and became a key driver in the Employee Workflows business.",
+                title: "Map Studio",
+                blocks: [
+                  {
+                    type: "text",
+                    content:
+                      "Following the Mapwize acquisition, I led the design for Map Studio — a tool that lets enterprise customers build, manage, and publish indoor maps for their office spaces. This included both the desktop authoring experience and the employee-facing mobile map experience.",
+                  },
+                  { type: "heading", content: "Challenge" },
+                  {
+                    type: "text",
+                    content:
+                      "Mapwize had a powerful but developer-centric mapping tool. The challenge was making it accessible to workplace admins with no GIS or coding background — while preserving the precision enterprise customers needed for large, complex campuses.",
+                  },
+                  { type: "heading", content: "Outcome" },
+                  {
+                    type: "text",
+                    content:
+                      "Map Studio achieved a 47% active usage rate among installed customers — significantly above benchmark for an enterprise mapping product. The experience reduced map setup time and enabled admins to independently manage campus changes without engineering support.",
+                  },
+                  {
+                    type: "video",
+                    url: "https://embed.figma.com/proto/pTw2g1xbQLbkeSy7jwhteT/Anu-Project-Samples-Color-Coded-by-Deliverable-types?page-id=0%3A1&node-id=15-419388&viewport=260%2C-2552%2C0.06&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=15%3A419388&embed-host=share",
+                    caption: "Map Studio — interactive prototype",
+                    aspectRatio: "4/3",
+                  },
+                ],
               },
             ],
           },
           {
-            title: "Workplace Planning & Real Estate Forecasting",
-            blocks: [
+            id: "reservations",
+            label: "Reservations — Employee Persona",
+            sections: [
               {
-                type: "text",
-                content:
-                  "Designed forecasting and planning tools that help real estate and facilities teams make data-driven decisions about their portfolio — which offices to expand, consolidate, or close.",
+                title: "Next Gen Workplace Experiences — Reservations",
+                blocks: [
+                  {
+                    type: "heading",
+                    content: "Persona",
+                  },
+                  {
+                    type: "text",
+                    content:
+                      "Sara — Product Manager. Whether visiting an office for the first time or going in every day, Sara is missing opportunities to connect with colleagues and isn't taking full advantage of available spaces and amenities.\n\nThe design goal: a personalized suggested experience that empowers employees to effortlessly plan hybrid schedules, book spaces, and stay connected with their colleagues.",
+                  },
+                  {
+                    type: "quote",
+                    text: "Transforming employee experiences in the workplace — personalized suggestions that make the office work for you.",
+                  },
+                  {
+                    type: "heading",
+                    content: "Problem",
+                  },
+                  {
+                    type: "text",
+                    content:
+                      "Whether visiting an office for the first time or going into the same office every day, employees are missing opportunities to connect with their colleagues and are not taking full advantage of available spaces and amenities.",
+                  },
+                  {
+                    type: "heading",
+                    content: "Solution",
+                  },
+                  {
+                    type: "text",
+                    content:
+                      "A personalized suggested experience that empowers employees to effortlessly plan their hybrid schedules, plan in-office visits, book spaces, and be connected with their colleagues.",
+                  },
+                  {
+                    type: "heading",
+                    content: "Discovery",
+                  },
+                  {
+                    type: "video",
+                    url: "https://embed.figma.com/proto/pTw2g1xbQLbkeSy7jwhteT/Anu-Project-Samples-Color-Coded-by-Deliverable-types?page-id=0%3A1&node-id=2-52139&viewport=12%2C-4952%2C0.14&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=2%3A52139&embed-host=share",
+                    caption: "Discovery — Next Gen Workplace Experiences",
+                    aspectRatio: "4/3",
+                  },
+                  {
+                    type: "heading",
+                    content: "User Research",
+                  },
+                  {
+                    type: "video",
+                    url: "https://embed.figma.com/proto/pTw2g1xbQLbkeSy7jwhteT/Anu-Project-Samples-Color-Coded-by-Deliverable-types?page-id=0%3A1&node-id=2-91232&viewport=12%2C-4952%2C0.14&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=1%3A100799&embed-host=share",
+                    caption: "User Research — Employee Persona (Sara, Product Manager)",
+                  },
+                  {
+                    type: "heading",
+                    content: "Outcome",
+                  },
+                  {
+                    type: "text",
+                    content:
+                      "Reservation Management reached 49% customer install rate and 31% active usage — strong metrics for an enterprise module. The product directly supported six-figure ACV deals ($100K–$750K) and became a key driver in the Employee Workflows business.",
+                  },
+                ],
               },
-              { type: "heading", content: "Challenge" },
+            ],
+          },
+          {
+            id: "workplace-planning",
+            label: "Space Planning — Facility Managers Persona",
+            sections: [
               {
-                type: "text",
-                content:
-                  "Workplace leaders were making million-dollar real estate decisions based on gut feel and spreadsheets. The challenge was designing a system that could surface utilization data, model future scenarios, and present recommendations in a way that non-technical stakeholders could act on.",
-              },
-              { type: "heading", content: "Outcome" },
-              {
-                type: "text",
-                content:
-                  "The planning tools became key assets in enterprise sales cycles, enabling account teams to demonstrate ROI for large deals. Features supported expansions into accounts at the $100K–$750K ACV tier.",
+                title: "Workplace Planning & Real Estate Forecasting",
+                blocks: [
+                  {
+                    type: "text",
+                    content:
+                      "Designed forecasting and planning tools that help real estate and facilities teams make data-driven decisions about their portfolio — which offices to expand, consolidate, or close.",
+                  },
+                  { type: "heading", content: "Challenge" },
+                  {
+                    type: "text",
+                    content:
+                      "Workplace leaders were making million-dollar real estate decisions based on gut feel and spreadsheets. The challenge was designing a system that could surface utilization data, model future scenarios, and present recommendations in a way that non-technical stakeholders could act on.",
+                  },
+                  { type: "heading", content: "Outcome" },
+                  {
+                    type: "text",
+                    content:
+                      "The planning tools became key assets in enterprise sales cycles, enabling account teams to demonstrate ROI for large deals. Features supported expansions into accounts at the $100K–$750K ACV tier.",
+                  },
+                  {
+                    type: "video",
+                    url: "https://embed.figma.com/deck/qSWDkC5yKwNTkTuxGQ8r81/Workspace-reimagine?node-id=1006-66115&viewport=-95%2C-20%2C0.46&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&embed-host=share",
+                    caption: "Workspace Reimagine — Space Planning deck",
+                    aspectRatio: "4/3",
+                  },
+                ],
               },
             ],
           },
         ],
       },
-      { id: "vision", label: "Vision & Strategy", comingSoon: true },
-      { id: "presentations", label: "Presentations", comingSoon: true },
+      {
+        id: "vision",
+        label: "Vision & Strategy",
+        subProjects: [
+          {
+            id: "overview",
+            label: "Overview",
+            sections: [
+              {
+                title: "Overview",
+                blocks: [
+                  {
+                    type: "text",
+                    content:
+                      "Vision work at ServiceNow isn't just UI — it's storytelling that earns internal alignment, shapes product strategy, and moves deals. As a Staff Designer on WSD, I owned the end-to-end design of vision demos: the persona, the scenario, the narrative arc, the screen designs, and the script.\n\nThese demos live at the intersection of design, product strategy, and business development — they have to be technically credible, emotionally resonant, and fast enough to land in a 30-minute executive meeting.",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            id: "real-estate",
+            label: "Real Estate Portfolio Intelligence",
+            sections: [
+          {
+            title: "Vision Project 1 — Real Estate Portfolio Intelligence",
+            blocks: [
+              {
+                type: "heading",
+                content: "The Problem",
+              },
+              {
+                type: "text",
+                content:
+                  "Facility Condition Assessments (FCAs) are the backbone of real estate portfolio management — they determine which buildings need capital investment, which should be divested, and which are compliance risks. The problem: FCA reports were delivered as 300+ page PDFs. A skilled portfolio manager could spend 8–10 hours just parsing a single report before any analysis could begin.\n\nFor a Brazil PRR (Product Reference Recording), the challenge was to demonstrate that ServiceNow could fundamentally change this — not just digitize the PDF, but transform passive reporting into active, AI-driven decision-making.",
+              },
+              {
+                type: "quote",
+                text: "From static, reactive reporting to dynamic, AI‑driven decision‑making — ServiceNow turns FCA data into action. Faster insights. Better decisions. Stronger portfolio outcomes.",
+              },
+              {
+                type: "heading",
+                content: "Persona Design",
+              },
+              {
+                type: "text",
+                content:
+                  "I built the demo around Sarah Bennett — a Real Estate Portfolio Manager at AlectriCom, a multinational semiconductor manufacturer headquartered in Plano, Texas. Sarah oversees decisions worth hundreds of millions: which properties to keep, invest in, renovate, or divest.\n\nThe persona was designed to make the stakes visceral — not a generic user, but someone with a name, a company, a specific building (Tower C in Dallas), and a live crisis that needed resolving today. Making the scenario concrete made the AI's role undeniable.",
+              },
+              {
+                type: "heading",
+                content: "Narrative Arc",
+              },
+              {
+                type: "text",
+                content:
+                  "Rather than a feature-by-feature walkthrough, I structured the demo as an 8-scene narrative — a story with a clear inciting incident, rising tension, and resolution:",
+              },
+              {
+                type: "text",
+                content:
+                  "Scene 1 — Meet Sarah\nSarah opens her portfolio dashboard. Before she can even search, the system surfaces what matters.\n\nScene 2 — Old World vs. New World\nA before/after contrast: a dense PDF report fades into the live, interactive dashboard. The shift is immediate and visceral.\n\nScene 3 — AI-Generated Alert\nTower C's FCA just came in. FCI has jumped to 0.3 — above the 0.2 threshold for major capital action. A fire safety compliance gap adds urgency: a $10M special assessment is on the table.\n\nScene 4 — Property Deep Dive\nDeferred maintenance backlog doubled to $4.4M in six months. Daily attendance at 35%. HVAC at end of life. 68% of employees dissatisfied. The data tells a damning story without Sarah having to build a spreadsheet.\n\nScene 5 — Instant Q&A with Now Assist\nRather than switching tools, Sarah asks questions in context: sublease status, comparable properties nearby. The system answers in seconds.\n\nScene 6 — Financial Model\nSide-by-side: Keep & Repair vs. Divest & Replace. Real numbers, real tradeoffs — not a consultant's deck, but a live model Sarah controls.\n\nScene 7 — Decision Framework\nFCI, cost, risk, and strategic fit — combined in one view, making the recommendation clear.\n\nClosing — The Transformation\nWhat took 8–10 hours of manual report analysis now takes 30 minutes of strategic decision-making.",
+              },
+              {
+                type: "video",
+                url: "/videos/real-estate-portfolio-dashboard.mp4",
+                caption: "Demo walkthrough — Real Estate Portfolio Dashboard with AI-generated FCA insights",
+                mockup: "desktop",
+              },
+              {
+                type: "heading",
+                content: "Key Design Decisions",
+              },
+              {
+                type: "text",
+                content:
+                  "Concrete numbers over abstractions. Every metric in the demo was specific: $4.4M backlog, 35% occupancy, $220M sale vs. $320M book value. Specificity makes AI insights feel trustworthy rather than generated.\n\nThree real scenarios, not one obvious answer. The demo presents Renovate ($100M), Sell ($220M), and Relocate as genuinely viable options — because real decisions are hard. The system's job is to make the tradeoffs clear, not to replace judgment.\n\nEmployee sentiment as a first-class signal. Weaving in a 68% dissatisfaction rate alongside HVAC lifespan data positioned ServiceNow as a platform that connects people data to asset decisions — a differentiator beyond typical CMMS tools.\n\nNow Assist embedded in context. Rather than a separate AI panel, Q&A lived on the property page — reinforcing that AI is part of the workflow, not a chatbot you switch to.",
+              },
+              {
+                type: "heading",
+                content: "Presentation Layer",
+              },
+              {
+                type: "text",
+                content:
+                  "The demo was anchored by a two-slide executive framing layer:\n\nThe intro slide — \"Smarter Assessments. Faster Decisions.\" — opened with a sharp problem statement (time-consuming, inconsistent, lacking context) and three key takeaways: AI-simplified data capture for technicians, real-time interactive reports for portfolio managers, and improved capital investment decisions across the portfolio.\n\nThe persona slide introduced Sarah with her specific scenario — grounding the demo in a real-world crisis before a single feature was shown.",
+              },
+              {
+                type: "heading",
+                content: "Outcome",
+              },
+              {
+                type: "text",
+                content:
+                  "The Brazil PRR demo was used in executive-level sales and product strategy engagements. The narrative structure — leading with persona and problem rather than product — became the model for subsequent vision demos on the WSD team.\n\nThe 8–10 hours → 30 minutes framing was adopted as the headline proof point for the FCA product story across field sales.",
+              },
+            ],
+          },
+            ],
+          },
+          {
+            id: "workplace-hybrid",
+            label: "Workplace — Mobile, Web, Kiosk & Native Mobile",
+            sections: [
+          {
+            title: "Vision Project 2 — Zurich PRR: Hybrid Work Experience",
+            blocks: [
+              {
+                type: "heading",
+                content: "The Problem",
+              },
+              {
+                type: "text",
+                content:
+                  "Whether visiting an office for the first time or returning to the same building every week, employees were missing opportunities to connect with colleagues and weren't taking full advantage of available spaces and amenities. The Zurich PRR needed to show how ServiceNow could change that — proactively, through AI — rather than requiring employees to seek out information themselves.",
+              },
+              {
+                type: "quote",
+                text: "An assisted experience that empowers employees to effortlessly plan their hybrid schedules, book spaces, and be connected with their colleagues.",
+              },
+              {
+                type: "heading",
+                content: "Facilitation & Design Process",
+              },
+              {
+                type: "text",
+                content:
+                  "I led the EDM (Experience Design Methodology) workshop sessions that drove the Zurich PRR from blank slate to polished prototype. The process ran across two weeks:\n\nWeek 1 — Story Narratives & Ideation: I facilitated dot voting exercises to align the team on narrative direction, then ran storyboard consolidation across two full iterations. We moved from divergent ideas to a cohesive two-day journey story.\n\nWeek 2 — Hi-Fidelity & VX: Design translated into polished screens with full VX theming, ready for the PRR presentation.",
+              },
+              {
+                type: "heading",
+                content: "Persona & Scenario",
+              },
+              {
+                type: "text",
+                content:
+                  "The demo centers on Sara, a Product Manager traveling to the Santa Clara office for a customer meeting. She's not a power user — she's busy, mobile, and expecting the system to anticipate her needs rather than wait to be asked.\n\nThe scenario was designed to stress-test the system across a full two-day arc: Sunday evening prep, Monday morning arrival, in-meeting wayfinding, an AI-driven space recommendation, a proactive coffee order, and end-of-day feedback. Every touchpoint had a clear trigger and a clear payoff.",
+              },
+              {
+                type: "heading",
+                content: "Demo Story Arc",
+              },
+              {
+                type: "text",
+                content:
+                  "Sunday Evening — Sara receives a push notification previewing her Monday: meeting details, a lunch order reminder, and an agenda overview. The system is already working before she sets foot in the office.\n\nMonday Morning — Day overview surfaces everything at once: her 10am customer meeting (\"Putting AI to work\"), a 2–4pm focus block, and a happy hour invite. Now Assist proactively flags that 4 of her collaborators will be working in the Product neighborhood during her focus time — and recommends a flex desk next to them (B4.0016).\n\nMeeting Detail — Wayfinding from Building A lobby to the Helix room, with a kiosk-to-mobile handoff. Pre-meeting: a lunch order prompt tied to the customer meeting.\n\nNow Assist Reservation — One tap to reserve B4.0016. Confirmation appears instantly: RES891234, Floor 4, Building B, August 19th, 2–4pm.\n\nCoffee Order — Now Assist detects a 15-minute queue at the coffee bar and surfaces a proactive bypass: conversational ordering through chat. Beverage → size → confirmation in three steps, $4.45.\n\nEnd-of-Day — A feedback prompt: \"How was your in-office day?\" Sara rates it, adds a comment, gets a confirmation. The loop closes.",
+              },
+              {
+                type: "video",
+                url: "https://embed.figma.com/proto/pTw2g1xbQLbkeSy7jwhteT/Anu-Project-Samples-Color-Coded-by-Deliverable-types?page-id=0%3A1&node-id=1-100741&viewport=23%2C381%2C0.1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=1%3A100741&embed-host=share",
+                caption: "Zurich PRR — interactive prototype walkthrough",
+              },
+              {
+                type: "heading",
+                content: "Key Design Decisions",
+              },
+              {
+                type: "text",
+                content:
+                  "Proactive over reactive. Every Now Assist moment was triggered by context — time of day, collaborator location, queue wait time — not by Sara asking. This positioned ServiceNow as an ambient intelligence layer, not a chatbot.\n\nKiosk-to-mobile handoff. The demo explicitly showed the transition from kiosk to phone via QR code — acknowledging that enterprise environments have multiple surfaces and employees expect continuity between them.\n\nCollaborator proximity as the core AI insight. Rather than a generic space recommendation, Now Assist surfaced who would be nearby and why it mattered — turning a booking action into a collaboration opportunity.\n\nFull day arc, not a feature list. The two-day journey (Sunday prep through Monday feedback) made it impossible to evaluate screens in isolation — each moment set up the next, making the system feel inevitable rather than assembled.",
+              },
+              {
+                type: "heading",
+                content: "Outcome",
+              },
+              {
+                type: "text",
+                content:
+                  "The Zurich PRR prototype was presented by Scott Fuller, VP & General Manager of Workplace Service Delivery, as the release vision for the Zurich product cycle. The EDM workshop facilitation process — story narratives, dot voting, two-iteration storyboard consolidation — became a repeatable design sprint model for the WSD team.",
+              },
+            ],
+          },
+            ],
+          },
+        ],
+      },
+      {
+        id: "presentations",
+        label: "Presentations",
+        subProjects: [
+          {
+            id: "overview",
+            label: "Overview",
+            sections: [
+              {
+                title: "Overview",
+                blocks: [
+                  {
+                    type: "text",
+                    content:
+                      "Presentations at ServiceNow aren't just slide decks — they're alignment tools. These shareouts were designed to communicate design strategy and system-level thinking to cross-functional audiences of 25+, combining clear narrative structure with visual storytelling to make complex design decisions legible to non-design stakeholders.",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            id: "net-zero",
+            label: "Net Zero",
+            sections: [
+              {
+                title: "Net Zero",
+                blocks: [
+                  {
+                    type: "heading",
+                    content: "Context",
+                  },
+                  {
+                    type: "text",
+                    content:
+                      "Co-presented with Melody Shin and Michelle Trudo to the EWF design team (25+ attendees), this shareout covered ServiceNow's Net Zero initiative and what it means for design. The session was structured as a collaborative shareout — three perspectives, one cohesive narrative — requiring tight coordination on framing, sequencing, and visual consistency across contributors.",
+                  },
+                  {
+                    type: "heading",
+                    content: "Presentation Design",
+                  },
+                  {
+                    type: "text",
+                    content:
+                      "Built on the ServiceNow brand system — Infinite Blue, Wasabi Green, Gilroy typography — the deck balanced executive-grade visual polish with content depth appropriate for a design team audience. The cover established speaker context immediately (Anuradha Vellineni, Melody Shin, Michelle Trudo) before moving into substance.\n\nStructuring a co-presented deck across three contributors required a clear information architecture: each section had a distinct owner and voice, while the overall narrative arc held together as a single argument rather than three separate talks.",
+                  },
+                  {
+                    type: "video",
+                    url: "https://embed.figma.com/proto/pTw2g1xbQLbkeSy7jwhteT/Anu-Project-Samples-Color-Coded-by-Deliverable-types?page-id=0%3A1&node-id=10-168169&viewport=-75%2C-16433%2C0.19&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=10%3A168169&embed-host=share",
+                    caption: "EWF Shareout — Net Zero & New UX and UI for the AI Era presentations",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            id: "ai-era",
+            label: "New UX and UI for the AI Era",
+            sections: [
+              {
+                title: "New UX and UI for the AI Era",
+                blocks: [
+                  {
+                    type: "heading",
+                    content: "Context",
+                  },
+                  {
+                    type: "text",
+                    content:
+                      "Presented to the EWF (Employee Workflows) team — an audience of 25+ designers, product managers, and stakeholders — this shareout made the case for what AI-native UX and UI actually means in practice: not just adding AI features to existing patterns, but rethinking interaction models from the ground up.\n\nThe presentation defined a point of view on how conversational AI, proactive intelligence, and context-aware interfaces should reshape the design language of enterprise software.",
+                  },
+                  {
+                    type: "heading",
+                    content: "Key Arguments",
+                  },
+                  {
+                    type: "text",
+                    content:
+                      "AI changes the fundamental contract between user and system. Traditional UX assumes the user initiates every interaction. AI inverts this — the system acts on behalf of the user, surfaces what's relevant before it's asked for, and reduces the cognitive load of navigating enterprise complexity.\n\nThe UI must evolve to match. Components, layouts, and interaction patterns designed for form-based workflows don't translate to AI-native experiences. The shareout outlined what needs to change: from navigation models to feedback loops to how confirmations and errors are communicated in a conversational context.",
+                  },
+                  {
+                    type: "video",
+                    url: "https://embed.figma.com/proto/pTw2g1xbQLbkeSy7jwhteT/Anu-Project-Samples-Color-Coded-by-Deliverable-types?page-id=0%3A1&node-id=10-184978&viewport=123%2C-7511%2C0.1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=10%3A184978&embed-host=share",
+                    caption: "EWF Shareout — New UX and UI for the AI Era",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
       { id: "ai-portfolio", label: "AI Portfolio", comingSoon: true },
       { id: "mentoring", label: "Mentoring", comingSoon: true },
     ],

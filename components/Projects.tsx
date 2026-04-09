@@ -25,7 +25,6 @@ function ProjectCard({
     >
       <Link href={`/projects/${project.id}`} className="group block">
         <div className="relative bg-white rounded-2xl overflow-hidden border border-light-gray/50 card-hover hover:border-accent/40">
-          {/* Image */}
           <div className="relative aspect-[16/10] overflow-hidden bg-surface">
             <Image
               src={project.image}
@@ -37,7 +36,6 @@ function ProjectCard({
             <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
 
-          {/* Content */}
           <div className="p-6">
             <div className="flex items-start justify-between gap-4 mb-3">
               <div>
@@ -74,7 +72,6 @@ function ProjectCard({
               {project.description}
             </p>
 
-            {/* Tags */}
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
@@ -97,11 +94,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section
-      id="work"
-      className="py-28 md:py-36 bg-surface relative"
-      ref={ref}
-    >
+    <section id="work" className="py-28 md:py-36 bg-surface relative" ref={ref}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -128,65 +121,46 @@ export default function Projects() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: projects.length * 0.1, ease: "easeOut" }}
+            transition={{
+              duration: 0.6,
+              delay: projects.length * 0.1,
+              ease: "easeOut",
+            }}
           >
             <Link href="#ai-lab" className="group block h-full">
               <div className="relative bg-navy rounded-2xl overflow-hidden border border-navy h-full flex flex-col justify-between p-6 min-h-[280px] card-hover">
-                {/* Background glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-transparent pointer-events-none" />
-
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-accent text-[10px] font-semibold tracking-widest uppercase bg-accent/15 px-2.5 py-1 rounded-full">AI Lab</span>
+                    <span className="text-accent text-[10px] font-semibold tracking-widest uppercase bg-accent/15 px-2.5 py-1 rounded-full">
+                      AI Lab
+                    </span>
                   </div>
                   <h3 className="font-serif text-2xl text-cream group-hover:text-accent transition-colors leading-snug">
                     AI Side Projects &amp; Experiments
                   </h3>
                   <p className="text-cream/50 text-sm leading-relaxed mt-3">
-                    Building with AI tools — emergency prep chatbots, community platforms, complaint trackers, and more. Quick iterations, real learnings.
+                    Building with AI tools — emergency prep chatbots, community
+                    platforms, complaint trackers, and more. Quick iterations,
+                    real learnings.
                   </p>
                 </div>
-
                 <div className="flex items-center gap-2 mt-6 text-accent text-sm font-medium group-hover:gap-3 transition-all">
                   <span>View experiments</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path
+                      d="M2 7h10M7 2l5 5-5 5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
               </div>
             </Link>
           </motion.div>
         </div>
-
-        {/* View all — fashion scroll page */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
-          className="mt-14 text-center"
-        >
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-3 text-sm font-medium text-cream bg-navy hover:bg-navy/85 px-8 py-3.5 rounded-full transition-all duration-300 group shadow-sm hover:shadow-md"
-          >
-            <span>View all projects — editorial view</span>
-            <svg
-              className="group-hover:translate-x-1 transition-transform"
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-            >
-              <path
-                d="M2 7h10M7 2l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

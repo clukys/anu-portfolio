@@ -8,6 +8,7 @@ export function ProjectTabs({ tabs }: { tabs: ProjectTab[] }) {
   const firstActive = tabs.find(t => !t.comingSoon)
   const [activeId, setActiveId] = useState(firstActive?.id ?? "")
   const active = tabs.find(t => t.id === activeId)
+  const [activeSubId, setActiveSubId] = useState(active?.subProjects?.[0]?.id ?? "")
 
   return (
     <div>
@@ -95,6 +96,52 @@ export function ProjectTabs({ tabs }: { tabs: ProjectTab[] }) {
               ))}
             </div>
           )}
+
+          {/* Sub-projects — sidebar + content */}
+          {active.subProjects && active.subProjects.length > 0 && (() => {
+            const activeSub = active.subProjects!.find(sp => sp.id === activeSubId) ?? active.subProjects![0]
+            return (
+              <div className="flex gap-10 mb-16">
+                {/* Sidebar */}
+                <div className="w-44 flex-shrink-0">
+                  <ul className="sticky top-24">
+                    {active.subProjects!.map((sp) => (
+                      <li key={sp.id}>
+                        <button
+                          onClick={() => setActiveSubId(sp.id)}
+                          className={`text-left w-full py-2.5 pl-3 text-sm transition-all duration-150 border-l-2 ${
+                            activeSub.id === sp.id
+                              ? "border-accent text-navy font-medium"
+                              : "border-transparent text-navy/35 hover:text-navy/60 hover:border-light-gray"
+                          }`}
+                        >
+                          {sp.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Sub-project content */}
+                <div className="flex-1 min-w-0 space-y-12">
+                  {activeSub.sections.map((section, i) => (
+                    <div key={i}>
+                      {section.title && (
+                        <h2 className="font-serif text-2xl text-navy mb-6 pb-3 border-b border-light-gray/60">
+                          {section.title}
+                        </h2>
+                      )}
+                      <div className="space-y-8">
+                        {section.blocks.map((block, j) => (
+                          <BlockRenderer key={j} block={block} />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })()}
         </div>
       )}
     </div>

@@ -6,10 +6,9 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
-  { label: "All Projects", href: "/projects", external: true },
   { label: "AI Lab", href: "#ai-lab", external: true },
   { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "All Projects", href: "/projects", external: true },
 ];
 
 export default function Navigation() {
@@ -127,6 +126,12 @@ export default function Navigation() {
               </svg>
             </a>
             <a
+              href="#contact"
+              className="inline-flex items-center px-4 py-2 border border-navy/20 text-navy text-xs font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-150"
+            >
+              Contact
+            </a>
+            <a
               href="https://www.linkedin.com/in/anuradhave/"
               target="_blank"
               rel="noopener noreferrer"
@@ -203,8 +208,15 @@ export default function Navigation() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.2 }}
-                  className="pt-2"
+                  className="pt-2 flex gap-3"
                 >
+                  <a
+                    href="#contact"
+                    onClick={() => setMobileOpen(false)}
+                    className="inline-flex items-center px-5 py-2.5 border border-navy/20 text-navy text-sm font-medium rounded-full"
+                  >
+                    Contact
+                  </a>
                   <a
                     href="https://www.linkedin.com/in/anuradhave/"
                     target="_blank"

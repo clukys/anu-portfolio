@@ -136,6 +136,25 @@ export default function Experience() {
             <TimelineItem key={index} exp={exp} index={index} />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+          className="mt-12"
+        >
+          <a
+            href="/Anuradha_Vellineni_Resume_2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-6 py-3 border border-navy/20 text-navy text-sm font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-150"
+          >
+            Download Résumé
+            <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
+              <path d="M6 1v7M3 5l3 3 3-3M2 11h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
